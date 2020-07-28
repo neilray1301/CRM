@@ -1498,5 +1498,6 @@ public class BusinessLogicLayer
 
         return res;
     }
+    //Company master ended
 
 }
