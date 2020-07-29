@@ -2108,5 +2108,449 @@ public class DataAccessLayer
         }
         return res;
     }
-   //company master ended
+    //company master ended
+
+    //Country master
+    public DataTable getallcountryDAL()
+    {
+        DataTable dt = null;
+        try
+        {
+            c = con.getconnection();
+            SqlCommand cmd = new SqlCommand("countrydisp", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            dt = new DataTable();
+            da.Fill(dt);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+    public DataTable checkcountrydata(string name)
+    {
+        DataTable dt = null;
+        try
+        {
+            c = con.getconnection();
+            SqlCommand cmd = new SqlCommand("checkcountryname", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            cmd.Parameters.Add("@Country", SqlDbType.VarChar).Value = name;
+            dt = new DataTable();
+            da.Fill(dt);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    } //done
+
+    public string Savecountrybll(string name, string Createby, DateTime Createddatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
+    {
+        string res = "";
+        try
+        {
+            c = con.getconnection();
+            cmd = new SqlCommand("insertcountry", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@Country", SqlDbType.VarChar).Value = name;
+            cmd.Parameters.Add("@Createby", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@CreateDateTime", SqlDbType.DateTime).Value = Createddatetime;
+            cmd.Parameters.Add("@Extra1", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@Extra2", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@Extra3", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@Extra4", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@Extra5", SqlDbType.VarChar).Value = "";
+
+
+            res = cmd.ExecuteNonQuery().ToString();
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+        return res;
+    } //done
+
+    public DataTable getcountrydatabyidDAL(string Id)
+    {
+        DataTable dt = null;
+        try
+        { 
+            c = con.getconnection();
+            SqlCommand cmd = new SqlCommand("showcountry", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            cmd.Parameters.Add("@id", SqlDbType.VarChar).Value = Id;
+
+            dt = new DataTable();
+            da.Fill(dt);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    } //done
+
+    public string deletecountrydata(string Id)
+    {
+        string res = "";
+        try
+        {
+            c = con.getconnection();
+            cmd = new SqlCommand("deletecountry", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@id", SqlDbType.VarChar).Value = Id;
+
+            res = cmd.ExecuteNonQuery().ToString();
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+        return res;
+    } //done
+
+    public string tbl_countryupdate(string Id, string name)
+    {
+        string res = "";
+        try
+        {
+            c = con.getconnection();
+            cmd = new SqlCommand("updatecountry", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@id", SqlDbType.VarChar).Value = Id;
+            cmd.Parameters.Add("@Country", SqlDbType.VarChar).Value = name;
+
+
+            res = cmd.ExecuteNonQuery().ToString();
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+        return res;
+    } //done
+
+
+    //End
+    //State start
+
+    //public DataTable getallstate(int id)
+    //{
+    //    DataTable dt = null;
+    //    try
+    //    {
+    //        c = con.getconnection();
+    //        SqlCommand cmd = new SqlCommand("getallstate", c);
+    //        cmd.CommandType = CommandType.StoredProcedure;
+    //        SqlDataAdapter da = new SqlDataAdapter(cmd);
+    //        cmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
+
+    //        dt = new DataTable();
+    //        da.Fill(dt);
+    //    }
+    //    catch (Exception ex)
+    //    {
+
+    //    }
+    //    return dt;
+    //}
+    public DataTable getallstateforadminDAL()
+    {
+        DataTable dt = null;
+        try
+        {
+            c = con.getconnection();
+            SqlCommand cmd = new SqlCommand("getallstateforadmin", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            dt = new DataTable();
+            da.Fill(dt);
+        }
+        catch (Exception ex)
+       {
+
+        }
+        return dt;
+    }
+    public DataTable getstatedatabyidDAL(string Id)
+    {
+        DataTable dt = null;
+        try
+        {
+            c = con.getconnection();
+            SqlCommand cmd = new SqlCommand("getstatedatabyid", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            cmd.Parameters.Add("@id", SqlDbType.VarChar).Value = Id;
+            dt = new DataTable();
+            da.Fill(dt);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+    public string deletestatedatabyidDAL(string Id)
+    {
+        string res = "";
+        try
+        {
+            c = con.getconnection();
+            cmd = new SqlCommand("deletestatedatabyid", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@id", SqlDbType.VarChar).Value = Id;
+
+            res = cmd.ExecuteNonQuery().ToString();
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+        return res;
+    }
+    public DataTable checkstatenameDAL(string GroupName)
+    {
+        DataTable dt = null;
+        try
+        {
+            c = con.getconnection();
+            SqlCommand cmd = new SqlCommand("checkstatename", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            cmd.Parameters.Add("@State", SqlDbType.VarChar).Value = GroupName;
+            dt = new DataTable();
+            da.Fill(dt);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+
+    public string tbl_state_Master_InsertDAL(string StateName, int CountryId, string CreateBy, DateTime @CreateDatetime, string Extra1, string Extra2, string @Extra3, string Extra4, string Extra5)
+    {
+        string res = "";
+        try
+        {
+            c = con.getconnection();
+            cmd = new SqlCommand("insertstate", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@State", SqlDbType.VarChar).Value = StateName;
+            cmd.Parameters.Add("@Country", SqlDbType.Int).Value = CountryId;
+            cmd.Parameters.Add("@CreateBy", SqlDbType.VarChar).Value = CreateBy;
+            cmd.Parameters.Add("@CreateDatetime", SqlDbType.DateTime).Value = CreateDatetime;
+            cmd.Parameters.Add("@Extra1", SqlDbType.VarChar).Value = Extra1;
+            cmd.Parameters.Add("@Extra2", SqlDbType.VarChar).Value = Extra2;
+            cmd.Parameters.Add("@Extra3", SqlDbType.VarChar).Value = Extra3;
+            cmd.Parameters.Add("@Extra4", SqlDbType.VarChar).Value = Extra4;
+            cmd.Parameters.Add("@Extra5", SqlDbType.VarChar).Value = Extra5;
+            res = cmd.ExecuteNonQuery().ToString();
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+        return res;
+    }
+    public string tbl_state_Master_UpdateDAL(string Id, int ItemGroupId, string ItemSubGroupName)
+    {
+        string res = "";
+        try
+        {
+            c = con.getconnection();
+            cmd = new SqlCommand("updatestate", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@id", SqlDbType.VarChar).Value = Id;
+            cmd.Parameters.Add("@Country", SqlDbType.Int).Value = ItemGroupId;
+            cmd.Parameters.Add("@State", SqlDbType.VarChar).Value = ItemSubGroupName;
+
+
+            res = cmd.ExecuteNonQuery().ToString();
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+        return res;
+    }
+
+
+    // state end
+    //city start
+
+    public DataTable getallcityforadminDAL()
+    {
+        DataTable dt = null;
+        try
+        {
+            c = con.getconnection();
+            SqlCommand cmd = new SqlCommand("getallcityforadmin", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            dt = new DataTable();
+            da.Fill(dt);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+    public DataTable getcitydatabyidDAL(string Id)
+    {
+        DataTable dt = null;
+        try
+        {
+            c = con.getconnection();
+            SqlCommand cmd = new SqlCommand("getscitydatabyid", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            cmd.Parameters.Add("@id", SqlDbType.VarChar).Value = Id;
+            dt = new DataTable();
+            da.Fill(dt);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+
+    public string deletecitydatabyidDAL(string Id)
+    {
+        string res = "";
+        try
+        {
+            c = con.getconnection();
+            cmd = new SqlCommand("deletecitydatabyid", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@id", SqlDbType.VarChar).Value = Id;
+
+            res = cmd.ExecuteNonQuery().ToString();
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+        return res;
+    }
+    public DataTable checkcitynameDAL(string GroupName)
+    {
+        DataTable dt = null;
+        try
+        {
+            c = con.getconnection();
+            SqlCommand cmd = new SqlCommand("checkcityname", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            cmd.Parameters.Add("@City", SqlDbType.VarChar).Value = GroupName;
+            dt = new DataTable();
+            da.Fill(dt);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+
+    public string tbl_city_Master_InsertDAL(string StateName, int CountryId, string CreateBy, DateTime @CreateDatetime, string Extra1, string Extra2, string @Extra3, string Extra4, string Extra5)
+    {
+        string res = "";
+        try
+        {
+            c = con.getconnection();
+            cmd = new SqlCommand("insertcity", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@City", SqlDbType.VarChar).Value = StateName;
+            cmd.Parameters.Add("@State", SqlDbType.Int).Value = CountryId;
+            cmd.Parameters.Add("@CreateBy", SqlDbType.VarChar).Value = CreateBy;
+            cmd.Parameters.Add("@CreateDatetime", SqlDbType.DateTime).Value = CreateDatetime;
+            cmd.Parameters.Add("@Extra1", SqlDbType.VarChar).Value = Extra1;
+            cmd.Parameters.Add("@Extra2", SqlDbType.VarChar).Value = Extra2;
+            cmd.Parameters.Add("@Extra3", SqlDbType.VarChar).Value = Extra3;
+            cmd.Parameters.Add("@Extra4", SqlDbType.VarChar).Value = Extra4;
+            cmd.Parameters.Add("@Extra5", SqlDbType.VarChar).Value = Extra5;
+            res = cmd.ExecuteNonQuery().ToString();
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+        return res;
+    }
+
+    public string tbl_city_Master_UpdateDAL(string Id, int ItemGroupId, string ItemSubGroupName)
+    {
+        string res = "";
+        try
+        {
+            c = con.getconnection();
+            cmd = new SqlCommand("updatecity", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@id", SqlDbType.VarChar).Value = Id;
+            cmd.Parameters.Add("@State", SqlDbType.Int).Value = ItemGroupId;
+            cmd.Parameters.Add("@City", SqlDbType.VarChar).Value = ItemSubGroupName;
+
+
+            res = cmd.ExecuteNonQuery().ToString();
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+        return res;
+    }
+    public DataTable getstatedataDAL(int state)
+    {
+        DataTable dt = null;
+        try
+        {
+            c = con.getconnection();
+            SqlCommand cmd = new SqlCommand("getstatedata", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+           
+            cmd.Parameters.Add("@id", SqlDbType.Int).Value = state;
+            dt = new DataTable();
+            da.Fill(dt);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+    public DataTable getcitydataDAL(int state)
+    {
+        DataTable dt = null;
+        try
+        {
+            c = con.getconnection();
+            SqlCommand cmd = new SqlCommand("getcitydata", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            cmd.Parameters.Add("@id", SqlDbType.Int).Value = state;
+            dt = new DataTable();
+            da.Fill(dt);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
 }

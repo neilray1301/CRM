@@ -11,6 +11,7 @@ public class BusinessLogicLayer
 {
     DataAccessLayer dal = new DataAccessLayer();
     //Industrytype Start
+
     public string SaveMyTablebll(string name, string Createby,DateTime Createddatetime,string Extra1, string Extra2,string Extra3, string Extra4,string Extra5)
     {
         string res = "";
@@ -26,6 +27,7 @@ public class BusinessLogicLayer
 
         return res;
     }
+
     public DataTable getallIndustrygroupfroadminBAL()
     {
         DataTable dt = null;
@@ -40,6 +42,7 @@ public class BusinessLogicLayer
         }
         return dt;
     }
+
     public DataTable checklogindata(string uname,string password)
     {
         DataTable dt = null;
@@ -52,6 +55,7 @@ public class BusinessLogicLayer
         }
         return dt;
     }
+
     public DataTable checkdata(string name)
     {
         DataTable dt = null;
@@ -66,6 +70,7 @@ public class BusinessLogicLayer
         }
         return dt;
     }
+
     public DataTable getIndustrygroupdatabyidBAL(string Id)
     {
         DataTable dt = null;
@@ -80,6 +85,7 @@ public class BusinessLogicLayer
         }
         return dt;
     }
+
     public string deletedata(string id)
     {
         string res = "";
@@ -95,6 +101,7 @@ public class BusinessLogicLayer
 
         return res;
     }
+
     public string tbl_update(string id, string name)
     {
         string res = "";
@@ -110,10 +117,11 @@ public class BusinessLogicLayer
 
         return res;
     }
-
+    
     //Industrytype end
 
     //Businesstype start
+
     public string Savebusinesstypebll(string name, string Createby, DateTime Createddatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
     {
         string res = "";
@@ -129,6 +137,7 @@ public class BusinessLogicLayer
 
         return res;
     } //done
+
     public DataTable getallbusinesstypefroadminBAL()
     {
         DataTable dt = null;
@@ -143,6 +152,7 @@ public class BusinessLogicLayer
         }
         return dt;
     }//done
+
     public DataTable checkbusinesstypedata(string name)
     {
         DataTable dt = null;
@@ -157,6 +167,7 @@ public class BusinessLogicLayer
         }
         return dt;
     } //done
+
     public DataTable getbusinesstypedatabyidBAL(string Id)
     {
         DataTable dt = null;
@@ -171,6 +182,7 @@ public class BusinessLogicLayer
         }
         return dt;
     } //done
+
     public string deletebusinesstypedata(string id)
     {
         string res = "";
@@ -186,6 +198,7 @@ public class BusinessLogicLayer
 
         return res;
     } //done
+
     public string tbl_businesstypeupdate(string id, string name)
     {
         string res = "";
@@ -221,6 +234,7 @@ public class BusinessLogicLayer
 
         return res;
     } //done
+
     public DataTable getallrolefroadminBAL()
     {
         DataTable dt = null;
@@ -235,6 +249,7 @@ public class BusinessLogicLayer
         }
         return dt;
     }//done
+
     public DataTable checkroledata(string name)
     {
         DataTable dt = null;
@@ -249,6 +264,7 @@ public class BusinessLogicLayer
         }
         return dt;
     } // done
+
     public DataTable getroledatabyidBAL(string Id)
     {
         DataTable dt = null;
@@ -263,6 +279,7 @@ public class BusinessLogicLayer
         }
         return dt;
     } //done
+
     public string deleteroledata(string id)
     {
         string res = "";
@@ -278,6 +295,7 @@ public class BusinessLogicLayer
 
         return res;
     } //done
+
     public string tbl_roleupdate(string id, string name)
     {
         string res = "";
@@ -297,7 +315,7 @@ public class BusinessLogicLayer
     //Role End
 
     //Source Start
-
+    
     public string Savesourcebll(string name, string Createby, DateTime Createddatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
     {
         string res = "";
@@ -313,6 +331,7 @@ public class BusinessLogicLayer
 
         return res;
     } //done
+
     public DataTable getallsourcefroadminBAL()
     {
         DataTable dt = null;
@@ -327,6 +346,7 @@ public class BusinessLogicLayer
         }
         return dt;
     } //done
+
     public DataTable checksourcedata(string name)
     {
         DataTable dt = null;
@@ -341,6 +361,7 @@ public class BusinessLogicLayer
         }
         return dt;
     } //done
+
     public DataTable getsourcedatabyidBAL(string Id)
     {
         DataTable dt = null;
@@ -355,6 +376,7 @@ public class BusinessLogicLayer
         }
         return dt;
     } //done
+
     public string deletesourcedata(string id)
     {
         string res = "";
@@ -370,6 +392,7 @@ public class BusinessLogicLayer
 
         return res;
     } //done
+
     public string tbl_sourceupdate(string id, string name)
     {
         string res = "";
@@ -405,6 +428,7 @@ public class BusinessLogicLayer
 
         return res;
     } //done
+
     public DataTable getallstatusfroadminBAL()
     {
         DataTable dt = null;
@@ -419,6 +443,7 @@ public class BusinessLogicLayer
         }
         return dt;
     } //done
+
     public DataTable checkstatusdata(string name)
     {
         DataTable dt = null;
@@ -433,6 +458,7 @@ public class BusinessLogicLayer
         }
         return dt;
     } //done
+
     public DataTable getstatusdatabyidBAL(string Id)
     {
         DataTable dt = null;
@@ -447,6 +473,7 @@ public class BusinessLogicLayer
         }
         return dt;
     } //done
+
     public string deletestatusdata(string id)
     {
         string res = "";
@@ -462,6 +489,7 @@ public class BusinessLogicLayer
 
         return res;
     } //done
+
     public string tbl_statusupdate(string id, string name)
     {
         string res = "";
@@ -481,7 +509,7 @@ public class BusinessLogicLayer
     //Status end
 
     //Department start
-
+    
     public string Savedepartmentbll(string name, string Createby, DateTime Createddatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
     {
         string res = "";
@@ -497,6 +525,7 @@ public class BusinessLogicLayer
 
         return res;
     } //done
+
     public DataTable getalldepartmentfroadminBAL()
     {
         DataTable dt = null;
@@ -511,6 +540,7 @@ public class BusinessLogicLayer
         }
         return dt;
     } //done
+
     public DataTable checkdepartmentdata(string name)
     {
         DataTable dt = null;
@@ -525,6 +555,7 @@ public class BusinessLogicLayer
         }
         return dt;
     } //done
+
     public DataTable getdepartmentdatabyidBAL(string Id)
     {
         DataTable dt = null;
@@ -539,6 +570,7 @@ public class BusinessLogicLayer
         }
         return dt;
     } //done
+
     public string deletedepartmentdata(string id)
     {
         string res = "";
@@ -554,6 +586,7 @@ public class BusinessLogicLayer
 
         return res;
     } //done
+
     public string tbl_departmentupdate(string id, string name)
     {
         string res = "";
@@ -589,6 +622,7 @@ public class BusinessLogicLayer
 
         return res;
     } //done
+
     public DataTable getalldesignationfroadminBAL()
     {
         DataTable dt = null;
@@ -603,6 +637,7 @@ public class BusinessLogicLayer
         }
         return dt;
     } //done
+
     public DataTable checkdesignationdata(string name)
     {
         DataTable dt = null;
@@ -617,6 +652,7 @@ public class BusinessLogicLayer
         }
         return dt;
     } //done
+
     public DataTable getdesignationdatabyidBAL(string Id)
     {
         DataTable dt = null;
@@ -631,6 +667,7 @@ public class BusinessLogicLayer
         }
         return dt;
     } //done
+
     public string deletedesignationdata(string id)
     {
         string res = "";
@@ -646,6 +683,7 @@ public class BusinessLogicLayer
 
         return res;
     } //done
+
     public string tbl_designationupdate(string id, string name)
     {
         string res = "";
@@ -681,6 +719,7 @@ public class BusinessLogicLayer
 
         return res;
     } //done
+
     public DataTable getallunitofmeasurementfroadminBAL()
     {
         DataTable dt = null;
@@ -695,6 +734,7 @@ public class BusinessLogicLayer
         }
         return dt;
     } //done
+
     public DataTable checkunitofmeasurementdata(string name)
     {
         DataTable dt = null;
@@ -709,6 +749,7 @@ public class BusinessLogicLayer
         }
         return dt;
     } //done
+
     public DataTable getunitofmeasurementdatabyidBAL(string Id)
     {
         DataTable dt = null;
@@ -723,6 +764,7 @@ public class BusinessLogicLayer
         }
         return dt;
     } //done
+
     public string deleteunitofmeasurementdata(string id)
     {
         string res = "";
@@ -738,6 +780,7 @@ public class BusinessLogicLayer
 
         return res;
     } //done
+
     public string tbl_unitofmeasurementupdate(string id, string name)
     {
         string res = "";
@@ -773,6 +816,7 @@ public class BusinessLogicLayer
 
         return res;
     } //done
+
     public DataTable getallfollowuptypefroadminBAL()
     {
         DataTable dt = null;
@@ -787,6 +831,7 @@ public class BusinessLogicLayer
         }
         return dt;
     } //done
+
     public DataTable checkfollowuptypedata(string name)
     {
         DataTable dt = null;
@@ -801,6 +846,7 @@ public class BusinessLogicLayer
         }
         return dt;
     } //done
+
     public DataTable getfollowuptypedatabyidBAL(string Id)
     {
         DataTable dt = null;
@@ -815,6 +861,7 @@ public class BusinessLogicLayer
         }
         return dt;
     } //done
+
     public string deletefollowuptypedata(string id)
     {
         string res = "";
@@ -830,6 +877,7 @@ public class BusinessLogicLayer
 
         return res;
     } //done
+
     public string tbl_followuptypeupdate(string id, string name)
     {
         string res = "";
@@ -865,6 +913,7 @@ public class BusinessLogicLayer
 
         return res;
     } //done
+
     public DataTable getallitemgroupfroadminBAL()
     {
         DataTable dt = null;
@@ -879,6 +928,7 @@ public class BusinessLogicLayer
         }
         return dt;
     } //done
+
     public DataTable checkitemgroupdata(string name)
     {
         DataTable dt = null;
@@ -893,6 +943,7 @@ public class BusinessLogicLayer
         }
         return dt;
     } //done
+
     public DataTable getitemgroupdatabyidBAL(string Id)
     {
         DataTable dt = null;
@@ -907,6 +958,7 @@ public class BusinessLogicLayer
         }
         return dt;
     } //done
+
     public string deleteitemgroupdata(string id)
     {
         string res = "";
@@ -922,6 +974,7 @@ public class BusinessLogicLayer
 
         return res;
     } //done
+
     public string tbl_itemgroupupdate(string id, string name)
     {
         string res = "";
@@ -1049,9 +1102,7 @@ public class BusinessLogicLayer
 
         return res;
     }
-
     // ItemSubgroup end
-
     //item master start
 
     public string tbl_ItemDocument_Master_InsertBAL(string no, string DocuName, string Filename, string DocumentPath, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
@@ -1069,6 +1120,7 @@ public class BusinessLogicLayer
 
         return res;
     }
+
     public DataTable getItemdocumentadataBAL(string Createby, int no)
     {
         DataTable dt = null;
@@ -1166,7 +1218,6 @@ public class BusinessLogicLayer
         return dt;
     }
 
-
     public string tbl_Item_Master_InsertBAL(int no, int itemgroup, int itemsubgroup, string Modelno, string Itemname, string ItemFinalname, string Itemalis, string Itemcategoryno, int ItemUOM, decimal Itemrate, int Itemgst, string ItemHsn, string ItemDesc, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
     {
         string res = "";
@@ -1200,7 +1251,6 @@ public class BusinessLogicLayer
         return dt;
     }
 
-
     public DataTable getallItemdataforadminBAL()
     {
         DataTable dt = null;
@@ -1217,6 +1267,7 @@ public class BusinessLogicLayer
         }
         return dt;
     }
+
     public DataTable getallitemdatabynoBAL(string no)
     {
         DataTable dt = null;
@@ -1265,8 +1316,6 @@ public class BusinessLogicLayer
 
         return res;
     }
-
-
     //No series
 
     public string tbl_Item_NoSeries_InsertBAL(string No, string Extra1, string Extra2)
@@ -1415,6 +1464,7 @@ public class BusinessLogicLayer
 
         return res;
     }
+
     public DataTable getallcompanydataBAL()
     {
         DataTable dt = null;
@@ -1431,7 +1481,6 @@ public class BusinessLogicLayer
         }
         return dt;
     }
-
 
     public DataTable getallcompanydataforadminBAL()
     {
@@ -1483,6 +1532,7 @@ public class BusinessLogicLayer
 
         return res;
     }
+
     public string deletecompanydatabyCompanynoBAL(string companyno)
     {
         string res = "";
@@ -1500,4 +1550,312 @@ public class BusinessLogicLayer
     }
     //Company master ended
 
+    //Country started
+    public DataTable getallcountryfroadminBAL()
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.getallcountryDAL();
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+    public DataTable checkcountrydata(string name)
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.checkcountrydata(name);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    } //done
+    public string Savecountrybll(string name, string Createby, DateTime Createddatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
+    {
+        string res = "";
+        dal = new DataAccessLayer();
+        try
+        {
+            res = dal.Savecountrybll(name, Createby, Createddatetime, Extra1, Extra2, Extra3, Extra4, Extra5);
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+
+        return res;
+    } //done
+
+    public DataTable getcountrydatabyidBAL(string Id)
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.getcountrydatabyidDAL(Id);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    } //done
+
+    public string deletecountrydata(string id)
+    {
+        string res = "";
+        dal = new DataAccessLayer();
+        try
+        {
+            res = dal.deletecountrydata(id);
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+
+        return res;
+    } //done
+
+    public string tbl_countryupdate(string id, string name)
+    {
+        string res = "";
+        dal = new DataAccessLayer();
+        try
+        {
+            res = dal.tbl_countryupdate(id, name);
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+
+        return res;
+    } //done
+      //Country Ended
+
+    //State Start
+    public DataTable getallstateforadminBAL()
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.getallstateforadminDAL();
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+    public DataTable getstatedatabyidBAL(string Id)
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.getstatedatabyidDAL(Id);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+    public string deletestatedatabyidBAL(string id)
+    {
+        string res = "";
+        dal = new DataAccessLayer();
+        try
+        {
+            res = dal.deletestatedatabyidDAL(id);
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+
+        return res;
+    }
+    public DataTable checkstatenameBAL(string groupname)
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.checkstatenameDAL(groupname);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+
+    public string tbl_state_Master_InsertBAL(string StateName, int CountryId, string CreateBy, DateTime @CreateDatetime, string Extra1, string Extra2, string @Extra3, string Extra4, string Extra5)
+    {
+        string res = "";
+        dal = new DataAccessLayer();
+        try
+        {
+            res = dal.tbl_state_Master_InsertDAL(StateName, CountryId, CreateBy, CreateDatetime, Extra1, Extra2, Extra3, Extra4, Extra5);
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+
+        return res;
+    }
+
+    public string tbl_state_Master_UpdateBAL(string Id, int ItemGroupId, string ItemSubGroupName)
+    {
+        string res = "";
+        dal = new DataAccessLayer();
+        try
+        {
+            res = dal.tbl_state_Master_UpdateDAL(Id, ItemGroupId, ItemSubGroupName);
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+
+        return res;
+    }
+
+
+    //state end
+    //city start
+
+    public DataTable getallcityforadminBAL()
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.getallcityforadminDAL();
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+    public DataTable getcitydatabyidBAL(string Id)
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.getcitydatabyidDAL(Id);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+
+    public string deletecitydatabyidBAL(string id)
+    {
+        string res = "";
+        dal = new DataAccessLayer();
+        try
+        {
+            res = dal.deletecitydatabyidDAL(id);
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+
+        return res;
+    }
+
+    public DataTable checkcitynameBAL(string groupname)
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.checkcitynameDAL(groupname);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+
+    public string tbl_city_Master_InsertBAL(string StateName, int CountryId, string CreateBy, DateTime @CreateDatetime, string Extra1, string Extra2, string @Extra3, string Extra4, string Extra5)
+    {
+        string res = "";
+        dal = new DataAccessLayer();
+        try
+        {
+            res = dal.tbl_city_Master_InsertDAL(StateName, CountryId, CreateBy, CreateDatetime, Extra1, Extra2, Extra3, Extra4, Extra5);
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+
+        return res;
+    }
+
+    public string tbl_city_Master_UpdateBAL(string Id, int ItemGroupId, string ItemSubGroupName)
+    {
+        string res = "";
+        dal = new DataAccessLayer();
+        try
+        {
+            res = dal.tbl_city_Master_UpdateDAL(Id, ItemGroupId, ItemSubGroupName);
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+
+        return res;
+    }
+
+    public DataTable getstatedataBAL( int state)
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.getstatedataDAL(state);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+    public DataTable getcitydataBAL(int city)
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.getcitydataDAL(city);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
 }

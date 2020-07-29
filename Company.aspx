@@ -76,47 +76,56 @@
                             </label>
                             <asp:TextBox ID="txtaddress" TextMode="MultiLine" class="form-control" TabIndex="2" runat="server"></asp:TextBox>
                         </div>
-                        <div class="col-md-6 form-group">
-                            <label class="control-label">
-                                City/Taluka
-                            </label>
-                            <asp:TextBox ID="txtcity" class="form-control" TabIndex="3" runat="server"></asp:TextBox>
-
-                        </div>
-
-
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-6 form-group">
-                            <label class="control-label">
-                                District 
-                            </label>
-                            <asp:TextBox ID="txtdistrict" class="form-control" TabIndex="4" runat="server"></asp:TextBox>
-
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <label>State</label>
-                            <asp:TextBox ID="txtstate" class="form-control" TabIndex="5" runat="server"></asp:TextBox>
-
-                        </div>
-                         
-                    </div>
-                    <div class="row">
+                     
                        
-                         <div class="col-md-6 form-group">
-                            <label class="control-label">
-                                Country 
-                            </label>
-                            <asp:TextBox ID="txtcountry" class="form-control" TabIndex="6" runat="server"></asp:TextBox>
-
-                        </div>
                         <div class="col-md-6 form-group">
-                            <label>Pincode </label>
-                            <asp:TextBox ID="txtpincode" class="form-control" TabIndex="7" runat="server"></asp:TextBox>
+                            <label class="control-label">       
+                                Country
+                            </label>
+                            <div class="input-group">
+                                <asp:DropDownList ID="dpcountry" runat="server" AutoPostBack="true" data-placeholder="Select Country" OnSelectedIndexChanged="dpcountry_SelectedIndexChanged" CssClass="form-control select2" TabIndex="10"></asp:DropDownList>
+                                <span class="input-group-btn">
+                                    <asp:LinkButton ID="lbtnccountry" runat="server" CssClass="btn btn-dropbox btn-flat" CausesValidation="false"><i class="fa fa-plus"></i></asp:LinkButton></span>
+                            </div>
+                       </div>
+                   </div>
+
+                       <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label class="control-label">       
+                               State
+                            </label>
+                            <div class="input-group">
+                                <asp:DropDownList ID="dpstate" runat="server" AutoPostBack="true" data-placeholder="Select state" OnSelectedIndexChanged="dpstate_SelectedIndexChanged" CssClass="form-control select2" TabIndex="10"></asp:DropDownList>
+                                <span class="input-group-btn">
+                                    <asp:LinkButton ID="lbtncstate" runat="server" CssClass="btn btn-dropbox btn-flat" CausesValidation="false"><i class="fa fa-plus"></i></asp:LinkButton></span>
+                            </div></div>
+                            <div class="col-md-6 form-group">
+                                        <label class="control-label">       
+                                          City
+                                         </label>
+                                        <div class="input-group">
+                                       <asp:DropDownList ID="dpcity" runat="server" AutoPostBack="true" data-placeholder="Select city" CssClass="form-control select2" TabIndex="10"></asp:DropDownList>
+                                         <span class="input-group-btn">
+                                         <asp:LinkButton ID="lbtncity" runat="server" CssClass="btn btn-dropbox btn-flat" CausesValidation="false"><i class="fa fa-plus"></i></asp:LinkButton></span>
+                            </div>
 
                         </div>
+                            </div>
+                      <div class="row">
+                                 <div class="col-md-6 form-group">
+                                     <label class="control-label">
+                                        District 
+                                     </label>
+                                     <asp:TextBox ID="txtdistrict" class="form-control" TabIndex="4" runat="server"></asp:TextBox>
+
+                                </div>
+                                 <div class="col-md-6 form-group">
+                                   <label>Pincode </label>
+                                     <asp:TextBox ID="txtpincode" class="form-control" TabIndex="7" runat="server"></asp:TextBox>
+                                 </div>
                     </div>
+                  </div>
                     <div class="row">
                         <div class="col-md-6 form-group">
                             <label class="control-label">
@@ -532,6 +541,163 @@
             <asp:Button ID="Button1" runat="server" Text="Close" />
         </asp:Panel>
 
+        <%--Country--%>
+ 
+        <asp:ModalPopupExtender ID="mpcountry" runat="server" PopupControlID="pnlcountry" TargetControlID="lbtnccountry"
+            CancelControlID="btnclosecountry" BackgroundCssClass="modalBackground">
+        </asp:ModalPopupExtender>
+        <asp:Panel ID="pnlcountry" runat="server" CssClass="modalPopup" align="center" Style="display: none">
+            <div style="height: 60px">
+                <div class="example-modal">
+                    <div class="modal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" id="btnclosecountry" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" style="text-align: center">Create Country</h4>
+
+                                    <div class="modal-body">
+                                        <div class="col-md-12">
+                                            <div class="box box-primary">
+
+                                                <div class="box-body">
+                                                    <div class="form-group">
+                                                        <label class="control-label">
+                                                            Country<span class="required">* </span>
+                                                        </label>
+                                                        <asp:TextBox ID="Txtcountry" class="form-control" TabIndex="1" runat="server"></asp:TextBox>
+                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtcountry"
+                                                            Display="Dynamic" ErrorMessage="Please country Name" ValidationGroup="country" Text="(*) Required" SetFocusOnError="true" ForeColor="Red"
+                                                            CssClass="validate"></asp:RequiredFieldValidator>
+                                                    </div>
+                                                    <div class="form-group pull-right">
+                                                        <asp:LinkButton ID="lbtncountry" OnClick="lbtncreatecountry_Click" ValidationGroup="country" runat="server" TabIndex="19" CssClass="btn btn-bitbucket btn-flat"><i class="fa fa-save"></i>&nbsp;Save</asp:LinkButton>
+
+                                                        <asp:LinkButton ID="LinkButton9" runat="server" TabIndex="20" CssClass="btn btn-bitbucket bg-gray btn-flat" CausesValidation="false"><i class="fa fa-times"></i>&nbsp;Reset</asp:LinkButton>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                    </div>
+                    <!-- /.modal -->
+                </div>
+            </div>
+            <asp:Button ID="btncClose" runat="server" Text="Close" />
+        </asp:Panel>
+
+        <%--Country--%>
+
+       <%-- state --%>
+           <asp:ModalPopupExtender ID="mpstate" runat="server" PopupControlID="pnlstate" TargetControlID="lbtncstate"
+            CancelControlID="btnclosestate" BackgroundCssClass="modalBackground">
+        </asp:ModalPopupExtender>
+        <asp:Panel ID="pnlstate" runat="server" CssClass="modalPopup" align="center" Style="display: none">
+            <div style="height: 60px">
+                <div class="example-modal">
+                    <div class="modal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" id="btnclosestate" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" style="text-align: center">Create state</h4>
+
+                                    <div class="modal-body">
+                                        <div class="col-md-12">
+                                            <div class="box box-primary">
+
+                                                <div class="box-body">
+                                                    <div class="form-group">
+                                                        <label class="control-label">
+                                                           State<span class="required">* </span>
+                                                        </label>
+                                                        <asp:TextBox ID="Txtstate" class="form-control" TabIndex="1" runat="server"></asp:TextBox>
+                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="Txtstate"
+                                                            Display="Dynamic" ErrorMessage="Please stateName" ValidationGroup="state" Text="(*) Required" SetFocusOnError="true" ForeColor="Red"
+                                                            CssClass="validate"></asp:RequiredFieldValidator>
+                                                    </div>
+                                                    <div class="form-group pull-right">
+                                                        <asp:LinkButton ID="lbtnstate" OnClick="lbtncreatestate_Click" ValidationGroup="state" runat="server" TabIndex="19" CssClass="btn btn-bitbucket btn-flat"><i class="fa fa-save"></i>&nbsp;Save</asp:LinkButton>
+
+                                                        <asp:LinkButton ID="LinkButton10" runat="server" TabIndex="20" CssClass="btn btn-bitbucket bg-gray btn-flat" CausesValidation="false"><i class="fa fa-times"></i>&nbsp;Reset</asp:LinkButton>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                    </div>
+                    <!-- /.modal -->
+                </div>
+            </div>
+            <asp:Button ID="Button4" runat="server" Text="Close" />
+        </asp:Panel>
+        
+
+
+       <%--   state--%>
+
+       <%-- city--%>
+           <asp:ModalPopupExtender ID="mpcity" runat="server" PopupControlID="pnlcity" TargetControlID="lbtncity"
+            CancelControlID="btnclosecity" BackgroundCssClass="modalBackground">
+        </asp:ModalPopupExtender>
+        <asp:Panel ID="pnlcity" runat="server" CssClass="modalPopup" align="center" Style="display: none">
+            <div style="height: 60px">
+                <div class="example-modal">
+                    <div class="modal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" id="btnclosecity" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" style="text-align: center">Create City</h4>
+
+                                    <div class="modal-body">
+                                        <div class="col-md-12">
+                                            <div class="box box-primary">
+
+                                                <div class="box-body">
+                                                    <div class="form-group">
+                                                        <label class="control-label">
+                                                            City<span class="required">* </span>
+                                                        </label>
+                                                        <asp:TextBox ID="Txtcity" class="form-control" TabIndex="1" runat="server"></asp:TextBox>
+                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="TxtCity"
+                                                            Display="Dynamic" ErrorMessage="Please City Name" ValidationGroup="citygrp" Text="(*) Required" SetFocusOnError="true" ForeColor="Red"
+                                                            CssClass="validate"></asp:RequiredFieldValidator>
+                                                    </div>
+                                                    <div class="form-group pull-right">
+                                                        <asp:LinkButton ID="lbtnccity" OnClick="lbtncreatecity_Click" ValidationGroup="citygrp" runat="server" TabIndex="19" CssClass="btn btn-bitbucket btn-flat"><i class="fa fa-save"></i>&nbsp;Save</asp:LinkButton>
+
+                                                        <asp:LinkButton ID="LinkButton11" runat="server" TabIndex="20" CssClass="btn btn-bitbucket bg-gray btn-flat" CausesValidation="false"><i class="fa fa-times"></i>&nbsp;Reset</asp:LinkButton>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                    </div>
+                    <!-- /.modal -->
+                </div>
+            </div>
+            <asp:Button ID="Button5" runat="server" Text="Close" />
+        </asp:Panel>
+       <%-- city--%>
 
         <asp:ModalPopupExtender ID="mpdept" runat="server" PopupControlID="pnldept" TargetControlID="lnbDept"
             CancelControlID="btnclosedept" BackgroundCssClass="modalBackground">

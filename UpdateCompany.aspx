@@ -47,7 +47,6 @@
                 <asp:Label ID="lblid" runat="server" Visible="false" Text=""></asp:Label>
                 <asp:Label ID="lblloginid" runat="server" Visible="false" Text=""></asp:Label>
                  <asp:Label ID="lblrole" runat="server" Visible="false" Text=""></asp:Label>
-
             </ol>
         </section>
         <!-- Main content -->
@@ -82,26 +81,19 @@
                                 City/Taluka
                             </label>
                             <asp:TextBox ID="txtcity" class="form-control" TabIndex="3" runat="server"></asp:TextBox>
-
                         </div>
-
-
                     </div>
-
                     <div class="row">
                         <div class="col-md-6 form-group">
                             <label class="control-label">
                                 District 
                             </label>
                             <asp:TextBox ID="txtdistrict" class="form-control" TabIndex="4" runat="server"></asp:TextBox>
-
                         </div>
                         <div class="col-md-6 form-group">
                             <label>State</label>
                             <asp:TextBox ID="txtstate" class="form-control" TabIndex="5" runat="server"></asp:TextBox>
-
-                        </div>
-                         
+                        </div>              
                     </div>
                     <div class="row">
                        
@@ -110,12 +102,10 @@
                                 Country 
                             </label>
                             <asp:TextBox ID="txtcountry" class="form-control" TabIndex="6" runat="server"></asp:TextBox>
-
                         </div>
                         <div class="col-md-6 form-group">
                             <label>Pincode </label>
                             <asp:TextBox ID="txtpincode" class="form-control" TabIndex="7" runat="server"></asp:TextBox>
-
                         </div>
                     </div>
                     <div class="row">
@@ -125,16 +115,13 @@
                             </label>
                             <asp:TextBox ID="txtphno" CssClass="form-control" TabIndex="8" runat="server"></asp:TextBox>
                         </div>
-
                         <div class="col-md-6 form-group">
                             <label class="control-label">
                                 Email<span class="required">*</span>
                             </label>
                             <asp:TextBox ID="txtemail" CssClass="form-control" ClientIDMode="Static" TabIndex="9" runat="server"></asp:TextBox>
-
                         </div>
                     </div>
-
                     <div class="row">
                         <div class="col-md-6 form-group">
                             <label class="control-label">
@@ -145,8 +132,6 @@
                                 <span class="input-group-btn">
                                     <asp:LinkButton ID="lbtncreatebtype" runat="server" CssClass="btn btn-dropbox btn-flat" CausesValidation="false"><i class="fa fa-plus"></i></asp:LinkButton></span>
                             </div>
-
-
                         </div>
                         <div class="col-md-6 form-group">
                             <label class="control-label">
@@ -157,14 +142,12 @@
                                 <span class="input-group-btn">
                                     <asp:LinkButton ID="lbtncindugrp" runat="server" CssClass="btn btn-dropbox btn-flat" CausesValidation="false"><i class="fa fa-plus"></i></asp:LinkButton></span>
                             </div>
-
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6 form-group">
                             <label>URL</label>
                             <asp:TextBox ID="txturl" CssClass="form-control" TabIndex="12" runat="server"></asp:TextBox>
-
                         </div>
                         <div class="col-md-6 form-group">
 
@@ -174,9 +157,7 @@
                                 <asp:ListItem>Inactive</asp:ListItem>
                             </asp:RadioButtonList>
                         </div>
-
                     </div>
-
                     <div class="row">
                         <div class="col-md-6 form-group">
                             <label class="control-label">
@@ -190,10 +171,8 @@
                                 Bank Name
                             </label>
                             <asp:TextBox ID="txtbankname" CssClass="form-control" ClientIDMode="Static" TabIndex="15" runat="server"></asp:TextBox>
-
                         </div>
                     </div>
-
                     <div class="row">
                         <div class="col-md-6 form-group">
                             <label class="control-label">
@@ -201,21 +180,16 @@
                             </label>
                             <asp:TextBox ID="txtaccno" CssClass="form-control" TabIndex="16" runat="server"></asp:TextBox>
                         </div>
-
                         <div class="col-md-6 form-group">
                             <label class="control-label">
                                 IFSC code
                             </label>
                             <asp:TextBox ID="txtifsccode" CssClass="form-control" ClientIDMode="Static" TabIndex="17" runat="server"></asp:TextBox>
-
                         </div>
                     </div>
-
                 </div>
                 <section class="content-header">
-                    <h3>Contact Person
-                    
-                    </h3>
+                    <h3>Contact Person</h3>
                     <div class="row">
                         <div class="col-md-4 form-group">
                             <label class="control-label">
@@ -225,23 +199,18 @@
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtcontactname"
                                 Display="Dynamic" ErrorMessage="Please Enter Name" Text="(*) Required" SetFocusOnError="true" ValidationGroup="comgcontactroup" ForeColor="Red"
                                 CssClass="validate"></asp:RequiredFieldValidator>
-
-
                         </div>
                         <div class="col-md-4 form-group">
                             <label class="control-label">
                                 Email 
                             </label>
                             <asp:TextBox ID="txtcontactemail" CssClass="form-control" TabIndex="19" runat="server"></asp:TextBox>
-
                         </div>
                         <div class="col-md-4 form-group">
                             <label class="control-label">
                                 Phone No
                             </label>
                             <asp:TextBox ID="txtcontactphno" CssClass="form-control" TabIndex="20" runat="server"></asp:TextBox>
-
-
                         </div>
                     </div>
                     <div class="row">
@@ -251,16 +220,12 @@
                                 Mobile No(1)
                             </label>
                             <asp:TextBox ID="txtcontactmno1" CssClass="form-control" TabIndex="21" runat="server"></asp:TextBox>
-
-
                         </div>
                         <div class="col-md-4 form-group">
                             <label class="control-label">
                                 Mobile No(2)
                             </label>
                             <asp:TextBox ID="txtcontactmno2" CssClass="form-control" TabIndex="22" runat="server"></asp:TextBox>
-
-
                         </div>
                         <div class="col-md-4 form-group">
                             <label class="control-label">
@@ -273,12 +238,9 @@
                             </div>
 
                         </div>
-
-
                     </div>
 
                     <div class="row">
-
                         <div class="col-md-4 form-group">
                             <label class="control-label">
                                 Designation 
@@ -295,8 +257,6 @@
                             </label>
                             <asp:TextBox ID="txtdob" CssClass="form-control" TabIndex="25" runat="server"></asp:TextBox>
                                <asp:CalendarExtender ID="CalendarExtender1" TargetControlID="txtdob" Format="dd/MM/yyyy" runat="server"></asp:CalendarExtender>
-
-
                         </div>
                         <div class="col-md-4 form-group">
                             <label class="control-label">
@@ -304,21 +264,16 @@
                             </label>
                             <asp:TextBox ID="txtdoani" CssClass="form-control" data-inputmask="'alias': 'dd/mm/yyyy'"  TabIndex="26" runat="server"></asp:TextBox>
                                 <asp:CalendarExtender ID="CalendarExtender3" TargetControlID="txtdoani" Format="dd/MM/yyyy" runat="server"></asp:CalendarExtender>
-
                         </div>
-
                     </div>
                     <div class="row" style="text-align:right">
                         <div class="col-md-12 form-group" style="text-align: right">
                             <asp:LinkButton ID="lbtnaddcontact" Style="margin-top: 25px" OnClick="lbtnaddcontact_Click" ValidationGroup="comgcontactroup" runat="server" TabIndex="27" CssClass="btn btn-bitbucket btn-flat"><i class="fa fa-save"></i>&nbsp;Add contact </asp:LinkButton>
                             <asp:LinkButton ID="lbtnupdatecontact" Visible="false" runat="server" OnClick="lbtnupdatecontact_Click" ValidationGroup="comgcontactroup" TabIndex="28" CssClass="btn btn-bitbucket btn-flat"><i class="fa fa-save"></i>&nbsp;Update</asp:LinkButton>
                             <asp:LinkButton ID="lbtnresetcontact" runat="server" TabIndex="29" OnClick="lbtnresetcontact_Click" Style="margin-top: 25px" CssClass="btn btn-bitbucket bg-gray btn-flat" CausesValidation="false"><i class="fa fa-times"></i>&nbsp;Reset</asp:LinkButton>
-
                         </div>
                     </div>
-
                     <div class="row">
-
                         <div class="box-body">
                             <asp:GridView ID="grdcontact" runat="server" AlternatingRowStyle-BackColor="#C2D69B" AllowPaging="false" AllowSorting="false"
                                 AutoGenerateColumns="False" BorderWidth="1px" OnRowCommand="grdcontact_RowCommand" ShowHeaderWhenEmpty="true"
@@ -417,10 +372,7 @@
                             </asp:GridView>
                         </div>
                     </div>
-
                 </section>
-
-
                 <div class="row" style="text-align: right">
 
                     <div class="col-md-12 form-group" style="padding-top: 5px">
@@ -431,8 +383,6 @@
                 </div>
                 <!-- /.row -->
         </section>
-
-
         <asp:ModalPopupExtender ID="mpbtype" runat="server" PopupControlID="pnlnbussinesstype" TargetControlID="lbtncreatebtype"
             CancelControlID="btnclosebtype" BackgroundCssClass="modalBackground">
         </asp:ModalPopupExtender>
@@ -481,9 +431,6 @@
             </div>
             <asp:Button ID="btnClose" runat="server" Text="Close" />
         </asp:Panel>
-
-
-
         <asp:ModalPopupExtender ID="mpindutype" runat="server" PopupControlID="pnlindugrp" TargetControlID="lbtncindugrp"
             CancelControlID="btncloseindugrp" BackgroundCssClass="modalBackground">
         </asp:ModalPopupExtender>
@@ -532,8 +479,6 @@
             </div>
             <asp:Button ID="Button1" runat="server" Text="Close" />
         </asp:Panel>
-
-
         <asp:ModalPopupExtender ID="mpdept" runat="server" PopupControlID="pnldept" TargetControlID="lnbDept"
             CancelControlID="btnclosedept" BackgroundCssClass="modalBackground">
         </asp:ModalPopupExtender>
@@ -582,9 +527,6 @@
             </div>
             <asp:Button ID="Button2" runat="server" Text="Close" />
         </asp:Panel>
-
-
-
         <asp:ModalPopupExtender ID="mpdesign" runat="server" PopupControlID="pnldesign" TargetControlID="lbtncreatedesign"
             CancelControlID="btnclosedesign" BackgroundCssClass="modalBackground">
         </asp:ModalPopupExtender>
@@ -633,9 +575,6 @@
             </div>
             <asp:Button ID="Button3" runat="server" Text="Close" />
         </asp:Panel>
-
-
-
     </div>
 </asp:Content>
 

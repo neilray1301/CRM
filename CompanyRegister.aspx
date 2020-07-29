@@ -127,10 +127,7 @@
                                             <ItemStyle Wrap="true" HorizontalAlign="Left" />
                                             <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />
                                         </asp:TemplateField>
-
-
-
-                                    </Columns>
+                             </Columns>
                                 </asp:GridView>
                             </div>
                         </div>

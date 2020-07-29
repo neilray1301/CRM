@@ -356,14 +356,15 @@
                                  <li><a href="BusinessType.aspx"><i class="fa fa-circle-o"></i>Business type</a></li>
                                   <li><a href="CompanyRegister.aspx"><i class="fa fa-circle-o"></i>Company</a></li>            
                                 <li><a href="Customer.aspx"><i class="fa fa-circle-o"></i>Customer</a></li>
+                               <li><a href="Country.aspx"><i class="fa fa-circle-o"></i>Country</a></li>
+                                <li><a href="State.aspx"><i class="fa fa-circle-o"></i>State</a></li>
+                                   <li><a href="City.aspx"><i class="fa fa-circle-o"></i>City</a></li>
                                  <li><a href="Department.aspx"><i class="fa fa-circle-o"></i>Department</a></li>
                                 <li><a href="Designation.aspx"><i class="fa fa-circle-o"></i>Designation</a></li>
                                 <li><a href="FollowType.aspx"><i class="fa fa-circle-o"></i>Followup Type</a></li>
-                               
                                 <li><a href="ItemRegister.aspx"><i class="fa fa-circle-o"></i>Item</a></li>
                                  <li><a href="ItemGroup.aspx"><i class="fa fa-circle-o"></i>Item-Group</a></li>
                                 <li><a href="ItemSubgroup.aspx"><i class="fa fa-circle-o"></i>Item-Subgroup</a></li>
-                                
                                <li><a href="Role.aspx"><i class="fa fa-circle-o"></i>Role</a></li>
                                 <li><a href="Source.aspx"><i class="fa fa-circle-o"></i>Source</a></li>
                                  <li><a href="Status.aspx"><i class="fa fa-circle-o"></i>Status</a></li>
