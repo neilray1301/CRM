@@ -28,8 +28,8 @@ public partial class InquiryEntry : System.Web.UI.Page
             bindfollowup();
             binditem();
             binduom();
-         //   binddepartment();
-       //     binddesignation();
+           binddepartment();
+            binddesignation();
             getInquiryNo();
             getmaxcomno();
             bindcustomer();
@@ -274,51 +274,51 @@ public partial class InquiryEntry : System.Web.UI.Page
         }
     }
 
-    //public void binddepartment()
-    //{
-    //    try
-    //    {
-    //        DataTable dtdept = new DataTable();
+    public void binddepartment()
+    {
+        try
+        {
+            DataTable dtdept = new DataTable();
 
 
-    //        dtdept = bal.getalldepartmentfroadminBAL();
-    //        if (dtdept.Rows.Count > 0)
-    //        {
-    //            ddlDept.DataSource = dtdept;
-    //            ddlDept.DataTextField = "Department";
-    //            ddlDept.DataValueField = "id";
-    //            ddlDept.DataBind();
-    //        }
-    //        ddlDept.Items.Insert(0, new ListItem("----Select Department----", "0"));
-    //    }
-    //    catch (Exception ex)
-    //    {
-    //        Getconnection.SiteErrorInsert(ex);
-    //    }
-    //}
+            dtdept = bal.getalldepartmentfroadminBAL();
+            if (dtdept.Rows.Count > 0)
+            {
+                ddlDept.DataSource = dtdept;
+                ddlDept.DataTextField = "Department";
+                ddlDept.DataValueField = "id";
+                ddlDept.DataBind();
+            }
+            ddlDept.Items.Insert(0, new ListItem("----Select Department----", "0"));
+        }
+        catch (Exception ex)
+        {
+            Getconnection.SiteErrorInsert(ex);
+        }
+    }
 
-    //public void binddesignation()
-    //{
-    //    try
-    //    {
-    //        DataTable dtdesign = new DataTable();
+    public void binddesignation()
+    {
+        try
+        {
+            DataTable dtdesign = new DataTable();
 
 
-    //        dtdesign = bal.getalldesignationfroadminBAL();
-    //        if (dtdesign.Rows.Count > 0)
-    //        {
-    //            ddldesign.DataSource = dtdesign;
-    //            ddldesign.DataTextField = "Designation";
-    //            ddldesign.DataValueField = "Id";
-    //            ddldesign.DataBind();
-    //        }
-    //        ddldesign.Items.Insert(0, new ListItem("----Select Designation----", "0"));
-    //    }
-    //    catch (Exception ex)
-    //    {
-    //        Getconnection.SiteErrorInsert(ex);
-    //    }
-    //}
+            dtdesign = bal.getalldesignationfroadminBAL();
+            if (dtdesign.Rows.Count > 0)
+            {
+                ddldesign.DataSource = dtdesign;
+                ddldesign.DataTextField = "Designation";
+                ddldesign.DataValueField = "id";
+                ddldesign.DataBind();
+            }
+            ddldesign.Items.Insert(0, new ListItem("----Select Designation----", "0"));
+        }
+        catch (Exception ex)
+        {
+            Getconnection.SiteErrorInsert(ex);
+        }
+    }
 
     public void resetcontact()
     {
@@ -418,7 +418,7 @@ public partial class InquiryEntry : System.Web.UI.Page
                 DateTime utcTime = DateTime.UtcNow;
                 TimeZoneInfo tzi = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
                 DateTime localTime = TimeZoneInfo.ConvertTimeFromUtc(utcTime, tzi);
-                txtrate.Text = "2000";
+              //  txtrate.Text = "2000";
                 bal.tbl_Inqiury_Details_InsertBAL(Convert.ToInt32(lblcomno.Text), Convert.ToInt32(dpitem.SelectedValue.ToString()),  Convert.ToInt32(dpuom.SelectedValue.ToString()), Convert.ToDecimal(txtqty.Text), Convert.ToDecimal(txtrate.Text), Convert.ToDecimal(txtamount.Text), lblloginid.Text, localTime, "", "", "", "", "");
                 resetcontact();
                 binditemdata();
@@ -740,5 +740,44 @@ public partial class InquiryEntry : System.Web.UI.Page
             Getconnection.SiteErrorInsert(ex);
         }
     }
+
+    protected void dpitem_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        try {
+            DataTable dtdata = bal.getallItemdataforadminBAL();
+            if (dtdata.Rows.Count > 0)
+            {
+                txtrate.Text = dtdata.Rows[0]["Itemrate"].ToString();
+                dpuom.SelectedValue = dtdata.Rows[0]["ItemUOM"].ToString();
+                int uomvaluye = Convert.ToInt32(dpuom.SelectedValue.ToString());
+                txtqty.Focus();
+
+            }
+        }
+        catch (Exception ex)
+             {
+
+            
+               }
+    }
+
+
+    protected void dpcontactper_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        try
+        {
+            DataTable dtdata = bal.getCustomercontactdataBAL(Convert.ToInt32(dpcontactper.SelectedValue.ToString()));
+            if (dtdata.Rows.Count > 0)
+            {
+                ddlDept.SelectedItem.Text = dtdata.Rows[0]["Department"].ToString();
+                ddldesign.SelectedItem.Text = dtdata.Rows[0]["Designation"].ToString();
+            }
+        }
+        catch(Exception ex)
+        {
+
+        }
+    }
 }
+
 

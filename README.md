@@ -1,0 +1,1 @@
+<H3>This is a CRM(Customer Relation Management) Software which i built and is still in running phase. It includes various modules like Inquiry , FollowUp , Sales Order Details , Item groups - subgroups details , Quotations Registry and much more
