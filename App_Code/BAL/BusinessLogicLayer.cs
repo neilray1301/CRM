@@ -1349,6 +1349,23 @@ public class BusinessLogicLayer
 
         return res;
     }
+
+
+    public string tbl_Customer_Noseries_InsertBAL(string No, string Extra1, string Extra2)
+    {
+        string res = "";
+        dal = new DataAccessLayer();
+        try
+        {
+            res = dal.tbl_Customer_Noseries_InsertDAL(No, Extra1, Extra2);
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+
+        return res;
+    }
     // NO series end
 
     // Company Master
@@ -1857,5 +1874,484 @@ public class BusinessLogicLayer
 
         }
         return dt;
+    }
+
+    // Inquiry 
+    public string tbl_Inquiry_No_Series_InsertBAL(string No, string Extra1, string Extra2)
+    {
+        string res = "";
+        dal = new DataAccessLayer();
+        try
+        {
+            res = dal.tbl_Inquiry_No_Series_InsertDAL(No, Extra1, Extra2);
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+
+        return res;
+    }
+    public DataTable getInqiuryDetailsdataBAL( int Noseries)
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.getInqiuryDetailsdataDAL(Noseries);
+
+        }
+        catch (Exception ex)
+        {
+
+
+        }
+        return dt;
+    }
+    public DataTable getFollowupdataBAL( int Noseries)
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.getFollowupdataDAL( Noseries);
+
+        }
+        catch (Exception ex)
+        {
+
+
+        }
+        return dt;
+    }
+    public DataTable checkProductNameBAL(string Noseries, int Item)
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.checkProductNameDAL(Noseries, Item);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+
+    public string tbl_Inqiury_Details_InsertBAL(int Noseries, int Item,  int UOM, decimal Qty, decimal Rate, decimal Amount, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
+    {
+        string res = "";
+        dal = new DataAccessLayer();
+        try
+        {
+            res = dal.tbl_Inqiury_Details_InsertDAL(Noseries, Item,  UOM, Qty, Rate, Amount, CreateBy, CreateDatetime, Extra1, Extra2, Extra3, Extra4, Extra5);
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+
+        return res;
+    }
+
+    public DataTable getInqiuryDetailsdatabyidBAL(string Id)
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.getInqiuryDetailsdatabyidDAL(Id);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+    public string deleteinquirydetailsdatabyidBAL(string id)
+    {
+        string res = "";
+        dal = new DataAccessLayer();
+        try
+        {
+            res = dal.deleteinquirydetailsdatabyidDAL(id);
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+
+        return res;
+    }
+    public string tbl_Inqiury_Details_updateBAL(int Id, int Item,  int UOM, decimal Qty, decimal Rate, decimal Amount, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
+    {
+
+        string res = "";
+        dal = new DataAccessLayer();
+        try
+        {
+            res = dal.tbl_Inqiury_Details_updateDAL(Id, Item,  UOM, Qty, Rate, Amount, CreateBy, CreateDatetime, Extra1, Extra2, Extra3, Extra4, Extra5);
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+
+        return res;
+    }
+    public DataTable checkFollowupBAL(string Noseries, string NextFolldate, int Follotype)
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.checkFollowupDAL(Noseries, NextFolldate, Follotype);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+    public string tbl_Inqiury_Followup_InsertBAL(int Noseries, string NextFolldate, int Follotype, int Assignto, int FolloStatus, string Remarks, string Comdate, string Comremarks, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
+    {
+        string res = "";
+        dal = new DataAccessLayer();
+        try
+        {
+            res = dal.tbl_Inqiury_Followup_InsertDAL(Noseries, NextFolldate, Follotype, Assignto, FolloStatus, Remarks, Comdate, Comremarks, CreateBy, CreateDatetime, Extra1, Extra2, Extra3, Extra4, Extra5);
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+
+        return res;
+    }
+
+    public string tbl_Inqiury_Followup_updateBAL(int Id, int Noseries, string NextFolldate, int Follotype, int Assignto, int FolloStatus, string Remarks, string Comdate, string Comremarks, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
+    {
+        string res = "";
+        dal = new DataAccessLayer();
+        try
+        {
+            res = dal.tbl_Inqiury_Followup_updateDAL(Id, Noseries, NextFolldate, Follotype, Assignto, FolloStatus, Remarks, Comdate, Comremarks, CreateBy, CreateDatetime, Extra1, Extra2, Extra3, Extra4, Extra5);
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+
+        return res;
+    }
+    public DataTable getFollowupDetailsdatabyidBAL(string Id)
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.getFollowupDetailsdatabyidDAL(Id);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+    public string deleteinquiryfollowupdatabyidBAL(string id)
+    {
+        string res = "";
+        dal = new DataAccessLayer();
+        try
+        {
+            res = dal.deleteinquiryfollowupdatabyidDAL(id);
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+
+        return res;
+    }
+    public string getCustomerIdbynameBAL(string Name)
+    {
+        string res = "";
+        dal = new DataAccessLayer();
+        try
+        {
+            res = dal.getCustomerIdbynameDAL(Name);
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+
+        return res;
+    }
+
+    public DataTable checkInqiuryalreadyBAL(string InqiuryNo, string Inquirydate,  int Custname)
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.checkInqiuryalreadyDAL(InqiuryNo, Inquirydate,  Custname);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+    public string tbl_Inqiury_Master_InsertBAL(int InqiuryNo, int Noseries, string Inquirydate,  int Custname, int Custcontact, string Custcontactno, int Dept, int Design, string ContactEmail, string ContactMno1, string ContactMno2, int InqiuryStatus, int InquirySource, string Remarks, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
+    {
+        string res = "";
+        dal = new DataAccessLayer();
+        try
+        {
+            res = dal.tbl_Inqiury_Master_InsertDAL(InqiuryNo, Noseries, Inquirydate,  Custname, Custcontact, Custcontactno, Dept, Design, ContactEmail, ContactMno1, ContactMno2, InqiuryStatus, InquirySource, Remarks, CreateBy, CreateDatetime, Extra1, Extra2, Extra3, Extra4, Extra5);
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+
+        return res;
+    }
+    public DataTable getallInqiurydataforadminBAL()
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.getallInqiurydataforadminDAL();
+
+        }
+        catch (Exception ex)
+        {
+
+
+        }
+        return dt;
+    }
+    public DataTable getallInqiurydataBAL()
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.getallInqiurydataDAL();
+
+        }
+        catch (Exception ex)
+        {
+
+
+        }
+        return dt;
+    }
+
+    public DataTable getCustomerConatctPersonBAL( int Custno)
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.getCustomerConatctPersonDAL( Custno);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+
+    // customer
+    public string tbl_Customer_Master_InsertBAL(string No, string Groupno, string Comname, string Comarea, string Comaddress, string Comcity, string Comstate, string ComDistrict, string Country, string ComPincode, string ComPhoneNo, string ComEmail, int BussinessType, int Industrygroup, string URL, string Status, string GSTno, string Bankname, string Accountno, string IFSCcode, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
+    {
+        string res = "";
+        dal = new DataAccessLayer();
+        try
+        {
+            res = dal.tbl_Customer_Master_InsertDAL(No, Groupno, Comname, Comarea, Comaddress, Comcity, Comstate, ComDistrict, Country, ComPincode, ComPhoneNo, ComEmail, BussinessType, Industrygroup, URL, Status, GSTno, Bankname, Accountno, IFSCcode, CreateBy, CreateDatetime, Extra1, Extra2, Extra3, Extra4, Extra5);
+
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+
+        return res;
+    }
+    public DataTable getCustomercontactdatabyidBAL(string Id)
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.getCustomercontactdatabyidDAL(Id);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+    public string deleteCustomercontactdatabyidBAL(string id)
+    {
+        string res = "";
+        dal = new DataAccessLayer();
+        try
+        {
+            res = dal.deleteCustomercontactdatabyidDAL(id);
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+
+        return res;
+    }
+
+    public DataTable getallCustomerMasterataforadminBAL()
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.getallCustomerMasterataforadminDAL();
+
+        }
+        catch (Exception ex)
+        {
+
+
+        }
+        return dt;
+    }
+    public DataTable getallCustomerMasterataBAL(string Createby)
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.getallCustomerMasterataDAL(Createby);
+
+        }
+        catch (Exception ex)
+        {
+
+
+        }
+        return dt;
+    }
+    public string tbl_Customer_Master_updateBAL(string No, string GroupNo, string Comname, string Comarea, string Comaddress, string Comcity, string Comstate, string ComDistrict, string Country, string ComPincode, string ComPhoneNo, string ComEmail, int BussinessType, int Industrygroup, string URL, string Status, string GSTno, string Bankname, string Accountno, string IFSCcode, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
+    {
+        string res = "";
+        dal = new DataAccessLayer();
+        try
+        {
+            res = dal.tbl_Customer_Master_updateDAL(No, GroupNo, Comname, Comarea, Comaddress, Comcity, Comstate, ComDistrict, Country, ComPincode, ComPhoneNo, ComEmail, BussinessType, Industrygroup, URL, Status, GSTno, Bankname, Accountno, IFSCcode, CreateBy, CreateDatetime, Extra1, Extra2, Extra3, Extra4, Extra5);
+
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+
+        return res;
+    }
+    public string deleteCustomerdatabynoBAL(string No)
+    {
+        string res = "";
+        dal = new DataAccessLayer();
+        try
+        {
+            res = dal.deleteCustomerdatabynoDAL(No);
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+
+        return res;
+    }
+    public DataTable getallCustomerdatabynoBAL(string No)
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.getallCustomerdatabynoDAL(No);
+
+        }
+        catch (Exception ex)
+        {
+
+
+        }
+        return dt;
+    }
+     public DataTable getCustomercontactdataBAL( int Custno)
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.getCustomercontactdataDAL( Custno);
+
+        }
+        catch (Exception ex)
+        {
+
+
+        }
+        return dt;
+    }
+    public string tbl_Customer_Contact_Master_updateBAL(int id, string ContactName, string ContactEmail, string ContactPhone, string ContactMobileno1, string ContactMobileno2, int Dept, int Design, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
+    {
+
+        string res = "";
+        dal = new DataAccessLayer();
+        try
+        {
+            res = dal.tbl_Customer_Contact_Master_updateDAL(id, ContactName, ContactEmail, ContactPhone, ContactMobileno1, ContactMobileno2, Dept, Design, CreateBy, CreateDatetime, Extra1, Extra2, Extra3, Extra4, Extra5);
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+
+        return res;
+    }
+    public DataTable checkcustomercontactnameBAL(string Custno, string ContactName, string ContactEmail)
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.checkcustomercontactnameDAL(Custno, ContactName, ContactEmail);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+    public string tbl_Customer_Contact_Master_InsertBAL(string Custno, string ContactName, string ContactEmail, string ContactPhone, string ContactMobileno1, string ContactMobileno2, int Dept, int Design, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
+    {
+        string res = "";
+        dal = new DataAccessLayer();
+        try
+        {
+            res = dal.tbl_Customer_Contact_Master_InsertDAL(Custno, ContactName, ContactEmail, ContactPhone, ContactMobileno1, ContactMobileno2, Dept, Design, CreateBy, CreateDatetime, Extra1, Extra2, Extra3, Extra4, Extra5);
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+
+        return res;
     }
 }

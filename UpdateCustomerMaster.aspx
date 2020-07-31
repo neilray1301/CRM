@@ -1,8 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Demo.master" AutoEventWireup="true" CodeFile="Customer.aspx.cs" Inherits="Customer" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Demo.master" AutoEventWireup="true" CodeFile="UpdateCustomerMaster.aspx.cs" Inherits="UpdateCustomerMaster" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-      <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+       <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
@@ -32,28 +32,44 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-       <div class="content-wrapper">
-    <section class="content-header">
-            <h1>Customer</h1>
+        <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>Customer  Master
+                    
+            </h1>
             <ol class="breadcrumb">
-                 <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
+                <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
                 <li><a href="#">Master</a></li>
                 <li class="active">Customer  Master</li>
                 <asp:Label ID="lblcomno" runat="server" Text=""></asp:Label>
                 <asp:Label ID="lblid" runat="server" Visible="false" Text=""></asp:Label>
                   <asp:Label ID="lblloginid" runat="server" Visible="false" Text=""></asp:Label>
-                 <asp:Label ID="lblrole" runat="server" Visible="false" Text=""></asp:Label>
+                  <asp:Label ID="lblrole" runat="server" Visible="false" Text=""></asp:Label>
             </ol>
         </section>
-
-                   <section class="content">
+        <!-- Main content -->
+        <section class="content">
             <!-- SELECT2 EXAMPLE -->
             <div class="box box-primary">
 
                 <!-- /.box-header -->
                 <div class="box-body">
 
-                    
+                  <%--  <div class="row">
+                        
+                        <div class="col-md-12 form-group">
+                            <label class="control-label">
+                                Customer Group 
+                            </label>
+                            <div class="input-group">
+                                <asp:DropDownList ID="dpcustgroup" runat="server" AutoPostBack="false" data-placeholder="Parul University" CssClass="form-control select2" TabIndex="14"></asp:DropDownList>
+                                <span class="input-group-btn">
+                                    <asp:LinkButton ID="LinkButton1" runat="server" CssClass="btn btn-dropbox btn-flat" CausesValidation="false"><i class="fa fa-plus"></i></asp:LinkButton></span>
+                            </div>
+
+                        </div>
+                    </div>--%>
                     <div class="row">
                         <div class="col-md-12 form-group">
                             <label class="control-label">
@@ -370,9 +386,9 @@
                                         <ItemStyle Wrap="true" HorizontalAlign="Left" />
                                         <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />
                                     </asp:TemplateField>
-                                     <%-- <asp:TemplateField HeaderText="Date of Birth">
+                                      <asp:TemplateField HeaderText="Date of Birth">
                                         <ItemTemplate>
-                                            <asp:Label ID="lbldob" runat="server" Text='<%# Eval("Extra1") %>'></asp:Label>
+                             <%--               <asp:Label ID="lbldob" runat="server" Text='<%# Eval("Extra1") %>'></asp:Label>
                                         </ItemTemplate>
                                         <ItemStyle Wrap="true" HorizontalAlign="Left" />
                                         <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />
@@ -384,9 +400,9 @@
                                         </ItemTemplate>
                                         <ItemStyle Wrap="true" HorizontalAlign="Left" />
                                         <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />
-                                    </asp:TemplateField>--%>
+                                    </asp:TemplateField>
                                     <asp:TemplateField HeaderStyle-CssClass="lblfamt" HeaderText="Edit">
-                                        <ItemTemplate>
+                                        <ItemTemplate>--%>
                                             <asp:ImageButton ID="btnedit" ImageUrl="images/viewIcon.png" ToolTip="Click here to update"
                                                 runat="server" CssClass="imgbtnalign1" CommandArgument='<%# Eval("Id") %>'
                                                 CommandName="editdata" CausesValidation="False" />
@@ -416,14 +432,18 @@
                 <div class="row" style="text-align: right">
 
                     <div class="col-md-12 form-group" style="padding-top: 5px">
-                        <asp:LinkButton ID="btnSave" runat="server" TabIndex="30" ValidationGroup="cust" OnClick="btnSave_Click" CssClass="btn btn-bitbucket btn-flat"><i class="fa fa-save"></i>&nbsp;Save</asp:LinkButton>
-                        <asp:LinkButton ID="btnUpdate" Visible="false" runat="server" TabIndex="31" CssClass="btn btn-bitbucket btn-flat"><i class="fa fa-save"></i>&nbsp;Update</asp:LinkButton>
-                        <asp:LinkButton ID="btnDelete" runat="server" TabIndex="32" CssClass="btn btn-bitbucket bg-gray btn-flat" CausesValidation="false"><i class="fa fa-times"></i>&nbsp;Reset</asp:LinkButton>
+                        <asp:LinkButton ID="btnupdate" runat="server" TabIndex="30" ValidationGroup="cust" OnClick="btnupdate_Click" CssClass="btn btn-bitbucket btn-flat"><i class="fa fa-save"></i>&nbsp;Save</asp:LinkButton>
+                        <asp:LinkButton ID="btndelete" Visible="false" OnClick="btndelete_Click" runat="server" TabIndex="31" CssClass="btn btn-bitbucket btn-flat"><i class="fa fa-save"></i>&nbsp;Update</asp:LinkButton>
+                        <asp:LinkButton ID="btncancel" runat="server" OnClick="btncancel_Click" TabIndex="32" CssClass="btn btn-bitbucket bg-gray btn-flat" CausesValidation="false"><i class="fa fa-times"></i>&nbsp;Reset</asp:LinkButton>
                     </div>
                 </div>
                 <!-- /.row -->
         </section>
-   <asp:ModalPopupExtender ID="mpbtype" runat="server" PopupControlID="pnlnbussinesstype" TargetControlID="lbtncreatebtype"
+
+
+
+
+         <asp:ModalPopupExtender ID="mpbtype" runat="server" PopupControlID="pnlnbussinesstype" TargetControlID="lbtncreatebtype"
             CancelControlID="btnclosebtype" BackgroundCssClass="modalBackground">
         </asp:ModalPopupExtender>
         <asp:Panel ID="pnlnbussinesstype" runat="server" CssClass="modalPopup" align="center" Style="display: none">
@@ -623,6 +643,7 @@
             </div>
             <asp:Button ID="Button3" runat="server" Text="Close" />
         </asp:Panel>
-           </div>
+    </div>
+
 </asp:Content>
 

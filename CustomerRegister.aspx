@@ -1,18 +1,18 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Demo.master" AutoEventWireup="true" CodeFile="InquiryRegistry.aspx.cs" Inherits="InquiryRegistry" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Demo.master" AutoEventWireup="true" CodeFile="CustomerRegister.aspx.cs" Inherits="CustomerRegister" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-      <div class="content-wrapper">
+     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-           Inquiry  Register    
+                Customer  Register    
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
                 <li><a href="#">Master</a></li>
-                <li class="active">Inquiry  Register</li>
+                <li class="active">Customer  Register</li>
                 <asp:Label ID="lblid" runat="server" Visible="false" Text=""></asp:Label>
                 <asp:Label ID="lblloginid" runat="server" Visible="false" Text=""></asp:Label>
                 <asp:Label ID="lblrole" runat="server" Visible="false" Text=""></asp:Label>
@@ -22,7 +22,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group pull-right">
-                        <asp:LinkButton ID="btncreate" runat="server" OnClick="btncreate_Click"  TabIndex="19" CssClass="btn btn-bitbucket btn-flat"><i class="fa fa-save"></i>&nbsp;Create Inquiry</asp:LinkButton>
+                        <asp:LinkButton ID="btncreate" runat="server" OnClick="btncreate_Click"  TabIndex="19" CssClass="btn btn-bitbucket btn-flat"><i class="fa fa-save"></i>&nbsp;Create Customer</asp:LinkButton>
                        
                     </div>
                 </div>
@@ -43,79 +43,92 @@
                                         <asp:TemplateField HeaderStyle-CssClass="" HeaderText="Edit">
                                             <ItemTemplate>
                                                 <asp:ImageButton ID="btnedit" ImageUrl="images/viewIcon.png" ToolTip="Click here to update"
-                                                    runat="server" CssClass="imgbtnalign1" CommandArgument='<%# Eval("Noseries") %>'
+                                                    runat="server" CssClass="imgbtnalign1" CommandArgument='<%# Eval("No") %>'
                                                     CommandName="editdata" CausesValidation="False" />
                                             </ItemTemplate>
                                         </asp:TemplateField>
 
-                                         <asp:TemplateField HeaderText="No">
+                                        <%-- <asp:TemplateField HeaderText="Customer Group">
                                             <ItemTemplate>
-                                                <asp:Label ID="lblno" runat="server" Text='<%# Eval("InqiuryNo") %>'></asp:Label>
-                                            </ItemTemplate>
-                                            <ItemStyle Wrap="true" HorizontalAlign="Left" />
-                                            <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />
-                                        </asp:TemplateField>
-                                          
-
-
-
-                                        <asp:TemplateField HeaderText="Date">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lbldate" runat="server" Text='<%# Eval("Inquirydate") %>'></asp:Label>
-                                            </ItemTemplate>
-                                            <ItemStyle Wrap="true" HorizontalAlign="Left" />
-                                            <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />
-                                        </asp:TemplateField>
-                                        <%--<asp:TemplateField HeaderText="Customer Group">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lblcustgroup" runat="server" Text='<%# Eval("Custgroup") %>'></asp:Label>
+                                                <asp:Label ID="lblCustomerGroup" runat="server" Text='<%# Eval("CustomerGroup") %>'></asp:Label>
                                             </ItemTemplate>
                                             <ItemStyle Wrap="true" HorizontalAlign="Left" />
                                             <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />
                                         </asp:TemplateField>--%>
-                                        <asp:TemplateField HeaderText="Customer">
+                                          
+
+
+
+                                        <asp:TemplateField HeaderText="Name">
                                             <ItemTemplate>
-                                                <asp:Label ID="lblcust" runat="server" Text='<%# Eval("Name") %>'></asp:Label>
+                                                <asp:Label ID="lblname" runat="server" Text='<%# Eval("Name") %>'></asp:Label>
                                             </ItemTemplate>
                                             <ItemStyle Wrap="true" HorizontalAlign="Left" />
                                             <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />
                                         </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="Contact Person">
+                                        <asp:TemplateField HeaderText="City">
                                             <ItemTemplate>
-                                                <asp:Label ID="lblcontact" runat="server" Text='<%# Eval("ContactName") %>'></asp:Label>
+                                                <asp:Label ID="lblCity" runat="server" Text='<%# Eval("City") %>'></asp:Label>
+                                            </ItemTemplate>
+                                            <ItemStyle Wrap="true" HorizontalAlign="Left" />
+                                            <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="State">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblState" runat="server" Text='<%# Eval("State") %>'></asp:Label>
+                                            </ItemTemplate>
+                                            <ItemStyle Wrap="true" HorizontalAlign="Left" />
+                                            <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="District">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblDistrict" runat="server" Text='<%# Eval("District") %>'></asp:Label>
+                                            </ItemTemplate>
+                                            <ItemStyle Wrap="true" HorizontalAlign="Left" />
+                                            <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="PhoneNo">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblPhoneNo" runat="server" Text='<%# Eval("PhoneNo") %>'></asp:Label>
                                             </ItemTemplate>
                                             <ItemStyle Wrap="true" HorizontalAlign="Left" />
                                             <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="Email">
                                             <ItemTemplate>
-                                                <asp:Label ID="lblContactEmail" runat="server" Text='<%# Eval("ContactEmail") %>'></asp:Label>
+                                                <asp:Label ID="lblEmail" runat="server" Text='<%# Eval("Email") %>'></asp:Label>
                                             </ItemTemplate>
                                             <ItemStyle Wrap="true" HorizontalAlign="Left" />
                                             <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />
                                         </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="Mobileno">
+                                        <asp:TemplateField HeaderText="Bussiness Type">
                                             <ItemTemplate>
-                                                <asp:Label ID="lblmno" runat="server" Text='<%# Eval("ContactPhone") %>'></asp:Label>
+                                                <asp:Label ID="lblBussType" runat="server" Text='<%# Eval("BusinessTypeName") %>'></asp:Label>
                                             </ItemTemplate>
                                             <ItemStyle Wrap="true" HorizontalAlign="Left" />
                                             <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />
                                         </asp:TemplateField>
-                                       <asp:TemplateField HeaderText="Source">
+                                        <asp:TemplateField HeaderText="Industry group">
                                             <ItemTemplate>
-                                                <asp:Label ID="lblsource" runat="server" Text='<%# Eval("Source") %>'></asp:Label>
+                                                <asp:Label ID="lblGroupName" runat="server" Text='<%# Eval("IndustryName") %>'></asp:Label>
                                             </ItemTemplate>
                                             <ItemStyle Wrap="true" HorizontalAlign="Left" />
                                             <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="Status">
                                             <ItemTemplate>
-                                                <asp:Label ID="lblStatusName" runat="server" Text='<%# Eval("Status") %>'></asp:Label>
+                                                <asp:Label ID="lblStatus" runat="server" Text='<%# Eval("Status") %>'></asp:Label>
                                             </ItemTemplate>
                                             <ItemStyle Wrap="true" HorizontalAlign="Left" />
                                             <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />
                                         </asp:TemplateField>
-                                     
+                                        <asp:TemplateField HeaderText="GSTno">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblGSTno" runat="server" Text='<%# Eval("GSTno") %>'></asp:Label>
+                                            </ItemTemplate>
+                                            <ItemStyle Wrap="true" HorizontalAlign="Left" />
+                                            <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />
+                                        </asp:TemplateField>
 
 
 

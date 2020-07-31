@@ -6,7 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 
-public partial class InquiryRegistry : System.Web.UI.Page
+
+public partial class CustomerRegister : System.Web.UI.Page
 {
     DataTable dt = new DataTable();
     BusinessLogicLayer bal = new BusinessLogicLayer();
@@ -14,29 +15,17 @@ public partial class InquiryRegistry : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-           // if (Session["no"] == null)
-//{
-         //       Response.Redirect("Default.aspx", false);
-         //   }
-        //    else
-        //    {
-          //      lblloginid.Text = Session["no"].ToString();
-          //      lblrole.Text = Session["role"].ToString();
+            //if (Session["no"] == null)
+            //{
+            //    Response.Redirect("Default.aspx", false);
+            //}
+            //else
+            //{
+                //lblloginid.Text = Session["no"].ToString();
+                //lblrole.Text = Session["role"].ToString();
                 bindDetail();
-         //   }
+            
         }
-    }
-    protected void btncreate_Click(object sender, EventArgs e)
-    {
-        try
-        {
-            Response.Redirect("InquiryEntry.aspx", false);
-        }
-        catch (Exception ex)
-        {
-
-        }
-
     }
     public void bindDetail()
     {
@@ -46,12 +35,12 @@ public partial class InquiryRegistry : System.Web.UI.Page
 
             if (lblrole.Text.Equals("admin"))
             {
-                dt = bal.getallInqiurydataforadminBAL();
+                dt = bal.getallCustomerMasterataforadminBAL();
             }
             else
             {
 
-                dt = bal.getallInqiurydataBAL();
+                dt = bal.getallCustomerMasterataBAL(lblloginid.Text);
             }
 
 
@@ -76,6 +65,7 @@ public partial class InquiryRegistry : System.Web.UI.Page
             Getconnection.SiteErrorInsert(ex);
         }
     }
+
     protected void grddata_RowCommand(object sender, GridViewCommandEventArgs e)
     {
         try
@@ -84,7 +74,7 @@ public partial class InquiryRegistry : System.Web.UI.Page
             lblid.Text = e.CommandArgument.ToString();
             if (e.CommandName == "editdata")
             {
-                Response.Redirect(String.Format("Updateinqiury.aspx?no={0}", lblid.Text), false);
+                Response.Redirect(String.Format("UpdateCustomerMaster.aspx?no={0}", lblid.Text), false);
             }
         }
         catch (Exception ex)
@@ -92,4 +82,17 @@ public partial class InquiryRegistry : System.Web.UI.Page
 
         }
     }
+
+    protected void btncreate_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            Response.Redirect("Customer.aspx", false);
+        }
+        catch (Exception ex)
+        {
+
+        }
+    }
+
 }
