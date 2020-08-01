@@ -60,6 +60,7 @@ public partial class UpdateCustomerMaster : System.Web.UI.Page
                 txtbankname.Text = dtdata.Rows[0]["Bankname"].ToString();
                 txtaccno.Text = dtdata.Rows[0]["Accountno"].ToString();
                 txtifsccode.Text = dtdata.Rows[0]["IFSCcode"].ToString();
+                btndelete.Visible = true;
 
             }
         }

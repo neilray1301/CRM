@@ -1877,6 +1877,22 @@ public class BusinessLogicLayer
     }
 
     // Inquiry 
+    public DataTable getallitemBAL(int no)
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.getallitemDAL(no);
+
+        }
+        catch (Exception ex)
+        {
+
+
+        }
+        return dt;
+    }
     public string tbl_Inquiry_No_Series_InsertBAL(string No, string Extra1, string Extra2)
     {
         string res = "";
@@ -2167,6 +2183,54 @@ public class BusinessLogicLayer
         return dt;
     }
 
+    public DataTable getallInqiurydatabynoBAL(string Noseries)
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.getallInqiurydatabynoDAL(Noseries);
+
+        }
+        catch (Exception ex)
+        {
+
+
+        }
+        return dt;
+    }
+
+    public DataTable getCustomerNameBAL(string Createby, string GroupNo)
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.getCustomerNameDAL(Createby, GroupNo);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+    public string tbl_Inqiury_Master_UpdateBAL(int InqiuryNo, int Noseries, string Inquirydate,  int Custname, int Custcontact, string Custcontactno, int Dept, int Design, string ContactEmail, string ContactMno1, string ContactMno2, int InqiuryStatus, int InquirySource, string Remarks, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
+    {
+        string res = "";
+        dal = new DataAccessLayer();
+        try
+        {
+             res = dal.tbl_Inqiury_Master_UpdateDAL(InqiuryNo, Noseries, Inquirydate,  Custname, Custcontact, Custcontactno, Dept, Design, ContactEmail, ContactMno1, ContactMno2, InqiuryStatus, InquirySource, Remarks, CreateBy, CreateDatetime, Extra1, Extra2, Extra3, Extra4, Extra5);
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+
+        return res;
+    }
+
+
     // customer
     public string tbl_Customer_Master_InsertBAL(string No, string Groupno, string Comname, string Comarea, string Comaddress, string Comcity, string Comstate, string ComDistrict, string Country, string ComPincode, string ComPhoneNo, string ComEmail, int BussinessType, int Industrygroup, string URL, string Status, string GSTno, string Bankname, string Accountno, string IFSCcode, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
     {
@@ -2354,4 +2418,98 @@ public class BusinessLogicLayer
 
         return res;
     }
+
+    //
+    //Terms and Conditions
+
+    public DataTable checktermsandconditionsdata(string name)
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.checktermsandconditionsdata(name);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+
+    public string Savetermsandconditionsbll(string name, string termsandconditions,string Createby, DateTime Createddatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
+    {
+        string res = "";
+        dal = new DataAccessLayer();
+        try
+        {
+            res = dal.Savetermsandconditionsbll(name,termsandconditions ,Createby, Createddatetime, Extra1, Extra2, Extra3, Extra4, Extra5);
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+
+        return res;
+    } //done
+
+    public DataTable getalltermsandconditionsfroadminBAL()
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.getalltermsandconditionsDAL();
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+    public DataTable gettermsandconditionsdatabyidBAL(string Id)
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.gettermsandconditionsdatabyidDAL(Id);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    } //done
+    public string deletetermsandconditionsdata(string id)
+    {
+        string res = "";
+        dal = new DataAccessLayer();
+        try
+        {
+            res = dal.deletetermsandconditionsdata(id);
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+
+        return res;
+    } //done
+    public string tbl_termsandconditionsupdate(string id, string name,string tandc)
+    {
+        string res = "";
+        dal = new DataAccessLayer();
+        try
+        {
+            res = dal.tbl_termsandconditionsupdate(id, name,tandc);
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+
+        return res;
+    } //done
+
 }

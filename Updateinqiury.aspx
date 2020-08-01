@@ -88,7 +88,7 @@
                         </div>
                     </div>
 
-                    <div class="row">
+                   <%-- <div class="row">
                         <div class="col-md-12 form-group">
                             <label>Customer Group <span class="required">* </span></label>
 
@@ -102,7 +102,7 @@
 
                         </div>
 
-                    </div>
+                    </div>--%>
                     <div class="row">
                         <div class="col-md-6 form-group">
                             <label>Name of Customer <span class="required">* </span></label>
@@ -138,7 +138,7 @@
 
 
                             <div class="input-group">
-                                <asp:DropDownList ID="dpcontactper" runat="server" AutoPostBack="true" OnSelectedIndexChanged="dpcontactper_SelectedIndexChanged" data-placeholder="Select Conatct Person" CssClass="form-control select2" TabIndex="5"></asp:DropDownList>
+                                <asp:DropDownList ID="dpcontactper" runat="server" AutoPostBack="true"  data-placeholder="Select Conatct Person" CssClass="form-control select2" TabIndex="5"></asp:DropDownList>
                                 <span class="input-group-btn">
                                     <asp:LinkButton ID="LinkButton2" runat="server" CssClass="btn btn-dropbox btn-flat" CausesValidation="false"><i class="fa fa-plus"></i></asp:LinkButton></span>
                             </div>
@@ -158,7 +158,7 @@
                             <label>Department<span class="required"> </span></label>
 
 
-                            <asp:DropDownList ID="ddlDept" runat="server" AutoPostBack="false" Enabled="false" data-placeholder="Select Department" CssClass="form-control select2" TabIndex="23"></asp:DropDownList>
+                            <asp:DropDownList ID="ddlDept" runat="server" AutoPostBack="false" Enabled="true" data-placeholder="Select Department" CssClass="form-control select2" TabIndex="23"></asp:DropDownList>
 
 
                         </div>
@@ -166,7 +166,7 @@
                             <label class="control-label">
                                 Designation
                             </label>
-                            <asp:DropDownList ID="ddldesign" runat="server" AutoPostBack="false" Enabled="false" data-placeholder="Select Designation" CssClass="form-control select2" TabIndex="24"></asp:DropDownList>
+                            <asp:DropDownList ID="ddldesign" runat="server" AutoPostBack="false" Enabled="true" data-placeholder="Select Designation" CssClass="form-control select2" TabIndex="24"></asp:DropDownList>
 
                         </div>
                     </div>
@@ -235,7 +235,7 @@
                                         <asp:LinkButton ID="LinkButton4" runat="server" CssClass="btn btn-dropbox btn-flat" CausesValidation="false"><i class="fa fa-plus"></i></asp:LinkButton></span>
                                 </div>
                             </div>
-                            <div class="col-md-4 form-group">
+                          <%--  <div class="col-md-4 form-group">
                                 <label>Select Principal <span class="required">* </span></label>
 
 
@@ -256,9 +256,9 @@
                                 </div>
                             </div>
 
-                        </div>
+                        </div>--%>
                         <div class="row">
-                            <div class="col-md-3 form-group">
+                            <div class="col-md-2 form-group">
                                 <label>UOM <span class="required">* </span></label>
 
 
@@ -275,7 +275,7 @@
                                 <asp:TextBox ID="txtqty" ClientIDMode="Static" onkeyup="tSpeedValue(this)" class="form-control" TabIndex="2" runat="server"></asp:TextBox>
 
                             </div>
-                            <div class="col-md-2 form-group">
+                            <div class="col-md-1 form-group">
                                 <label class="control-label">
                                     Rate:
                                 </label>
@@ -283,7 +283,7 @@
 
                             </div>
 
-                            <div class="col-md-2 form-group">
+                            <div class="col-md-1 form-group">
                                 <label class="control-label">
                                     Amount:
                                 </label>
@@ -292,7 +292,7 @@
                             </div>
 
 
-                            <div class="col-md-3 form-group" style="margin-top: 25px; text-align: left">
+                            <div class="col-md-2 form-group" style="margin-top: 25px; text-align: left">
 
                                 <asp:LinkButton ID="btnaddproduct" runat="server" TabIndex="35" OnClick="btnaddproduct_Click" CssClass="btn btn-bitbucket btn-flat"><i class="fa fa-save"></i>&nbsp;Add Product</asp:LinkButton>
                                 <asp:LinkButton ID="lbtnupdatecontact" Visible="false" runat="server" OnClick="lbtnupdatecontact_Click" TabIndex="28" CssClass="btn btn-bitbucket btn-flat"><i class="fa fa-save"></i>&nbsp;Update</asp:LinkButton>
@@ -314,12 +314,12 @@
                                     <Columns>
                                         <asp:TemplateField HeaderText="ItemName">
                                             <ItemTemplate>
-                                                <asp:Label ID="lblItemName" runat="server" Text='<%# Eval("ItemName") %>'></asp:Label>
+                                                <asp:Label ID="lblItemName" runat="server" Text='<%# Eval("itemgroup") %>'></asp:Label>
                                             </ItemTemplate>
                                             <ItemStyle Wrap="true" HorizontalAlign="Left" />
                                             <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />
                                         </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="Supplier">
+                                     <%--   <asp:TemplateField HeaderText="Supplier">
                                             <ItemTemplate>
                                                 <asp:Label ID="lblSupplier" runat="server" Text='<%# Eval("Supplier") %>'></asp:Label>
                                             </ItemTemplate>
@@ -332,11 +332,11 @@
                                             </ItemTemplate>
                                             <ItemStyle Wrap="true" HorizontalAlign="Left" />
                                             <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />
-                                        </asp:TemplateField>
+                                        </asp:TemplateField>--%>
 
                                         <asp:TemplateField HeaderText="UOM">
                                             <ItemTemplate>
-                                                <asp:Label ID="lblUOM" runat="server" Text='<%# Eval("UOM") %>'></asp:Label>
+                                                <asp:Label ID="lblUOM" runat="server" Text='<%# Eval("UnitofMeasurement") %>'></asp:Label>
                                             </ItemTemplate>
                                             <ItemStyle Wrap="true" HorizontalAlign="Left" />
                                             <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />
@@ -487,14 +487,14 @@
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="Followup Type">
                                             <ItemTemplate>
-                                                <asp:Label ID="lblFollowupName" runat="server" Text='<%# Eval("FollowupName") %>'></asp:Label>
+                                                <asp:Label ID="lblFollowupName" runat="server" Text='<%# Eval("FollowUpType") %>'></asp:Label>
                                             </ItemTemplate>
                                             <ItemStyle Wrap="true" HorizontalAlign="Left" />
                                             <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="Status">
                                             <ItemTemplate>
-                                                <asp:Label ID="lblStatusName" runat="server" Text='<%# Eval("StatusName") %>'></asp:Label>
+                                                <asp:Label ID="lblStatusName" runat="server" Text='<%# Eval("Status") %>'></asp:Label>
                                             </ItemTemplate>
                                             <ItemStyle Wrap="true" HorizontalAlign="Left" />
                                             <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />
@@ -540,7 +540,7 @@
                             <div class="col-md-12 form-group" style="padding-top: 5px; text-align: right">
                                
                                 <asp:LinkButton ID="btnUpdate" Visible="false" OnClick="btnUpdate_Click" runat="server" TabIndex="37" CssClass="btn btn-bitbucket btn-flat"><i class="fa fa-save"></i>&nbsp;Update</asp:LinkButton>
-                                <asp:LinkButton ID="btnDelete" runat="server" TabIndex="38" CssClass="btn btn-bitbucket btn-flat" CausesValidation="false"><i class="fa fa-save"></i>&nbsp;Delete</asp:LinkButton>
+                                <asp:LinkButton ID="btnDelete" runat="server" Visible="false"  TabIndex="38" CssClass="btn btn-bitbucket btn-flat" CausesValidation="false"><i class="fa fa-save"></i>&nbsp;Delete</asp:LinkButton>
                                  <asp:LinkButton ID="btncancel" runat="server" OnClick="btncancel_Click"  ValidationGroup="Emst" TabIndex="36" CssClass="btn btn-bitbucket bg-gray btn-flat"><i class="fa fa-times"></i>&nbsp;Cancel</asp:LinkButton>
                             </div>
                         </div>

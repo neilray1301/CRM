@@ -3024,6 +3024,104 @@ public class DataAccessLayer
         }
         return dt;
     }
+    public DataTable getallInqiurydatabynoDAL(string Noseries)
+    {
+        DataTable dt = null;
+        try
+        {
+            c = con.getconnection();
+            SqlCommand cmd = new SqlCommand("getallInqiurydatabyno", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            cmd.Parameters.Add("@Noseries", SqlDbType.VarChar).Value = Noseries;
+            dt = new DataTable();
+            da.Fill(dt);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+    public DataTable getCustomerNameDAL(string Createby, string GroupNo)
+    {
+        DataTable dt = null;
+        try
+        {
+            c = con.getconnection();
+            SqlCommand cmd = new SqlCommand("getCustomerName", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            cmd.Parameters.Add("@Createby", SqlDbType.VarChar).Value = Createby;
+            cmd.Parameters.Add("@GroupNo", SqlDbType.VarChar).Value = GroupNo;
+            dt = new DataTable();
+            da.Fill(dt);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+    public string tbl_Inqiury_Master_UpdateDAL(int InqiuryNo, int Noseries, string Inquirydate,  int Custname, int Custcontact, string Custcontactno, int Dept, int Design, string ContactEmail, string ContactMno1, string ContactMno2, int InqiuryStatus, int InquirySource, string Remarks, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
+    {
+        string res = "";
+        try
+        {
+            c = con.getconnection();
+            cmd = new SqlCommand("tbl_Inqiury_Master_Update", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@InqiuryNo", SqlDbType.Int).Value = InqiuryNo;
+            cmd.Parameters.Add("@Noseries", SqlDbType.Int).Value = Noseries;
+            cmd.Parameters.Add("@Inquirydate", SqlDbType.VarChar).Value = Inquirydate;
+         //   cmd.Parameters.Add("@Custgroup", SqlDbType.Int).Value = Custgroup;
+            cmd.Parameters.Add("@Custname", SqlDbType.Int).Value = Custname;
+            cmd.Parameters.Add("@Custcontact", SqlDbType.Int).Value = Custcontact;
+            cmd.Parameters.Add("@Custcontactno", SqlDbType.VarChar).Value = Custcontactno;
+            cmd.Parameters.Add("@Dept", SqlDbType.Int).Value = Dept;
+            cmd.Parameters.Add("@Design", SqlDbType.Int).Value = Design;
+
+
+            cmd.Parameters.Add("@ContactEmail", SqlDbType.VarChar).Value = ContactEmail;
+            cmd.Parameters.Add("@ContactMno1", SqlDbType.VarChar).Value = ContactMno1;
+            cmd.Parameters.Add("@ContactMno2", SqlDbType.VarChar).Value = ContactMno2;
+            cmd.Parameters.Add("@InqiuryStatus", SqlDbType.Int).Value = InqiuryStatus;
+            cmd.Parameters.Add("@InquirySource", SqlDbType.Int).Value = InquirySource;
+            cmd.Parameters.Add("@Remarks", SqlDbType.VarChar).Value = Remarks;
+            cmd.Parameters.Add("@CreateBy", SqlDbType.VarChar).Value = CreateBy;
+            cmd.Parameters.Add("@CreateDatetime", SqlDbType.DateTime).Value = CreateDatetime;
+            cmd.Parameters.Add("@Extra1", SqlDbType.VarChar).Value = Extra1;
+            cmd.Parameters.Add("@Extra2", SqlDbType.VarChar).Value = Extra2;
+            cmd.Parameters.Add("@Extra3", SqlDbType.VarChar).Value = Extra3;
+            cmd.Parameters.Add("@Extra4", SqlDbType.VarChar).Value = Extra4;
+            cmd.Parameters.Add("@Extra5", SqlDbType.VarChar).Value = Extra5;
+            res = cmd.ExecuteNonQuery().ToString();
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+        return res;
+    }
+    public DataTable getallitemDAL(int no)
+    {
+        DataTable dt = null;
+        try
+        {
+            c = con.getconnection();
+            SqlCommand cmd = new SqlCommand("getallitem", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            cmd.Parameters.Add("@id", SqlDbType.Int).Value = no;
+            dt = new DataTable();
+            da.Fill(dt);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
 
     //customer
     public string tbl_Customer_Master_InsertDAL(string No, string GroupNo, string Comname, string Comarea, string Comaddress, string Comcity, string Comstate, string ComDistrict, string Country, string ComPincode, string ComPhoneNo, string ComEmail, int BussinessType, int Industrygroup, string URL, string Status, string GSTno, string Bankname, string Accountno, string IFSCcode, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
@@ -3329,5 +3427,137 @@ public class DataAccessLayer
         }
         return res;
     }
+
+    //
+    //Terms and Conditions
+
+    public DataTable checktermsandconditionsdata(string name)
+    {
+        DataTable dt = null;
+        try
+        {
+            c = con.getconnection();
+            SqlCommand cmd = new SqlCommand("checktermsandconditions", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            cmd.Parameters.Add("@Title", SqlDbType.VarChar).Value = name;
+            dt = new DataTable();
+            da.Fill(dt);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+
+    public string Savetermsandconditionsbll(string name,string termsandconditions, string Createby, DateTime Createddatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
+    {
+        string res = "";
+        try
+        {
+            c = con.getconnection();
+            cmd = new SqlCommand("inserttermsandconditions", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@Title", SqlDbType.VarChar).Value = name;
+            cmd.Parameters.Add("@Termsandconditions", SqlDbType.VarChar).Value = termsandconditions;
+
+            cmd.Parameters.Add("@Createby", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@CreateDateTime", SqlDbType.DateTime).Value = Createddatetime;
+            cmd.Parameters.Add("@Extra1", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@Extra2", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@Extra3", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@Extra4", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@Extra5", SqlDbType.VarChar).Value = "";
+
+
+            res = cmd.ExecuteNonQuery().ToString();
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+        return res;
+    } //done
+
+    public DataTable getalltermsandconditionsDAL()
+    {
+        DataTable dt = null;
+        try
+        {
+            c = con.getconnection();
+            SqlCommand cmd = new SqlCommand("termsandconditionsdisp", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            dt = new DataTable();
+            da.Fill(dt);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+    public DataTable gettermsandconditionsdatabyidDAL(string Id)
+    {
+        DataTable dt = null;
+        try
+        {
+            c = con.getconnection();
+            SqlCommand cmd = new SqlCommand("showtermsandconditions", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            cmd.Parameters.Add("@id", SqlDbType.VarChar).Value = Id;
+
+            dt = new DataTable();
+            da.Fill(dt);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    } //done
+
+    public string deletetermsandconditionsdata(string Id)
+    {
+        string res = "";
+        try
+        {
+            c = con.getconnection();
+            cmd = new SqlCommand("deletetermsandconditions", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@id", SqlDbType.VarChar).Value = Id;
+
+            res = cmd.ExecuteNonQuery().ToString();
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+        return res;
+    } //done
+    public string tbl_termsandconditionsupdate(string Id, string name,string tandc)
+    {
+        string res = "";
+        try
+        {
+            c = con.getconnection();
+            cmd = new SqlCommand("updatedesignation", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@id", SqlDbType.VarChar).Value = Id;
+            cmd.Parameters.Add("@Title", SqlDbType.VarChar).Value = name;
+            cmd.Parameters.Add("@TandC", SqlDbType.VarChar).Value = tandc;
+
+
+            res = cmd.ExecuteNonQuery().ToString();
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+        return res;
+    } //done
 
 }

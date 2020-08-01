@@ -433,7 +433,7 @@
 
                     <div class="col-md-12 form-group" style="padding-top: 5px">
                         <asp:LinkButton ID="btnupdate" runat="server" TabIndex="30" ValidationGroup="cust" OnClick="btnupdate_Click" CssClass="btn btn-bitbucket btn-flat"><i class="fa fa-save"></i>&nbsp;Save</asp:LinkButton>
-                        <asp:LinkButton ID="btndelete" Visible="false" OnClick="btndelete_Click" runat="server" TabIndex="31" CssClass="btn btn-bitbucket btn-flat"><i class="fa fa-save"></i>&nbsp;Update</asp:LinkButton>
+                        <asp:LinkButton ID="btndelete" Visible="false" OnClick="btndelete_Click" runat="server" TabIndex="31" CssClass="btn btn-bitbucket btn-flat"><i class="fa fa-save"></i>&nbsp;Delete</asp:LinkButton>
                         <asp:LinkButton ID="btncancel" runat="server" OnClick="btncancel_Click" TabIndex="32" CssClass="btn btn-bitbucket bg-gray btn-flat" CausesValidation="false"><i class="fa fa-times"></i>&nbsp;Reset</asp:LinkButton>
                     </div>
                 </div>

@@ -418,8 +418,8 @@ public partial class InquiryEntry : System.Web.UI.Page
                 DateTime utcTime = DateTime.UtcNow;
                 TimeZoneInfo tzi = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
                 DateTime localTime = TimeZoneInfo.ConvertTimeFromUtc(utcTime, tzi);
-              //  txtrate.Text = "2000";
-                bal.tbl_Inqiury_Details_InsertBAL(Convert.ToInt32(lblcomno.Text), Convert.ToInt32(dpitem.SelectedValue.ToString()),  Convert.ToInt32(dpuom.SelectedValue.ToString()), Convert.ToDecimal(txtqty.Text), Convert.ToDecimal(txtrate.Text), Convert.ToDecimal(txtamount.Text), lblloginid.Text, localTime, "", "", "", "", "");
+                //  txtrate.Text = "2000";
+                bal.tbl_Inqiury_Details_InsertBAL(Convert.ToInt32(lblcomno.Text), Convert.ToInt32(dpitem.SelectedValue.ToString()), Convert.ToInt32(dpuom.SelectedValue.ToString()), Convert.ToDecimal(txtqty.Text), Convert.ToDecimal(txtrate.Text), Convert.ToDecimal(txtamount.Text), lblloginid.Text, localTime, "", "", "", "", "");
                 resetcontact();
                 binditemdata();
                 //txtcontactname.Focus();
@@ -743,8 +743,9 @@ public partial class InquiryEntry : System.Web.UI.Page
 
     protected void dpitem_SelectedIndexChanged(object sender, EventArgs e)
     {
-        try {
-            DataTable dtdata = bal.getallItemdataforadminBAL();
+        try
+        {
+            DataTable dtdata = bal.getallitemBAL(Convert.ToInt32(dpitem.SelectedValue));
             if (dtdata.Rows.Count > 0)
             {
                 txtrate.Text = dtdata.Rows[0]["Itemrate"].ToString();
@@ -755,10 +756,10 @@ public partial class InquiryEntry : System.Web.UI.Page
             }
         }
         catch (Exception ex)
-             {
+        {
 
-            
-               }
+
+        }
     }
 
 

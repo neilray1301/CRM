@@ -208,7 +208,7 @@
                     <div class="box box-primary">
                         <div class="row">
 
-                            <div class="col-md-4 form-group">
+                            <div class="col-md-3 form-group">
                                 <label>Select Product <span class="required">* </span></label>
 
 
