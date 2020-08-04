@@ -2511,5 +2511,137 @@ public class BusinessLogicLayer
 
         return res;
     } //done
+    public string tbl_Quotation_No_Series_InsertBAL(string No, string Extra1, string Extra2)
+    {
+        string res = "";
+        dal = new DataAccessLayer();
+        try
+        {
+            res = dal.tbl_Quotation_No_Series_InsertDAL(No, Extra1, Extra2);
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
 
+        return res;
+    }
+    public string tbl_Quotation_Details_InsertBAL(int Noseries, int Item, int UOM, decimal Qty, decimal Rate, decimal Amount, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
+    {
+        string res = "";
+        dal = new DataAccessLayer();
+        try
+        {
+            res = dal.tbl_Inqiury_Details_InsertDAL(Noseries, Item, UOM, Qty, Rate, Amount, CreateBy, CreateDatetime, Extra1, Extra2, Extra3, Extra4, Extra5);
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+
+        return res;
+    }
+    public string tbl_Quotation_Details_updateBAL(int Id, int Item, int UOM, decimal Qty, decimal Rate, decimal Amount, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
+    {
+
+        string res = "";
+        dal = new DataAccessLayer();
+        try
+        {
+            res = dal.tbl_Quotation_Details_updateDAL(Id, Item, UOM, Qty, Rate, Amount, CreateBy, CreateDatetime, Extra1, Extra2, Extra3, Extra4, Extra5);
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+
+        return res;
+    }
+    public DataTable checkQuotationProductNameBAL(string Noseries, int Item)
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.checkQuotationProductNameDAL(Noseries, Item);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+    public string tbl_Quotation_Followup_InsertBAL(int Noseries, string NextFolldate, int Follotype, int Assignto, int FolloStatus, string Remarks, string Comdate, string Comremarks, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
+    {
+        string res = "";
+        dal = new DataAccessLayer();
+        try
+        {
+            res = dal.tbl_Quotation_Followup_InsertDAL(Noseries, NextFolldate, Follotype, Assignto, FolloStatus, Remarks, Comdate, Comremarks, CreateBy, CreateDatetime, Extra1, Extra2, Extra3, Extra4, Extra5);
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+
+        return res;
+    }
+    public DataTable checkQuotationFollowupBAL(string Noseries, string NextFolldate, int Follotype)
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.checkQuotationFollowupDAL(Noseries, NextFolldate, Follotype);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+    public string tbl_Quotation_Followup_updateBAL(int Id, int Noseries, string NextFolldate, int Follotype, int Assignto, int FolloStatus, string Remarks, string Comdate, string Comremarks, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
+    {
+        string res = "";
+        dal = new DataAccessLayer();
+        try
+        {
+            res = dal.tbl_Quotation_Followup_updateDAL(Id, Noseries, NextFolldate, Follotype, Assignto, FolloStatus, Remarks, Comdate, Comremarks, CreateBy, CreateDatetime, Extra1, Extra2, Extra3, Extra4, Extra5);
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+
+        return res;
+    }
+    public string tbl_Quotation_Master_InsertBAL(int InqiuryNo, int Noseries, string Inquirydate, int Custname, int Custcontact, string Custcontactno, int Dept, int Design, string ContactEmail, string ContactMno1, string ContactMno2, int InqiuryStatus, int InquirySource, string Remarks, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
+    {
+        string res = "";
+        dal = new DataAccessLayer();
+        try
+        {
+            res = dal.tbl_Quotation_Master_InsertDAL(InqiuryNo, Noseries, Inquirydate, Custname, Custcontact, Custcontactno, Dept, Design, ContactEmail, ContactMno1, ContactMno2, InqiuryStatus, InquirySource, Remarks, CreateBy, CreateDatetime, Extra1, Extra2, Extra3, Extra4, Extra5);
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+
+        return res;
+    }
+    public DataTable checkQuotationalreadyBAL(string InqiuryNo, string Inquirydate, int Custname)
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.checkQuotationalreadyDAL(InqiuryNo, Inquirydate, Custname);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
 }

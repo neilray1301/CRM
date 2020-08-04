@@ -1,8 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Demo.master" AutoEventWireup="true" CodeFile="InquiryEntry.aspx.cs" Inherits="InquiryEntry" %>
+
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-     <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
@@ -26,7 +27,7 @@
 
         }
     </script>
-   
+
 
     <style>
         .example-modal .modal {
@@ -45,12 +46,12 @@
         }
     </style>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-       <div class="content-wrapper">
-    <section class="content-header">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <div class="content-wrapper">
+        <section class="content-header">
             <h1>Inquiry Entry</h1>
             <ol class="breadcrumb">
-              <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
+                <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
                 <li><a href="#">Inqiury</a></li>
                 <li class="active">Inquiry Entry</li>
                 <asp:Label ID="lblcomno" runat="server" Text=""></asp:Label>
@@ -59,7 +60,7 @@
                 <asp:Label ID="lblrole" runat="server" Visible="false" Text=""></asp:Label>
             </ol>
         </section>
-                   <section class="content">
+        <section class="content">
             <!-- SELECT2 EXAMPLE -->
             <div class="box box-primary">
 
@@ -85,14 +86,14 @@
                         </div>
                     </div>
 
-                   
+
                     <div class="row">
                         <div class="col-md-6 form-group">
                             <label>Name of Customer <span class="required">* </span></label>
 
 
                             <div class="input-group">
-                               <asp:DropDownList ID="dpcust" runat="server" AutoPostBack="true" OnSelectedIndexChanged="dpcust_SelectedIndexChanged"  data-placeholder="Select Customer" CssClass="form-control select2" TabIndex="3"></asp:DropDownList>
+                                <asp:DropDownList ID="dpcust" runat="server" AutoPostBack="true" OnSelectedIndexChanged="dpcust_SelectedIndexChanged" data-placeholder="Select Customer" CssClass="form-control select2" TabIndex="3"></asp:DropDownList>
                                 <span class="input-group-btn">
                                     <asp:LinkButton ID="lbtncindugrp" runat="server" CssClass="btn btn-dropbox btn-flat" CausesValidation="false"><i class="fa fa-plus"></i></asp:LinkButton></span>
                             </div>
@@ -121,7 +122,7 @@
 
 
                             <div class="input-group">
-                                <asp:DropDownList ID="dpcontactper" OnSelectedIndexChanged="dpcontactper_SelectedIndexChanged" runat="server" AutoPostBack=""  data-placeholder="Select Conatct Person" CssClass="form-control select2" TabIndex="5"></asp:DropDownList>
+                                <asp:DropDownList ID="dpcontactper" OnSelectedIndexChanged="dpcontactper_SelectedIndexChanged" runat="server" AutoPostBack="true" data-placeholder="Select Conatct Person" CssClass="form-control select2" TabIndex="5"></asp:DropDownList>
                                 <span class="input-group-btn">
                                     <asp:LinkButton ID="LinkButton2" runat="server" CssClass="btn btn-dropbox btn-flat" CausesValidation="false"><i class="fa fa-plus"></i></asp:LinkButton></span>
                             </div>
@@ -180,16 +181,16 @@
                             <label class="control-label">
                                 MobileNo:<span class="required">* </span>
                             </label>
-                            <asp:TextBox ID="txtmobileno" class="form-control" TabIndex="9"  runat="server"></asp:TextBox>
-                          <%--  <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtaddress"
+                            <asp:TextBox ID="txtmobileno" class="form-control" TabIndex="9" runat="server"></asp:TextBox>
+                            <%--  <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtaddress"
                                 Display="Dynamic" ErrorMessage="Please Enter Name" Text="(*) Required" ValidationGroup="Emst" SetFocusOnError="true" ForeColor="Red"
                                 CssClass="validate"></asp:RequiredFieldValidator>--%>
                         </div>
                         <div class="col-md-6 form-group">
                             <label class="control-label">
-                               MobileNo(2)
+                                MobileNo(2)
                             </label>
-                            <asp:TextBox ID="txtmobileno2" class="form-control" TabIndex="10"  runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtmobileno2" class="form-control" TabIndex="10" runat="server"></asp:TextBox>
 
                         </div>
                     </div>
@@ -197,12 +198,12 @@
                     <div class="row">
                         <div class="col-md-12 form-group">
                             <label class="control-label">
-                                 Remarks
+                                Remarks
                             </label>
                             <asp:TextBox ID="txtremarks" class="form-control" TabIndex="10" TextMode="MultiLine" runat="server"></asp:TextBox>
 
                         </div>
-                        </div>
+                    </div>
                 </div>
                 <div class="box-body">
                     <div class="box box-primary">
@@ -213,7 +214,7 @@
 
 
                                 <div class="input-group">
-                                    <asp:DropDownList ID="dpitem" runat="server" AutoPostBack="true" OnSelectedIndexChanged="dpitem_SelectedIndexChanged"  data-placeholder="Select Product" CssClass="form-control select2" TabIndex="4"></asp:DropDownList>
+                                    <asp:DropDownList ID="dpitem" runat="server" AutoPostBack="true" OnSelectedIndexChanged="dpitem_SelectedIndexChanged" data-placeholder="Select Product" CssClass="form-control select2" TabIndex="4"></asp:DropDownList>
                                     <span class="input-group-btn">
                                         <asp:LinkButton ID="LinkButton4" runat="server" CssClass="btn btn-dropbox btn-flat" CausesValidation="false"><i class="fa fa-plus"></i></asp:LinkButton></span>
                                 </div>
@@ -242,7 +243,7 @@
                                 <asp:TextBox ID="txtrate" ReadOnly="true" ClientIDMode="Static" class="form-control" TabIndex="2" runat="server"></asp:TextBox>
 
                             </div>
-                           <div class="col-md-2 form-group">
+                            <div class="col-md-2 form-group">
                                 <label class="control-label">
                                     Amount:
                                 </label>
@@ -255,12 +256,11 @@
 
                                 <asp:LinkButton ID="btnaddproduct" runat="server" TabIndex="35" OnClick="btnaddproduct_Click" CssClass="btn btn-bitbucket btn-flat"><i class="fa fa-save"></i>&nbsp;Add Product</asp:LinkButton>
                                 <asp:LinkButton ID="lbtnupdatecontact" Visible="false" runat="server" OnClick="lbtnupdatecontact_Click" TabIndex="28" CssClass="btn btn-bitbucket btn-flat"><i class="fa fa-save"></i>&nbsp;Update</asp:LinkButton>
-<%--                                <asp:LinkButton ID="lbtnresetcontact" runat="server" TabIndex="29" OnClick="lbtnresetcontact_Click"  CssClass="btn btn-bitbucket bg-gray btn-flat" CausesValidation="false"><i class="fa fa-times"></i>&nbsp;Reset</asp:LinkButton>--%>
-
+                                <%--                                <asp:LinkButton ID="lbtnresetcontact" runat="server" TabIndex="29" OnClick="lbtnresetcontact_Click"  CssClass="btn btn-bitbucket bg-gray btn-flat" CausesValidation="false"><i class="fa fa-times"></i>&nbsp;Reset</asp:LinkButton>--%>
                             </div>
 
                         </div>
-                      
+
 
                         <div class="row">
 
@@ -280,8 +280,8 @@
                                             <ItemStyle Wrap="true" HorizontalAlign="Left" />
                                             <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />
                                         </asp:TemplateField>
-                                      
-                                    
+
+
 
                                         <asp:TemplateField HeaderText="UOM">
                                             <ItemTemplate>
@@ -358,7 +358,7 @@
 
 
                                 <div class="input-group">
-                                    <asp:DropDownList ID="dpfollowuptype" runat="server" AutoPostBack="false" data-placeholder="Select Conatct Person" CssClass="form-control select2" TabIndex="5"></asp:DropDownList>
+                                    <asp:DropDownList ID="dpfollowuptype" runat="server" AutoPostBack="false" data-placeholder="Select Contact Person" CssClass="form-control select2" TabIndex="5"></asp:DropDownList>
                                     <span class="input-group-btn">
                                         <asp:LinkButton ID="LinkButton5" runat="server" CssClass="btn btn-dropbox btn-flat" CausesValidation="false"><i class="fa fa-plus"></i></asp:LinkButton></span>
                                 </div>
@@ -366,7 +366,7 @@
 
                             </div>
 
-                           <%-- <div class="col-md-3 form-group">
+                            <%-- <div class="col-md-3 form-group">
                                 <label>Assign To<span class="required">* </span></label>
 
 
@@ -401,13 +401,13 @@
                                     Remarks:<span class="required">* </span>
                                 </label>
                                 <asp:TextBox ID="txtfremarks" class="form-control" TabIndex="9" TextMode="MultiLine" runat="server"></asp:TextBox>
-                               <%-- <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtfremarks"
+                                <%-- <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtfremarks"
                                     Display="Dynamic" ErrorMessage="Please Enter remarks" Text="(*) Required" ValidationGroup="Emst" SetFocusOnError="true" ForeColor="Red"
                                     CssClass="validate"></asp:RequiredFieldValidator>--%>
                             </div>
                             <div class="col-md-2 form-group" style="margin-top: 25px; text-align: left">
 
-                              <asp:LinkButton ID="lbtnaddfollowup" runat="server" OnClick="lbtnaddfollowup_Click" TabIndex="36" CssClass="btn btn-bitbucket btn-flat"><i class="fa fa-save"></i>&nbsp;Add Followup</asp:LinkButton>
+                                <asp:LinkButton ID="lbtnaddfollowup" runat="server" OnClick="lbtnaddfollowup_Click" TabIndex="36" CssClass="btn btn-bitbucket btn-flat"><i class="fa fa-save"></i>&nbsp;Add Followup</asp:LinkButton>
                                 <asp:LinkButton ID="lbtnupdatefollowup" Visible="false" OnClick="lbtnupdatefollowup_Click" runat="server" TabIndex="37" CssClass="btn btn-bitbucket btn-flat"><i class="fa fa-save"></i>&nbsp;Update Followup</asp:LinkButton>
                                 <asp:LinkButton ID="lbtnresetfollowup" OnClick="lbtnresetfollowup_Click" runat="server" TabIndex="38" CssClass="btn btn-bitbucket bg-gray btn-flat" CausesValidation="false"><i class="fa fa-times"></i>&nbsp;Reset</asp:LinkButton>
 
@@ -449,7 +449,7 @@
                                             <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />
                                         </asp:TemplateField>
 
-                                        
+
 
 
                                         <asp:TemplateField HeaderStyle-CssClass="lblfamt" HeaderText="Edit">
@@ -487,7 +487,7 @@
 
                         <div class="row">
                             <div class="col-md-12 form-group" style="padding-top: 5px; text-align: right">
-                                <asp:LinkButton ID="btnSave" runat="server" OnClick="btnSave_Click"  ValidationGroup="Emst" TabIndex="36" CssClass="btn btn-bitbucket btn-flat"><i class="fa fa-save"></i>&nbsp;Save</asp:LinkButton>
+                                <asp:LinkButton ID="btnSave" runat="server" OnClick="btnSave_Click" ValidationGroup="Emst" TabIndex="36" CssClass="btn btn-bitbucket btn-flat"><i class="fa fa-save"></i>&nbsp;Save</asp:LinkButton>
                                 <asp:LinkButton ID="btnUpdate" Visible="false" runat="server" TabIndex="37" CssClass="btn btn-bitbucket btn-flat"><i class="fa fa-save"></i>&nbsp;Update</asp:LinkButton>
                                 <asp:LinkButton ID="btnDelete" runat="server" TabIndex="38" CssClass="btn btn-bitbucket bg-gray btn-flat" CausesValidation="false"><i class="fa fa-times"></i>&nbsp;Reset</asp:LinkButton>
                             </div>
@@ -501,6 +501,6 @@
             </div>
         </section>
 
-           </div>
+    </div>
 </asp:Content>
 
