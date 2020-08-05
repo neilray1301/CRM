@@ -4,18 +4,18 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data.SqlClient;
 using System.Data;
 
-public partial class QuotationEntry : System.Web.UI.Page
+public partial class UpdateQuotation : System.Web.UI.Page
 {
     BusinessLogicLayer bal = new BusinessLogicLayer();
     public enum MessageType { Success, Error, Info, Warning };
     protected void Page_Load(object sender, EventArgs e)
     {
-
         if (!IsPostBack)
         {
+            lblcomno.Text = Request.QueryString["no"].ToString();
+
             string zoneId = "India Standard Time";
             TimeZoneInfo tzi = TimeZoneInfo.FindSystemTimeZoneById(zoneId);
             DateTime now = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, tzi);
@@ -24,6 +24,7 @@ public partial class QuotationEntry : System.Web.UI.Page
             //   lblloginid.Text = Session["no"].ToString();
             //    lblrole.Text = Session["role"].ToString();
 
+
             bindstatus();
             bindsource();
             bindfollowup();
@@ -31,91 +32,61 @@ public partial class QuotationEntry : System.Web.UI.Page
             binduom();
             binddepartment();
             binddesignation();
-            getInquiryNo();
-            getmaxcomno();
+            filldata();
+            //  getInquiryNo();
+            //  getmaxcomno();
             bindcustomer();
             BindDetail();
             bincustcontact();
+            btnUpdate.Visible = true;
 
 
         }
     }
-    public string getmaxcomno()
+
+    public void filldata()
     {
-        string s = string.Empty, id = string.Empty;
-        Getconnection c = new Getconnection();
         try
         {
-            string s1 = "select Top (1) No from Quotation_No_Series    order By  Id DESC";
-            SqlCommand cmd11 = new SqlCommand(s1, c.getconnection());
-            if (cmd11.ExecuteScalar() != null)
-                id = cmd11.ExecuteScalar().ToString();
-            c.CloseConnection();
-            int fid = 0;
-            if (id.Equals(""))
+            DataTable dtdata = bal.getallQuotationdatabynoBAL(lblcomno.Text);
+            if (dtdata.Rows.Count > 0)
             {
-                id = "1";
-                fid = Convert.ToInt32(id);
+                txtno.Text = dtdata.Rows[0]["QuotationNo"].ToString();
+                txtdate.Text = dtdata.Rows[0]["Quotationdate"].ToString();
+                txtemail.Text = dtdata.Rows[0]["ContactEmail"].ToString();
+                txtcontactno.Text = dtdata.Rows[0]["Custcontactno"].ToString();
+                txtmobileno.Text = dtdata.Rows[0]["ContactMno1"].ToString();
+                txtmobileno2.Text = dtdata.Rows[0]["ContactMno2"].ToString();
+                // dpcustgroup.SelectedValue = dtdata.Rows[0]["Groupno"].ToString();
+
+
+
+                dpcust.SelectedValue = dtdata.Rows[0]["Custnameid"].ToString();
+
+
+
+                dpcontactper.SelectedValue = dtdata.Rows[0]["Custcontact"].ToString();
+                dpsource.SelectedValue = dtdata.Rows[0]["InqiurySource"].ToString();
+                dpstatus.SelectedValue = dtdata.Rows[0]["InqiuryStatus"].ToString();
+
+                txtremarks.Text = dtdata.Rows[0]["Remarks"].ToString();
+                ddlDept.SelectedValue = dtdata.Rows[0]["Dept"].ToString();
+                ddldesign.SelectedValue = dtdata.Rows[0]["Design"].ToString();
+                //txturl.Text = dtdata.Rows[0]["URL"].ToString();
+                //rbtnstatus.SelectedItem.Text = dtdata.Rows[0]["Status"].ToString();
+                //txtgstno.Text = dtdata.Rows[0]["GSTno"].ToString();
+                //txtbankname.Text = dtdata.Rows[0]["Bankname"].ToString();
+                //txtaccno.Text = dtdata.Rows[0]["Accountno"].ToString();
+                //txtifsccode.Text = dtdata.Rows[0]["IFSCcode"].ToString();
+                //txtcountry.Text = dtdata.Rows[0]["Country"].ToString();
+               // bindcustomer();
+                //  bincustcontact();
             }
-            else
-            {
-                fid = Convert.ToInt32(id);
-                fid = fid + 1;
-            }
-            s = fid.ToString();
-            lblcomno.Text = s.ToString();
-            //hfMaxEntryNo.Value = fid.ToString();
-            bal.tbl_Quotation_No_Series_InsertBAL(s, "", "");
         }
         catch (Exception ex)
         {
 
-            //txtinqno.Text = "1";
         }
-        finally
-        {
-            c.CloseConnection();
-        }
-        return s;
-    }
-
-    public string getInquiryNo()
-    {
-        string s = string.Empty, id = string.Empty;
-        Getconnection c = new Getconnection();
-        try
-        {
-            string s1 = "select Top (1) QuotationNo from Quotation_Master    order By  Id DESC";
-            SqlCommand cmd11 = new SqlCommand(s1, c.getconnection());
-            if (cmd11.ExecuteScalar() != null)
-                id = cmd11.ExecuteScalar().ToString();
-            c.CloseConnection();
-            int fid = 0;
-            if (id.Equals(""))
-            {
-                id = "1";
-                fid = Convert.ToInt32(id);
-            }
-            else
-            {
-                fid = Convert.ToInt32(id);
-                fid = fid + 1;
-            }
-            s = fid.ToString();
-            txtno.Text = s.ToString();
-            //hfMaxEntryNo.Value = fid.ToString();
-
-        }
-        catch (Exception ex)
-        {
-
-            txtno.Text = "1";
-        }
-        finally
-        {
-            c.CloseConnection();
-        }
-        return s;
     }
 
     public void bincustcontact()
@@ -676,7 +647,7 @@ public partial class QuotationEntry : System.Web.UI.Page
 
         try
         {
-         DataTable   dt = bal.getalltermsandconditionsfroadminBAL();
+            DataTable dt = bal.getallquotatationtermsandconditionsfroadminBAL(Convert.ToInt32(txtno.Text));
 
 
             if (dt.Rows.Count > 0)
@@ -734,7 +705,8 @@ public partial class QuotationEntry : System.Web.UI.Page
         }
     }
 
-    protected void btnSave_Click(object sender, EventArgs e)
+
+    protected void btnUpdate_Click(object sender, EventArgs e)
     {
         try
         {
@@ -745,20 +717,16 @@ public partial class QuotationEntry : System.Web.UI.Page
 
 
             DataTable dt1 = new DataTable();
-            dt1 = bal.checkQuotationalreadyBAL(txtno.Text, txtdate.Text, Convert.ToInt32(custid));
-            if (dt1.Rows.Count > 0)
-            {
-                ShowMessage("Name Already Exist!!!", MessageType.Error);
-            }
-            else
-            {
+            
+            
+            
                 DateTime utcTime = DateTime.UtcNow;
                 TimeZoneInfo tzi = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
                 DateTime localTime = TimeZoneInfo.ConvertTimeFromUtc(utcTime, tzi);
 
 
-                bal.tbl_Quotation_Master_InsertBAL(Convert.ToInt32(txtno.Text), Convert.ToInt32(lblcomno.Text), txtdate.Text, Convert.ToInt32(custid), Convert.ToInt32(dpcontactper.SelectedValue.ToString()), txtcontactno.Text, Convert.ToInt32(ddlDept.SelectedValue.ToString()), Convert.ToInt32(ddldesign.SelectedValue.ToString()), txtemail.Text, txtmobileno.Text, txtmobileno2.Text, Convert.ToInt32(dpstatus.SelectedValue.ToString()), Convert.ToInt32(dpsource.SelectedValue.ToString()), txtremarks.Text, lblloginid.Text, localTime, "", "", "", "", "");
-
+                bal.tbl_Quotation_Master_updateBAL( Convert.ToInt32(lblcomno.Text), Convert.ToInt32(custid), Convert.ToInt32(dpcontactper.SelectedValue.ToString()), txtcontactno.Text, Convert.ToInt32(ddlDept.SelectedValue.ToString()), Convert.ToInt32(ddldesign.SelectedValue.ToString()), txtemail.Text, txtmobileno.Text, txtmobileno2.Text, Convert.ToInt32(dpstatus.SelectedValue.ToString()), Convert.ToInt32(dpsource.SelectedValue.ToString()), txtremarks.Text, lblloginid.Text, localTime, "", "", "", "", "");
+            bal.deletequtationtermsandconditionsdata(Convert.ToInt32(txtno.Text));
                 try
                 {
                     foreach (GridViewRow row in grddata1.Rows)
@@ -777,7 +745,7 @@ public partial class QuotationEntry : System.Web.UI.Page
                             }
                             else
                             {
-                                bal.tbl_Quotation_tandc_InsertBAL( Convert.ToInt32(txtno.Text), id, title, descp, "False", lblloginid.Text, localTime, "", "", "", "", "");
+                                bal.tbl_Quotation_tandc_InsertBAL(Convert.ToInt32(txtno.Text), id, title, descp, "False", lblloginid.Text, localTime, "", "", "", "", "");
                             }
                         }
                     }
@@ -789,17 +757,38 @@ public partial class QuotationEntry : System.Web.UI.Page
 
 
 
-                    Response.Redirect("QuotationRegistry.aspx", false);
-                }
+                Response.Redirect("QuotationRegistry.aspx", false);
             
+
         }
         catch (Exception ex)
         {
 
         }
 
-    
+
     }
 
+    
+
    
+
+    protected void grddata1_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+        if (e.Row.RowType == DataControlRowType.DataRow)
+        {
+            CheckBox chk = (CheckBox)e.Row.FindControl("btnchkbox");
+            Label lblSatatus = (Label)e.Row.FindControl("lblstatus");
+
+            if (lblSatatus.Text.ToString() == "True")
+            {
+                chk.Checked = true;
+            }
+            else
+            {
+                chk.Checked = false;
+            }
+
+        }
+    }
 }

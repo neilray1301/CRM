@@ -3560,6 +3560,7 @@ public class DataAccessLayer
         return res;
     } //done
 
+    // Quotation
     public string tbl_Quotation_No_Series_InsertDAL(string No, string Extra1, string Extra2)
     {
         string res = "";
@@ -3815,5 +3816,172 @@ public class DataAccessLayer
         }
         return dt;
     }
+    public string tbl_Quotation_tandc_InsertDAL(int termsid,int noseries, string termstitle,string termsdescrip, string status, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
+    {
+        string res = "";
+        try
+        {
+            c = con.getconnection();
+            cmd = new SqlCommand("insert_quotations_tandc", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@termsid", SqlDbType.Int).Value = termsid;
+            cmd.Parameters.Add("@Noseries", SqlDbType.BigInt).Value = noseries;
+            cmd.Parameters.Add("@termstitle", SqlDbType.VarChar).Value = termstitle;
+            cmd.Parameters.Add("@termsdescription", SqlDbType.VarChar).Value = termsdescrip;
+           
+            cmd.Parameters.Add("@Status", SqlDbType.VarChar).Value = status;
+          
+            cmd.Parameters.Add("@CreateBy", SqlDbType.VarChar).Value = CreateBy;
+            cmd.Parameters.Add("@CreateDatetime", SqlDbType.DateTime).Value = CreateDatetime;
+            cmd.Parameters.Add("@Extra1", SqlDbType.VarChar).Value = Extra1;
+            cmd.Parameters.Add("@Extra2", SqlDbType.VarChar).Value = Extra2;
+            cmd.Parameters.Add("@Extra3", SqlDbType.VarChar).Value = Extra3;
+            cmd.Parameters.Add("@Extra4", SqlDbType.VarChar).Value = Extra4;
+            cmd.Parameters.Add("@Extra5", SqlDbType.VarChar).Value = Extra5;
+            res = cmd.ExecuteNonQuery().ToString();
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+        return res;
+    }
 
+    public DataTable getallQuotationdataforadminDAL()
+    {
+        DataTable dt = null;
+        try
+        {
+            c = con.getconnection();
+            SqlCommand cmd = new SqlCommand("getallQuotationdataforadmin", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            dt = new DataTable();
+            da.Fill(dt);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+    public DataTable getallQuotationdataDAL()
+    {
+        DataTable dt = null;
+        try
+        {
+            c = con.getconnection();
+            SqlCommand cmd = new SqlCommand("getallQuotationdataforadmin", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            //     cmd.Parameters.Add("@createby", SqlDbType.VarChar).Value = Createby;
+            dt = new DataTable();
+            da.Fill(dt);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+
+    public DataTable getallQuoationdatabynoDAL(string Noseries)
+    {
+        DataTable dt = null;
+        try
+        {
+            c = con.getconnection();
+            SqlCommand cmd = new SqlCommand("getallQuotationdatabyno", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            cmd.Parameters.Add("@Noseries", SqlDbType.VarChar).Value = Noseries;
+            dt = new DataTable();
+            da.Fill(dt);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+    public DataTable getallquotationtermsandconditionsDAL(int noseries)
+    {
+        DataTable dt = null;
+        try
+        {
+            c = con.getconnection();
+            SqlCommand cmd = new SqlCommand("quotationtermsandconditionsdisp", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            cmd.Parameters.Add("@Noseries", SqlDbType.BigInt).Value = noseries;
+
+            dt = new DataTable();
+            da.Fill(dt);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+    public string tbl_Quotation_Master_updateDAL( int Noseries,  int Custname, int Custcontact, string Custcontactno, int Dept, int Design, string ContactEmail, string ContactMno1, string ContactMno2, int InqiuryStatus, int InquirySource, string Remarks, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
+    {
+        string res = "";
+        try
+        {
+            c = con.getconnection();
+            cmd = new SqlCommand("tbl_Quotation_Master_update", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            
+            cmd.Parameters.Add("@Noseries", SqlDbType.Int).Value = Noseries;
+           
+            //  cmd.Parameters.Add("@Custgroup", SqlDbType.Int).Value = Custgroup;
+            cmd.Parameters.Add("@Custname", SqlDbType.Int).Value = Custname;
+            cmd.Parameters.Add("@Custcontact", SqlDbType.Int).Value = Custcontact;
+            cmd.Parameters.Add("@Custcontactno", SqlDbType.VarChar).Value = Custcontactno;
+            cmd.Parameters.Add("@Dept", SqlDbType.Int).Value = Dept;
+            cmd.Parameters.Add("@Design", SqlDbType.Int).Value = Design;
+
+
+            cmd.Parameters.Add("@ContactEmail", SqlDbType.VarChar).Value = ContactEmail;
+            cmd.Parameters.Add("@ContactMno1", SqlDbType.VarChar).Value = ContactMno1;
+            cmd.Parameters.Add("@ContactMno2", SqlDbType.VarChar).Value = ContactMno2;
+            cmd.Parameters.Add("@InqiuryStatus", SqlDbType.Int).Value = InqiuryStatus;
+            cmd.Parameters.Add("@InquirySource", SqlDbType.Int).Value = InquirySource;
+            cmd.Parameters.Add("@Remarks", SqlDbType.VarChar).Value = Remarks;
+            cmd.Parameters.Add("@CreateBy", SqlDbType.VarChar).Value = CreateBy;
+            cmd.Parameters.Add("@CreateDatetime", SqlDbType.DateTime).Value = CreateDatetime;
+            cmd.Parameters.Add("@Extra1", SqlDbType.VarChar).Value = Extra1;
+            cmd.Parameters.Add("@Extra2", SqlDbType.VarChar).Value = Extra2;
+            cmd.Parameters.Add("@Extra3", SqlDbType.VarChar).Value = Extra3;
+            cmd.Parameters.Add("@Extra4", SqlDbType.VarChar).Value = Extra4;
+            cmd.Parameters.Add("@Extra5", SqlDbType.VarChar).Value = Extra5;
+            res = cmd.ExecuteNonQuery().ToString();
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+        return res;
+    }
+
+    public string deletequtationtermsandconditionsdata(int Id)
+    {
+        string res = "";
+        try
+        {
+            c = con.getconnection();
+            cmd = new SqlCommand("deletequotationtandc", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@Noseries", SqlDbType.BigInt).Value = Id;
+
+            res = cmd.ExecuteNonQuery().ToString();
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+        return res;
+    }
 }

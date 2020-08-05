@@ -1,9 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Demo.master" AutoEventWireup="true" CodeFile="QuotationEntry.aspx.cs" Inherits="QuotationEntry" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Demo.master" AutoEventWireup="true" CodeFile="UpdateQuotation.aspx.cs" Inherits="UpdateQuotation" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+     <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
@@ -45,8 +44,9 @@
             background: transparent !important;
         }
     </style>
+
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="content-wrapper">
         <section class="content-header">
             <h1>Quotation Entry</h1>
@@ -468,7 +468,7 @@
                                 <div class="col-md-12">
 
                                     <asp:GridView ID="grddata1" runat="server" AlternatingRowStyle-BackColor="#C2D69B" AllowPaging="false" AllowSorting="false"
-                                        AutoGenerateColumns="False" BorderWidth="1px" ShowHeaderWhenEmpty="true"
+                                        AutoGenerateColumns="False" BorderWidth="1px" OnRowDataBound="grddata1_RowDataBound" ShowHeaderWhenEmpty="true"
                                         CssClass="table table-striped table-bordered table-hover dataTable no-footer" CellPadding="2"
                                         CellSpacing="2" EditRowStyle-HorizontalAlign="Center" PageSize="5" HeaderStyle-BackColor="#3c8dbc" HeaderStyle-ForeColor="White">
                                         <AlternatingRowStyle BackColor="White" />
@@ -493,7 +493,7 @@
                                             <asp:TemplateField HeaderText="Title">
 
                                                 <ItemTemplate>
-                                                    <asp:Label ID="lblname" runat="server" Text='<%# Eval("Title") %>'></asp:Label>
+                                                    <asp:Label ID="lblname" runat="server" Text='<%# Eval("Termstitle") %>'></asp:Label>
                                                 </ItemTemplate>
                                                 <ItemStyle Wrap="true" HorizontalAlign="Left" />
                                                 <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />
@@ -502,13 +502,22 @@
                                             <asp:TemplateField HeaderText="Description">
 
                                                 <ItemTemplate>
-                                                    <asp:Label ID="lbltandc" runat="server" Text='<%# Eval("TermsandConditions") %>'></asp:Label>
+                                                    <asp:Label ID="lbltandc" runat="server" Text='<%# Eval("TermsDescription") %>'></asp:Label>
                                                 </ItemTemplate>
                                                 <ItemStyle Wrap="true" HorizontalAlign="Left" />
                                                 <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />
                                             </asp:TemplateField>
 
 
+                                            
+                                            <asp:TemplateField HeaderText="status">
+
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lblstatus" Visible="false" runat="server" Text='<%# Eval("Status") %>'></asp:Label>
+                                                </ItemTemplate>
+                                                <ItemStyle Wrap="true" HorizontalAlign="Left" />
+                                                <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />
+                                            </asp:TemplateField>
 
 
 
@@ -545,8 +554,8 @@
 
                         <div class="row">
                             <div class="col-md-12 form-group" style="padding-top: 5px; text-align: right">
-                                <asp:LinkButton ID="btnSave" runat="server" ValidationGroup="Emst" OnClick="btnSave_Click" TabIndex="36" CssClass="btn btn-bitbucket btn-flat"><i class="fa fa-save"></i>&nbsp;Save</asp:LinkButton>
-                                <asp:LinkButton ID="btnUpdate" Visible="false" runat="server" TabIndex="37" CssClass="btn btn-bitbucket btn-flat"><i class="fa fa-save"></i>&nbsp;Update</asp:LinkButton>
+                                <asp:LinkButton ID="btnSave" runat="server" ValidationGroup="Emst" Visible="false" TabIndex="36" CssClass="btn btn-bitbucket btn-flat"><i class="fa fa-save"></i>&nbsp;Save</asp:LinkButton>
+                                <asp:LinkButton ID="btnUpdate" Visible="true" runat="server" OnClick="btnUpdate_Click" TabIndex="37" CssClass="btn btn-bitbucket btn-flat"><i class="fa fa-save"></i>&nbsp;Update</asp:LinkButton>
                                 <asp:LinkButton ID="btnDelete" runat="server" TabIndex="38" CssClass="btn btn-bitbucket bg-gray btn-flat" CausesValidation="false"><i class="fa fa-times"></i>&nbsp;Reset</asp:LinkButton>
                             </div>
 
@@ -564,7 +573,6 @@
         </section>
 
     </div>
-
 
 
 

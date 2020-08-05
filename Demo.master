@@ -408,8 +408,8 @@
                         </a>
                         <ul class="treeview-menu">
                              <li><a href="TermsandCondtitions.aspx"><i class="fa fa-circle-o"></i>Terms and Conditions</a></li>
-                            <li><a href="QuotationEntry.aspx"><i class="fa fa-circle-o"></i>Quotation Entry</a></li>
-                            <li><a href="QuotationRegistry.aspx"><i class="fa fa-circle-o"></i>Quotation Register</a></li>
+                        <%--    <li><a href="QuotationEntry.aspx"><i class="fa fa-circle-o"></i>Quotation Entry</a></li>
+                       --%>     <li><a href="QuotationRegistry.aspx"><i class="fa fa-circle-o"></i>Quotation Register</a></li>
                             
                         </ul>
                     </li>

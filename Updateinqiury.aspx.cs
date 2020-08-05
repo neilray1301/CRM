@@ -655,18 +655,18 @@ public partial class Updateinqiury : System.Web.UI.Page
 
 
            // string Groupid = bal.getCustomerGroupIdbynameDAL(dpcustgroup.SelectedItem.Text);
-            string custid = bal.getCustomerIdbynameBAL(dpcust.SelectedItem.Text);
+//string custid = bal.getCustomerIdbynameBAL(dpcust.SelectedItem.Text);
 
 
 
-            DateTime utcTime = DateTime.UtcNow;
-            TimeZoneInfo tzi = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
-            DateTime localTime = TimeZoneInfo.ConvertTimeFromUtc(utcTime, tzi);
+//DateTime utcTime = DateTime.UtcNow;
+         //   TimeZoneInfo tzi = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
+        //    DateTime localTime = TimeZoneInfo.ConvertTimeFromUtc(utcTime, tzi);
 
 
-            bal.tbl_Inqiury_Master_UpdateBAL(Convert.ToInt32(txtno.Text), Convert.ToInt32(lblcomno.Text), txtdate.Text,  Convert.ToInt32(custid), Convert.ToInt32(dpcontactper.SelectedValue.ToString()), txtcontactno.Text, Convert.ToInt32(ddlDept.SelectedValue.ToString()), Convert.ToInt32(ddldesign.SelectedValue.ToString()), txtemail.Text, txtmobileno.Text, txtmobileno2.Text, Convert.ToInt32(dpstatus.SelectedValue.ToString()), Convert.ToInt32(dpsource.SelectedValue.ToString()), txtremarks.Text, lblloginid.Text, localTime, "", "", "", "", "");
-            Response.Redirect("InquiryRegistry.aspx", false);
-
+      //      bal.tbl_Inqiury_Master_UpdateBAL(Convert.ToInt32(txtno.Text), Convert.ToInt32(lblcomno.Text), txtdate.Text,  Convert.ToInt32(custid), Convert.ToInt32(dpcontactper.SelectedValue.ToString()), txtcontactno.Text, Convert.ToInt32(ddlDept.SelectedValue.ToString()), Convert.ToInt32(ddldesign.SelectedValue.ToString()), txtemail.Text, txtmobileno.Text, txtmobileno2.Text, Convert.ToInt32(dpstatus.SelectedValue.ToString()), Convert.ToInt32(dpsource.SelectedValue.ToString()), txtremarks.Text, lblloginid.Text, localTime, "", "", "", "", "");
+      //      Response.Redirect("InquiryRegistry.aspx", false);
+//
         }
         catch (Exception ex)
         {

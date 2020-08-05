@@ -2644,4 +2644,115 @@ public class BusinessLogicLayer
         }
         return dt;
     }
+
+    public string tbl_Quotation_tandc_InsertBAL(int termsid, int noseries, string termstitle, string termsdescrip, string status, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
+    {
+        string res = "";
+        dal = new DataAccessLayer();
+        try
+        {
+            res = dal.tbl_Quotation_tandc_InsertDAL(termsid,noseries,termstitle,termsdescrip,status,CreateBy,CreateDatetime,Extra1,Extra2,Extra3,Extra4,Extra5);
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+
+        return res;
+    }
+    public DataTable getallQuotationdataforadminBAL()
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.getallQuotationdataforadminDAL();
+
+        }
+        catch (Exception ex)
+        {
+
+
+        }
+        return dt;
+    }
+
+    public DataTable getallQuotationdataBAL()
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.getallQuotationdataDAL();
+
+        }
+        catch (Exception ex)
+        {
+
+
+        }
+        return dt;
+    }
+    public DataTable getallQuotationdatabynoBAL(string Noseries)
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.getallQuoationdatabynoDAL(Noseries);
+
+        }
+        catch (Exception ex)
+        {
+
+
+        }
+        return dt;
+    }
+    public DataTable getallquotatationtermsandconditionsfroadminBAL(int noseries)
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.getallquotationtermsandconditionsDAL(noseries);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+    public string tbl_Quotation_Master_updateBAL( int Noseries,  int Custname, int Custcontact, string Custcontactno, int Dept, int Design, string ContactEmail, string ContactMno1, string ContactMno2, int InqiuryStatus, int InquirySource, string Remarks, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
+    {
+        string res = "";
+        dal = new DataAccessLayer();
+        try
+        {
+            res = dal.tbl_Quotation_Master_updateDAL( Noseries, Custname, Custcontact, Custcontactno, Dept, Design, ContactEmail, ContactMno1, ContactMno2, InqiuryStatus, InquirySource, Remarks, CreateBy, CreateDatetime, Extra1, Extra2, Extra3, Extra4, Extra5);
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+
+        return res;
+    }
+
+    public string deletequtationtermsandconditionsdata(int id)
+    {
+        string res = "";
+        dal = new DataAccessLayer();
+        try
+        {
+            res = dal.deletequtationtermsandconditionsdata(id);
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+
+        return res;
+    }
+
 }
