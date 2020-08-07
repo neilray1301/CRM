@@ -16,11 +16,66 @@ public partial class QuotationEntry : System.Web.UI.Page
 
         if (!IsPostBack)
         {
-            string inqno = Request.QueryString["no"].ToString();
-            if (inqno.Equals(""))
+            try
             {
+                string inqno = Request.QueryString["no"].ToString();
+                if (inqno.Equals(""))
+                {
 
-               
+
+                    string zoneId = "India Standard Time";
+                    TimeZoneInfo tzi = TimeZoneInfo.FindSystemTimeZoneById(zoneId);
+                    DateTime now = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, tzi);
+                    txtfdate.Text = now.ToString("dd/MM/yyyy");
+                    txtdate.Text = now.ToString("dd/MM/yyyy");
+                    //   lblloginid.Text = Session["no"].ToString();
+                    //    lblrole.Text = Session["role"].ToString();
+
+                    bindstatus();
+                    bindsource();
+                    bindfollowup();
+                    binditem();
+                    binduom();
+                    binddepartment();
+                    binddesignation();
+                    //
+                    getInquiryNo();
+                    getmaxcomno();
+                    bindcustomer();
+                    BindDetail();
+                    bincustcontact();
+                }
+                else
+                {
+                    lblqno.Text = Request.QueryString["no"].ToString();
+                    string zoneId = "India Standard Time";
+                    TimeZoneInfo tzi = TimeZoneInfo.FindSystemTimeZoneById(zoneId);
+                    DateTime now = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, tzi);
+                    txtfdate.Text = now.ToString("dd/MM/yyyy");
+                    txtdate.Text = now.ToString("dd/MM/yyyy");
+                    //   lblloginid.Text = Session["no"].ToString();
+                    //    lblrole.Text = Session["role"].ToString();
+
+                    bindstatus();
+                    bindsource();
+                    bindfollowup();
+                    binditem();
+                    binduom();
+                    binddepartment();
+                    binddesignation();
+
+
+                    getInquiryNo();
+                    getmaxcomno();
+                    bindcustomer();
+                    BindDetail();
+                    bincustcontact();
+                    filldata();
+                    fillitemdata();
+                }
+
+            }catch(Exception ex)
+            {
                 string zoneId = "India Standard Time";
                 TimeZoneInfo tzi = TimeZoneInfo.FindSystemTimeZoneById(zoneId);
                 DateTime now = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, tzi);
@@ -42,38 +97,7 @@ public partial class QuotationEntry : System.Web.UI.Page
                 bindcustomer();
                 BindDetail();
                 bincustcontact();
-            }
-            else
-            {
-                lblqno.Text = Request.QueryString["no"].ToString();
-                string zoneId = "India Standard Time";
-                TimeZoneInfo tzi = TimeZoneInfo.FindSystemTimeZoneById(zoneId);
-                DateTime now = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, tzi);
-                txtfdate.Text = now.ToString("dd/MM/yyyy");
-                txtdate.Text = now.ToString("dd/MM/yyyy");
-                //   lblloginid.Text = Session["no"].ToString();
-                //    lblrole.Text = Session["role"].ToString();
-
-                bindstatus();
-                bindsource();
-                bindfollowup();
-                binditem();
-                binduom();
-                binddepartment();
-                binddesignation();
-                
-               
-                getInquiryNo();
-                getmaxcomno();
-                bindcustomer();
-                BindDetail();
-                bincustcontact();
-                filldata();
-                fillitemdata();
-            }
-
-
-           
+            }           
 
 
         }
@@ -880,10 +904,25 @@ public partial class QuotationEntry : System.Web.UI.Page
                 DateTime utcTime = DateTime.UtcNow;
                 TimeZoneInfo tzi = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
                 DateTime localTime = TimeZoneInfo.ConvertTimeFromUtc(utcTime, tzi);
+                
+                try
+                {
+                    string inqno = lblqno.Text;
+                    if (inqno.Equals(""))
+                {
+                    bal.tbl_Quotation_Master_InsertBAL(Convert.ToInt32(txtno.Text), Convert.ToInt32(lblcomno.Text), txtdate.Text, Convert.ToInt32(custid), Convert.ToInt32(dpcontactper.SelectedValue.ToString()), txtcontactno.Text, Convert.ToInt32(ddlDept.SelectedValue.ToString()), Convert.ToInt32(ddldesign.SelectedValue.ToString()), txtemail.Text, txtmobileno.Text, txtmobileno2.Text, Convert.ToInt32(dpstatus.SelectedValue.ToString()), Convert.ToInt32(dpsource.SelectedValue.ToString()), txtremarks.Text, lblloginid.Text, localTime, "DirectQuotation", "", "", "", "");
 
+                }
+                else
+                {
+                    bal.tbl_Quotation_Master_InsertBAL(Convert.ToInt32(txtno.Text), Convert.ToInt32(lblcomno.Text), txtdate.Text, Convert.ToInt32(custid), Convert.ToInt32(dpcontactper.SelectedValue.ToString()), txtcontactno.Text, Convert.ToInt32(ddlDept.SelectedValue.ToString()), Convert.ToInt32(ddldesign.SelectedValue.ToString()), txtemail.Text, txtmobileno.Text, txtmobileno2.Text, Convert.ToInt32(dpstatus.SelectedValue.ToString()), Convert.ToInt32(dpsource.SelectedValue.ToString()), txtremarks.Text, lblloginid.Text, localTime, "InqtoQuotation", lblqno.Text, "", "", "");
 
-                bal.tbl_Quotation_Master_InsertBAL(Convert.ToInt32(txtno.Text), Convert.ToInt32(lblcomno.Text), txtdate.Text, Convert.ToInt32(custid), Convert.ToInt32(dpcontactper.SelectedValue.ToString()), txtcontactno.Text, Convert.ToInt32(ddlDept.SelectedValue.ToString()), Convert.ToInt32(ddldesign.SelectedValue.ToString()), txtemail.Text, txtmobileno.Text, txtmobileno2.Text, Convert.ToInt32(dpstatus.SelectedValue.ToString()), Convert.ToInt32(dpsource.SelectedValue.ToString()), txtremarks.Text, lblloginid.Text, localTime, "", "", "", "", "");
+                }
+                }
+                catch(Exception ex)
+                {
 
+                }
                 try
                 {
                     foreach (GridViewRow row in grddata1.Rows)

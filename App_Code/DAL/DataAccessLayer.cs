@@ -3640,7 +3640,7 @@ public class DataAccessLayer
             c = con.getconnection();
             cmd = new SqlCommand("tbl_Quotation_Details_update", c);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add("@Id", SqlDbType.Int).Value = Id;
+            cmd.Parameters.Add("@id", SqlDbType.Int).Value = Id;
             cmd.Parameters.Add("@Item", SqlDbType.Int).Value = Item;
             //cmd.Parameters.Add("@Supplier", SqlDbType.Int).Value = Supplier;
             //   cmd.Parameters.Add("@Principal", SqlDbType.Int).Value = Principal;
@@ -4118,4 +4118,419 @@ public class DataAccessLayer
         }
         return res;
     }
+    // Order
+
+    public string tbl_Order_No_Series_InsertDAL(string No, string Extra1, string Extra2)
+    {
+        string res = "";
+        try
+        {
+            c = con.getconnection();
+            cmd = new SqlCommand("tbl_Order_No_Series_Insert", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@No", SqlDbType.BigInt).Value = No;
+            cmd.Parameters.Add("@Extra1", SqlDbType.VarChar).Value = Extra1;
+            cmd.Parameters.Add("@Extra2", SqlDbType.VarChar).Value = Extra2;
+            res = cmd.ExecuteNonQuery().ToString();
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+        return res;
+    }
+    public DataTable checkOrderProductNameDAL(string Noseries, int Item)
+    {
+        DataTable dt = null;
+        try
+        {
+            c = con.getconnection();
+            SqlCommand cmd = new SqlCommand("checkOrderProductName", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            cmd.Parameters.Add("@Noseries", SqlDbType.VarChar).Value = Noseries;
+            cmd.Parameters.Add("@Item", SqlDbType.Int).Value = Item;
+
+            dt = new DataTable();
+            da.Fill(dt);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+
+    }
+    public string tbl_Order_Details_InsertDAL(int Noseries, int Item, int UOM, decimal Qty, decimal Rate, decimal Amount, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
+    {
+        string res = "";
+        try
+        {
+            c = con.getconnection();
+            cmd = new SqlCommand("tbl_Order_Details_Insert", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@Noseries", SqlDbType.Int).Value = Noseries;
+            cmd.Parameters.Add("@Item", SqlDbType.Int).Value = Item;
+            //cmd.Parameters.Add("@Supplier", SqlDbType.Int).Value = Supplier;
+            //cmd.Parameters.Add("@Principal", SqlDbType.Int).Value = Principal;
+            cmd.Parameters.Add("@UOM", SqlDbType.Int).Value = UOM;
+            cmd.Parameters.Add("@Qty", SqlDbType.Decimal).Value = Qty;
+            cmd.Parameters.Add("@Rate", SqlDbType.Decimal).Value = Rate;
+            cmd.Parameters.Add("@Amount", SqlDbType.Decimal).Value = Amount;
+
+            cmd.Parameters.Add("@CreateBy", SqlDbType.VarChar).Value = CreateBy;
+            cmd.Parameters.Add("@CreateDatetime", SqlDbType.DateTime).Value = CreateDatetime;
+            cmd.Parameters.Add("@Extra1", SqlDbType.VarChar).Value = Extra1;
+            cmd.Parameters.Add("@Extra2", SqlDbType.VarChar).Value = Extra2;
+            cmd.Parameters.Add("@Extra3", SqlDbType.VarChar).Value = Extra3;
+            cmd.Parameters.Add("@Extra4", SqlDbType.VarChar).Value = Extra4;
+            cmd.Parameters.Add("@Extra5", SqlDbType.VarChar).Value = Extra5;
+            res = cmd.ExecuteNonQuery().ToString();
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+        return res;
+    }
+    public string tbl_Order_Details_updateDAL(int Id, int Item, int UOM, decimal Qty, decimal Rate, decimal Amount, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
+    {
+        string res = "";
+        try
+        {
+            c = con.getconnection();
+            cmd = new SqlCommand("tbl_Order_Details_update", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@id", SqlDbType.Int).Value = Id;
+            cmd.Parameters.Add("@Item", SqlDbType.Int).Value = Item;
+            //cmd.Parameters.Add("@Supplier", SqlDbType.Int).Value = Supplier;
+            //   cmd.Parameters.Add("@Principal", SqlDbType.Int).Value = Principal;
+            cmd.Parameters.Add("@UOM", SqlDbType.Int).Value = UOM;
+            cmd.Parameters.Add("@Qty", SqlDbType.Decimal).Value = Qty;
+            cmd.Parameters.Add("@Rate", SqlDbType.Int).Value = Rate;
+            cmd.Parameters.Add("@Amount", SqlDbType.Int).Value = Amount;
+
+            cmd.Parameters.Add("@CreateBy", SqlDbType.VarChar).Value = CreateBy;
+            cmd.Parameters.Add("@CreateDatetime", SqlDbType.DateTime).Value = CreateDatetime;
+            cmd.Parameters.Add("@Extra1", SqlDbType.VarChar).Value = Extra1;
+            cmd.Parameters.Add("@Extra2", SqlDbType.VarChar).Value = Extra2;
+            cmd.Parameters.Add("@Extra3", SqlDbType.VarChar).Value = Extra3;
+            cmd.Parameters.Add("@Extra4", SqlDbType.VarChar).Value = Extra4;
+            cmd.Parameters.Add("@Extra5", SqlDbType.VarChar).Value = Extra5;
+
+            res = cmd.ExecuteNonQuery().ToString();
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+        return res;
+    }
+    public DataTable getallOrderDetailsdataDAL(int Noseries)
+    {
+        DataTable dt = null;
+        try
+        {
+            c = con.getconnection();
+            SqlCommand cmd = new SqlCommand("getallorderdetailsdata", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            //  cmd.Parameters.Add("@Createby", SqlDbType.VarChar).Value = Createby;
+            cmd.Parameters.Add("@Noseries", SqlDbType.BigInt).Value = Noseries;
+            dt = new DataTable();
+            da.Fill(dt);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+    public DataTable getallorderitemdatadal(string Noseries)
+    {
+        DataTable dt = null;
+        try
+        {
+            c = con.getconnection();
+            SqlCommand cmd = new SqlCommand("gettallorderitemdatabyno", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            cmd.Parameters.Add("@Noseries", SqlDbType.VarChar).Value = Noseries;
+            dt = new DataTable();
+            da.Fill(dt);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+    public DataTable getorderFollowupdataDAL(int Noseries)
+    {
+        DataTable dt = null;
+        try
+        {
+            c = con.getconnection();
+            SqlCommand cmd = new SqlCommand("getorderFollowupdata", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            //  cmd.Parameters.Add("@Createby", SqlDbType.VarChar).Value = Createby;
+            cmd.Parameters.Add("@Noseries", SqlDbType.BigInt).Value = Noseries;
+            dt = new DataTable();
+            da.Fill(dt);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+    public DataTable getorderDetailsdatabyidDAL(string Id)
+    {
+        DataTable dt = null;
+        try
+        {
+            c = con.getconnection();
+            SqlCommand cmd = new SqlCommand("getOrderDetailsdatabyid", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            cmd.Parameters.Add("@id", SqlDbType.VarChar).Value = Id;
+            dt = new DataTable();
+            da.Fill(dt);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+    public string deleteorderdetailsdatabyidDAL(string Id)
+    {
+        string res = "";
+        try
+        {
+            c = con.getconnection();
+            cmd = new SqlCommand("deletequotationdetailsdatabyid", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@id", SqlDbType.VarChar).Value = Id;
+            res = cmd.ExecuteNonQuery().ToString();
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+        return res;
+    }
+    public DataTable getorderFollowupDetailsdatabyidDAL(string Id)
+    {
+        DataTable dt = null;
+        try
+        {
+            c = con.getconnection();
+            SqlCommand cmd = new SqlCommand("getorderFollowupDetailsdatabyid", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            cmd.Parameters.Add("@id", SqlDbType.VarChar).Value = Id;
+            dt = new DataTable();
+            da.Fill(dt);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+    public string deleteorderfollowupdatabyidDAL(string Id)
+    {
+        string res = "";
+        try
+        {
+            c = con.getconnection();
+            cmd = new SqlCommand("deleteorderfollowupdatabyid", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@id", SqlDbType.VarChar).Value = Id;
+            res = cmd.ExecuteNonQuery().ToString();
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+        return res;
+    }
+    public DataTable checkorderFollowupDAL(string Noseries, string NextFolldate, int Follotype)
+    {
+        DataTable dt = null;
+        try
+        {
+            c = con.getconnection();
+            SqlCommand cmd = new SqlCommand("checkOrderFollowup", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            cmd.Parameters.Add("@Noseries", SqlDbType.VarChar).Value = Noseries;
+            cmd.Parameters.Add("@NextFolldate", SqlDbType.VarChar).Value = NextFolldate;
+            cmd.Parameters.Add("@Follotype", SqlDbType.Int).Value = Follotype;
+
+            dt = new DataTable();
+            da.Fill(dt);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+
+    public string tbl_Order_Followup_InsertDAL(int Noseries, string NextFolldate, int Follotype, int Assignto, int FolloStatus, string Remarks, string Comdate, string Comremarks, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
+    {
+        string res = "";
+        try
+        {
+            c = con.getconnection();
+            cmd = new SqlCommand("tbl_Order_Followup_Insert", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@Noseries", SqlDbType.Int).Value = Noseries;
+            cmd.Parameters.Add("@NextFolldate", SqlDbType.VarChar).Value = NextFolldate;
+            cmd.Parameters.Add("@Follotype", SqlDbType.Int).Value = Follotype;
+            cmd.Parameters.Add("@Assignto", SqlDbType.Int).Value = Assignto;
+            cmd.Parameters.Add("@FolloStatus", SqlDbType.Int).Value = FolloStatus;
+            cmd.Parameters.Add("@Remarks", SqlDbType.VarChar).Value = Remarks;
+            cmd.Parameters.Add("@Comdate", SqlDbType.VarChar).Value = Comdate;
+            cmd.Parameters.Add("@Comremarks", SqlDbType.VarChar).Value = Comremarks;
+            cmd.Parameters.Add("@CreateBy", SqlDbType.VarChar).Value = CreateBy;
+            cmd.Parameters.Add("@CreateDatetime", SqlDbType.DateTime).Value = CreateDatetime;
+            cmd.Parameters.Add("@Extra1", SqlDbType.VarChar).Value = Extra1;
+            cmd.Parameters.Add("@Extra2", SqlDbType.VarChar).Value = Extra2;
+            cmd.Parameters.Add("@Extra3", SqlDbType.VarChar).Value = Extra3;
+            cmd.Parameters.Add("@Extra4", SqlDbType.VarChar).Value = Extra4;
+            cmd.Parameters.Add("@Extra5", SqlDbType.VarChar).Value = Extra5;
+            res = cmd.ExecuteNonQuery().ToString();
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+        return res;
+    }
+    public string tbl_Order_Followup_updateDAL(int Id, int Noseries, string NextFolldate, int Follotype, int Assignto, int FolloStatus, string Remarks, string Comdate, string Comremarks, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
+    {
+        string res = "";
+        try
+        {
+            c = con.getconnection();
+            cmd = new SqlCommand("tbl_Order_Followup_update", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@id", SqlDbType.Int).Value = Id;
+            cmd.Parameters.Add("@Noseries", SqlDbType.Int).Value = Noseries;
+            cmd.Parameters.Add("@NextFolldate", SqlDbType.VarChar).Value = NextFolldate;
+            cmd.Parameters.Add("@Follotype", SqlDbType.Int).Value = Follotype;
+            cmd.Parameters.Add("@Assignto", SqlDbType.Int).Value = Assignto;
+            cmd.Parameters.Add("@FolloStatus", SqlDbType.Int).Value = FolloStatus;
+            cmd.Parameters.Add("@Remarks", SqlDbType.VarChar).Value = Remarks;
+            cmd.Parameters.Add("@Comdate", SqlDbType.VarChar).Value = Comdate;
+            cmd.Parameters.Add("@Comremarks", SqlDbType.VarChar).Value = Comremarks;
+            cmd.Parameters.Add("@CreateBy", SqlDbType.VarChar).Value = CreateBy;
+            cmd.Parameters.Add("@CreateDatetime", SqlDbType.DateTime).Value = CreateDatetime;
+            cmd.Parameters.Add("@Extra1", SqlDbType.VarChar).Value = Extra1;
+            cmd.Parameters.Add("@Extra2", SqlDbType.VarChar).Value = Extra2;
+            cmd.Parameters.Add("@Extra3", SqlDbType.VarChar).Value = Extra3;
+            cmd.Parameters.Add("@Extra4", SqlDbType.VarChar).Value = Extra4;
+            cmd.Parameters.Add("@Extra5", SqlDbType.VarChar).Value = Extra5;
+            res = cmd.ExecuteNonQuery().ToString();
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+        return res;
+    }
+    public string tbl_Order_Master_InsertDAL(int InqiuryNo, int Noseries, string Inquirydate, int Custname, int Custcontact, string Custcontactno, int Dept, int Design, string ContactEmail, string ContactMno1, string ContactMno2, int InqiuryStatus, int InquirySource, string Remarks, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
+    {
+        string res = "";
+        try
+        {
+            c = con.getconnection();
+            cmd = new SqlCommand("tbl_Order_Master_Insert", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@InqiuryNo", SqlDbType.Int).Value = InqiuryNo;
+            cmd.Parameters.Add("@Noseries", SqlDbType.Int).Value = Noseries;
+            cmd.Parameters.Add("@Inquirydate", SqlDbType.VarChar).Value = Inquirydate;
+            //  cmd.Parameters.Add("@Custgroup", SqlDbType.Int).Value = Custgroup;
+            cmd.Parameters.Add("@Custname", SqlDbType.Int).Value = Custname;
+            cmd.Parameters.Add("@Custcontact", SqlDbType.Int).Value = Custcontact;
+            cmd.Parameters.Add("@Custcontactno", SqlDbType.VarChar).Value = Custcontactno;
+            cmd.Parameters.Add("@Dept", SqlDbType.Int).Value = Dept;
+            cmd.Parameters.Add("@Design", SqlDbType.Int).Value = Design;
+
+
+            cmd.Parameters.Add("@ContactEmail", SqlDbType.VarChar).Value = ContactEmail;
+            cmd.Parameters.Add("@ContactMno1", SqlDbType.VarChar).Value = ContactMno1;
+            cmd.Parameters.Add("@ContactMno2", SqlDbType.VarChar).Value = ContactMno2;
+            cmd.Parameters.Add("@InqiuryStatus", SqlDbType.Int).Value = InqiuryStatus;
+            cmd.Parameters.Add("@InquirySource", SqlDbType.Int).Value = InquirySource;
+            cmd.Parameters.Add("@Remarks", SqlDbType.VarChar).Value = Remarks;
+            cmd.Parameters.Add("@CreateBy", SqlDbType.VarChar).Value = CreateBy;
+            cmd.Parameters.Add("@CreateDatetime", SqlDbType.DateTime).Value = CreateDatetime;
+            cmd.Parameters.Add("@Extra1", SqlDbType.VarChar).Value = Extra1;
+            cmd.Parameters.Add("@Extra2", SqlDbType.VarChar).Value = Extra2;
+            cmd.Parameters.Add("@Extra3", SqlDbType.VarChar).Value = Extra3;
+            cmd.Parameters.Add("@Extra4", SqlDbType.VarChar).Value = Extra4;
+            cmd.Parameters.Add("@Extra5", SqlDbType.VarChar).Value = Extra5;
+            res = cmd.ExecuteNonQuery().ToString();
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+        return res;
+    }
+    public string deleteordertermsandconditionsdata(int Id)
+    {
+        string res = "";
+        try
+        {
+            c = con.getconnection();
+            cmd = new SqlCommand("deleteordertandc", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@Noseries", SqlDbType.BigInt).Value = Id;
+
+            res = cmd.ExecuteNonQuery().ToString();
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+        return res;
+    }
+
+    public string tbl_Order_tandc_InsertDAL(int termsid, int noseries, string termstitle, string termsdescrip, string status, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
+    {
+        string res = "";
+        try
+        {
+            c = con.getconnection();
+            cmd = new SqlCommand("insert_order_tandc", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@termsid", SqlDbType.Int).Value = termsid;
+            cmd.Parameters.Add("@Noseries", SqlDbType.BigInt).Value = noseries;
+            cmd.Parameters.Add("@termstitle", SqlDbType.VarChar).Value = termstitle;
+            cmd.Parameters.Add("@termsdescription", SqlDbType.VarChar).Value = termsdescrip;
+
+            cmd.Parameters.Add("@Status", SqlDbType.VarChar).Value = status;
+
+            cmd.Parameters.Add("@CreateBy", SqlDbType.VarChar).Value = CreateBy;
+            cmd.Parameters.Add("@CreateDatetime", SqlDbType.DateTime).Value = CreateDatetime;
+            cmd.Parameters.Add("@Extra1", SqlDbType.VarChar).Value = Extra1;
+            cmd.Parameters.Add("@Extra2", SqlDbType.VarChar).Value = Extra2;
+            cmd.Parameters.Add("@Extra3", SqlDbType.VarChar).Value = Extra3;
+            cmd.Parameters.Add("@Extra4", SqlDbType.VarChar).Value = Extra4;
+            cmd.Parameters.Add("@Extra5", SqlDbType.VarChar).Value = Extra5;
+            res = cmd.ExecuteNonQuery().ToString();
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+        return res;
+    }
+
 }

@@ -44,7 +44,13 @@
                                                     CommandName="editdata" CausesValidation="False" />
                                             </ItemTemplate>
                                         </asp:TemplateField>
-
+                                         <asp:TemplateField HeaderStyle-CssClass="" HeaderText="Revise">
+                                            <ItemTemplate>
+                                                <asp:ImageButton ID="btnrevise" ImageUrl="images/viewIcon.png" ToolTip="Click here to Revise"
+                                                    runat="server" CssClass="imgbtnalign1" CommandArgument='<%# Eval("Noseries") %>'
+                                                    CommandName="revisedata" CausesValidation="False" />
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
                                          <asp:TemplateField HeaderText="No">
                                             <ItemTemplate>
                                                 <asp:Label ID="lblno" runat="server" Text='<%# Eval("QuotationNo") %>'></asp:Label>
@@ -112,8 +118,20 @@
                                             <ItemStyle Wrap="true" HorizontalAlign="Left" />
                                             <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />
                                         </asp:TemplateField>
-                                     
-
+                                      <asp:TemplateField HeaderStyle-CssClass="" HeaderText="Won">
+                                            <ItemTemplate>
+                                                <asp:ImageButton ID="btnwon" ImageUrl="images/viewIcon.png" ToolTip="Click here to Won"
+                                                    runat="server" CssClass="imgbtnalign1" CommandArgument='<%# Eval("Noseries") %>'
+                                                    CommandName="wondata" CausesValidation="False" />
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderStyle-CssClass="" HeaderText="Loss">
+                                            <ItemTemplate>
+                                                <asp:ImageButton ID="btnloss" ImageUrl="images/viewIcon.png" ToolTip="Click here to Loss"
+                                                    runat="server" CssClass="imgbtnalign1" CommandArgument='<%# Eval("Noseries") %>'
+                                                    CommandName="lossdata" CausesValidation="False" />
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
 
 
                                     </Columns>

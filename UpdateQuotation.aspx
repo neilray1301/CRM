@@ -25,6 +25,11 @@
 
 
         }
+        function tdiscount(dis) {
+            var amount = txtamount.value;
+            var discount = Txtdiscount.value
+            txtamount.value = amount - (amount * (discount / 100));
+        }
     </script>
 
 
@@ -235,6 +240,13 @@
                                     Qty:
                                 </label>
                                 <asp:TextBox ID="txtqty" ClientIDMode="Static" onkeyup="tSpeedValue(this)" class="form-control" TabIndex="2" runat="server"></asp:TextBox>
+
+                            </div>
+                            <div class="col-md-1 form-group">
+                                <label class="control-label">
+                                   Discount:
+                                </label>
+                                <asp:TextBox ID="Txtdiscount" ClientIDMode="Static" onkeyup="tdiscount(this)" class="form-control" TabIndex="2" runat="server"></asp:TextBox>
 
                             </div>
                             <div class="col-md-1 form-group">

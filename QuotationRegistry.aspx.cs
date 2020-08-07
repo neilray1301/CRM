@@ -80,6 +80,21 @@ public partial class QuotationRegistry : System.Web.UI.Page
             {
                 Response.Redirect(String.Format("UpdateQuotation.aspx?no={0}", lblid.Text), false);
             }
+            else if(e.CommandName == "revisedata")
+                {
+                Response.Redirect(String.Format("RevisedQuotation.aspx?no={0}", lblid.Text), false);
+            }
+            else if (e.CommandName == "wondata")
+            {
+                Response.Redirect(String.Format("OrderEntry.aspx?no={0}", lblid.Text), false);
+            }
+            else if(e.CommandName == "lossdata")
+            {
+                
+                
+                    Response.Redirect(String.Format("OrderRegistry  .aspx?no={0}", lblid.Text), false);
+                
+            }
         }
         catch (Exception ex)
         {
