@@ -54,7 +54,9 @@
                 <li><a href="Default.aspx"><i class="fa fa-dashboard"></i>Home</a></li>
                 <li><a href="Demo.master">Quotation</a></li>
                 <li class="active">Quotation Entry</li>
-                <asp:Label ID="lblcomno" runat="server" Text=""></asp:Label>
+                                <asp:Label ID="lblqno" runat="server" Text=""></asp:Label>
+
+                <asp:Label ID="lblcomno" runat="server" Visible="false" Text=""></asp:Label>
                 <asp:Label ID="lblid" runat="server" Visible="false" Text=""></asp:Label>
                 <asp:Label ID="lblloginid" runat="server" Visible="false" Text=""></asp:Label>
                 <asp:Label ID="lblrole" runat="server" Visible="false" Text=""></asp:Label>
@@ -272,7 +274,7 @@
                                             <Columns>
                                                 <asp:TemplateField HeaderText="ItemName">
                                                     <ItemTemplate>
-                                                        <asp:Label ID="lblItemName" runat="server" Text='<%# Eval("itemgroup") %>'></asp:Label>
+                                                        <asp:Label ID="lblItemName" runat="server" Text='<%# Eval("Itemname") %>'></asp:Label>
                                                     </ItemTemplate>
                                                     <ItemStyle Wrap="true" HorizontalAlign="Left" />
                                                     <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />

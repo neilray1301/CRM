@@ -1924,6 +1924,22 @@ public class BusinessLogicLayer
         }
         return dt;
     }
+    public DataTable getallInqiuryDetailsdataBAL(int Noseries)
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.getallInqiuryDetailsdataDAL(Noseries);
+
+        }
+        catch (Exception ex)
+        {
+
+
+        }
+        return dt;
+    }
     public DataTable getFollowupdataBAL( int Noseries)
     {
         DataTable dt = null;
@@ -2532,7 +2548,7 @@ public class BusinessLogicLayer
         dal = new DataAccessLayer();
         try
         {
-            res = dal.tbl_Inqiury_Details_InsertDAL(Noseries, Item, UOM, Qty, Rate, Amount, CreateBy, CreateDatetime, Extra1, Extra2, Extra3, Extra4, Extra5);
+            res = dal.tbl_Quotation_Details_InsertDAL(Noseries, Item, UOM, Qty, Rate, Amount, CreateBy, CreateDatetime, Extra1, Extra2, Extra3, Extra4, Extra5);
         }
         catch (Exception ex)
         {
@@ -2755,4 +2771,97 @@ public class BusinessLogicLayer
         return res;
     }
 
+    public DataTable getallquotationInqiurydatabynoBAL(string Noseries)
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.getallquotationInqiurydatabynoBAL(Noseries);
+
+        }
+        catch (Exception ex)
+        {
+
+
+        }
+        return dt;
+    }
+    public DataTable getallquotationitemdatabal(string Noseries)
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.getallquotationitemdatadal(Noseries);
+
+        }
+        catch (Exception ex)
+        {
+
+
+        }
+        return dt;
+    }
+
+    public DataTable getquotationDetailsdataBAL(int Noseries)
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.getquotationDetailsdataDAL(Noseries);
+
+        }
+        catch (Exception ex)
+        {
+
+
+        }
+        return dt;
+    }
+    public DataTable getQuotationDetailsdatabyidDAL(string Id)
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.getQuotationDetailsdatabyidDAL(Id);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+    public string deletequotationdetailsdatabyidBAL(string id)
+    {
+        string res = "";
+        dal = new DataAccessLayer();
+        try
+        {
+            res = dal.deletequotationdetailsdatabyidDAL(id);
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+
+        return res;
+    }
+    public string deletequotationfollowupdatabyidBAL(string id)
+    {
+        string res = "";
+        dal = new DataAccessLayer();
+        try
+        {
+            res = dal.deletequotationfollowupdatabyidDAL(id);
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+
+        return res;
+    }
 }

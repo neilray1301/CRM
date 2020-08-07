@@ -33,6 +33,7 @@ public partial class UpdateQuotation : System.Web.UI.Page
             binddepartment();
             binddesignation();
             filldata();
+            binditemdata();
             //  getInquiryNo();
             //  getmaxcomno();
             bindcustomer();
@@ -43,7 +44,34 @@ public partial class UpdateQuotation : System.Web.UI.Page
 
         }
     }
+    public void binditemdata()
+    {
 
+        try
+        {
+
+            DataTable dtcontact = new DataTable();
+            dtcontact = bal.getallquotationitemdatabal(lblcomno.Text);
+            if (dtcontact.Rows.Count > 0)
+            {
+                grdproduct.DataSource = dtcontact;
+                grdproduct.DataBind();
+                grdproduct.UseAccessibleHeader = true;
+                grdproduct.HeaderRow.TableSection = TableRowSection.TableHeader;
+            }
+            else
+            {
+                grdproduct.DataSource = dtcontact;
+                grdproduct.DataBind();
+                grdproduct.UseAccessibleHeader = true;
+                grdproduct.HeaderRow.TableSection = TableRowSection.TableHeader;
+            }
+        }
+        catch (Exception ex)
+        {
+            Getconnection.SiteErrorInsert(ex);
+        }
+    }
     public void filldata()
     {
         try
@@ -345,34 +373,34 @@ public partial class UpdateQuotation : System.Web.UI.Page
         }
     }
 
-    public void binditemdata()
-    {
+    //public void binditemdata()
+    //{
 
-        try
-        {
+    //    try
+    //    {
 
-            DataTable dtcontact = new DataTable();
-            dtcontact = bal.getInqiuryDetailsdataBAL(Convert.ToInt32(lblcomno.Text));
-            if (dtcontact.Rows.Count > 0)
-            {
-                grdproduct.DataSource = dtcontact;
-                grdproduct.DataBind();
-                grdproduct.UseAccessibleHeader = true;
-                grdproduct.HeaderRow.TableSection = TableRowSection.TableHeader;
-            }
-            else
-            {
-                grdproduct.DataSource = dtcontact;
-                grdproduct.DataBind();
-                grdproduct.UseAccessibleHeader = true;
-                grdproduct.HeaderRow.TableSection = TableRowSection.TableHeader;
-            }
-        }
-        catch (Exception ex)
-        {
-            Getconnection.SiteErrorInsert(ex);
-        }
-    }
+    //        DataTable dtcontact = new DataTable();
+    //        dtcontact = bal.getquotationDetailsdataBAL(Convert.ToInt32(lblcomno.Text));
+    //        if (dtcontact.Rows.Count > 0)
+    //        {
+    //            grdproduct.DataSource = dtcontact;
+    //            grdproduct.DataBind();
+    //            grdproduct.UseAccessibleHeader = true;
+    //            grdproduct.HeaderRow.TableSection = TableRowSection.TableHeader;
+    //        }
+    //        else
+    //        {
+    //            grdproduct.DataSource = dtcontact;
+    //            grdproduct.DataBind();
+    //            grdproduct.UseAccessibleHeader = true;
+    //            grdproduct.HeaderRow.TableSection = TableRowSection.TableHeader;
+    //        }
+    //    }
+    //    catch (Exception ex)
+    //    {
+    //        Getconnection.SiteErrorInsert(ex);
+    //    }
+    //}
 
     public void bindfollowupdata()
     {
@@ -417,7 +445,7 @@ public partial class UpdateQuotation : System.Web.UI.Page
             lblid.Text = e.CommandArgument.ToString();
             if (e.CommandName == "editdata")
             {
-                DataTable dtdata = bal.getInqiuryDetailsdatabyidBAL(lblid.Text);
+                DataTable dtdata = bal.getQuotationDetailsdatabyidDAL(lblid.Text);
                 if (dtdata.Rows.Count > 0)
                 {
                     dpitem.SelectedValue = dtdata.Rows[0]["Item"].ToString();
@@ -438,7 +466,7 @@ public partial class UpdateQuotation : System.Web.UI.Page
             else if (e.CommandName == "deletedata")
             {
 
-                result = bal.deleteinquirydetailsdatabyidBAL(lblid.Text);
+                result = bal.deletequotationdetailsdatabyidBAL(lblid.Text);
 
                 ShowMessage("Record Deleted!!!", MessageType.Success);
 

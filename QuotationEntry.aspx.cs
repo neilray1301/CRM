@@ -16,30 +16,155 @@ public partial class QuotationEntry : System.Web.UI.Page
 
         if (!IsPostBack)
         {
-            string zoneId = "India Standard Time";
-            TimeZoneInfo tzi = TimeZoneInfo.FindSystemTimeZoneById(zoneId);
-            DateTime now = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, tzi);
-            txtfdate.Text = now.ToString("dd/MM/yyyy");
-            txtdate.Text = now.ToString("dd/MM/yyyy");
-            //   lblloginid.Text = Session["no"].ToString();
-            //    lblrole.Text = Session["role"].ToString();
+            string inqno = Request.QueryString["no"].ToString();
+            if (inqno.Equals(""))
+            {
 
-            bindstatus();
-            bindsource();
-            bindfollowup();
-            binditem();
-            binduom();
-            binddepartment();
-            binddesignation();
-            getInquiryNo();
-            getmaxcomno();
-            bindcustomer();
-            BindDetail();
-            bincustcontact();
+               
+                string zoneId = "India Standard Time";
+                TimeZoneInfo tzi = TimeZoneInfo.FindSystemTimeZoneById(zoneId);
+                DateTime now = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, tzi);
+                txtfdate.Text = now.ToString("dd/MM/yyyy");
+                txtdate.Text = now.ToString("dd/MM/yyyy");
+                //   lblloginid.Text = Session["no"].ToString();
+                //    lblrole.Text = Session["role"].ToString();
+
+                bindstatus();
+                bindsource();
+                bindfollowup();
+                binditem();
+                binduom();
+                binddepartment();
+                binddesignation();
+                //
+                getInquiryNo();
+                getmaxcomno();
+                bindcustomer();
+                BindDetail();
+                bincustcontact();
+            }
+            else
+            {
+                lblqno.Text = Request.QueryString["no"].ToString();
+                string zoneId = "India Standard Time";
+                TimeZoneInfo tzi = TimeZoneInfo.FindSystemTimeZoneById(zoneId);
+                DateTime now = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, tzi);
+                txtfdate.Text = now.ToString("dd/MM/yyyy");
+                txtdate.Text = now.ToString("dd/MM/yyyy");
+                //   lblloginid.Text = Session["no"].ToString();
+                //    lblrole.Text = Session["role"].ToString();
+
+                bindstatus();
+                bindsource();
+                bindfollowup();
+                binditem();
+                binduom();
+                binddepartment();
+                binddesignation();
+                
+               
+                getInquiryNo();
+                getmaxcomno();
+                bindcustomer();
+                BindDetail();
+                bincustcontact();
+                filldata();
+                fillitemdata();
+            }
+
+
+           
 
 
         }
     }
+    public void fillitemdata()
+    {
+        try
+        {
+            DataTable dtdata = bal.getallInqiuryDetailsdataBAL(Convert.ToInt32(lblqno.Text));
+            if (dtdata.Rows.Count > 0)
+            {
+
+                for(int i=0;i<dtdata.Rows.Count;i++)
+                {
+                    string item= dtdata.Rows[i]["Item"].ToString();
+                    string UOM = dtdata.Rows[i]["UOM"].ToString();
+                    string Qty = dtdata.Rows[i]["Qty"].ToString();
+                    string Rate = dtdata.Rows[i]["Rate"].ToString();
+                    string Amount = dtdata.Rows[i]["Amount"].ToString();
+
+                    DataTable dt1 = new DataTable();
+                    dt1 = bal.checkQuotationProductNameBAL(lblcomno.Text, Convert.ToInt32(item));
+                    if (dt1.Rows.Count > 0)
+                    {
+                        ShowMessage("Name Already Exist!!!", MessageType.Error);
+                    }
+                    else
+                    {
+
+                        DateTime utcTime = DateTime.UtcNow;
+                        TimeZoneInfo tzi = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
+                        DateTime localTime = TimeZoneInfo.ConvertTimeFromUtc(utcTime, tzi);
+                        //  txtrate.Text = "2000";
+                      bal.tbl_Quotation_Details_InsertBAL(Convert.ToInt32(lblcomno.Text), Convert.ToInt32(item), Convert.ToInt32(UOM), Convert.ToDecimal(Qty), Convert.ToDecimal(Rate), Convert.ToDecimal(Amount), lblloginid.Text, localTime, "", "", "", "", "");
+                    
+                    }
+
+                }
+                binditemdata();
+            }
+        }catch(Exception ex)
+        {
+            ex.ToString();
+        }
+    }
+    public void filldata()
+    {
+        try
+        {
+            DataTable dtdata = bal.getallquotationInqiurydatabynoBAL(lblqno.Text);
+            if (dtdata.Rows.Count > 0)
+            {
+               // txtno.Text = dtdata.Rows[0]["InqiuryNo"].ToString();
+              //  txtdate.Text = dtdata.Rows[0]["Inquirydate"].ToString();
+                txtemail.Text = dtdata.Rows[0]["ContactEmail"].ToString();
+                txtcontactno.Text = dtdata.Rows[0]["Custcontactno"].ToString();
+                txtmobileno.Text = dtdata.Rows[0]["ContactMno1"].ToString();
+                txtmobileno2.Text = dtdata.Rows[0]["ContactMno2"].ToString();
+                // dpcustgroup.SelectedValue = dtdata.Rows[0]["Groupno"].ToString();
+
+
+
+                dpcust.SelectedValue = dtdata.Rows[0]["Custname"].ToString();
+
+
+
+                dpcontactper.SelectedValue = dtdata.Rows[0]["Custcontact"].ToString();
+                dpsource.SelectedValue = dtdata.Rows[0]["InquirySource"].ToString();
+                dpstatus.SelectedValue = dtdata.Rows[0]["InqiuryStatus"].ToString();
+
+                txtremarks.Text = dtdata.Rows[0]["Remarks"].ToString();
+                ddlDept.SelectedValue = dtdata.Rows[0]["Dept"].ToString();
+                ddldesign.SelectedValue = dtdata.Rows[0]["Design"].ToString();
+                //txturl.Text = dtdata.Rows[0]["URL"].ToString();
+                //rbtnstatus.SelectedItem.Text = dtdata.Rows[0]["Status"].ToString();
+                //txtgstno.Text = dtdata.Rows[0]["GSTno"].ToString();
+                //txtbankname.Text = dtdata.Rows[0]["Bankname"].ToString();
+                //txtaccno.Text = dtdata.Rows[0]["Accountno"].ToString();
+                //txtifsccode.Text = dtdata.Rows[0]["IFSCcode"].ToString();
+                //txtcountry.Text = dtdata.Rows[0]["Country"].ToString();
+                bindcustomer();
+                //  bincustcontact();
+            }
+        }
+        catch (Exception ex)
+        {
+
+        }
+    }
+
+
     public string getmaxcomno()
     {
         string s = string.Empty, id = string.Empty;
@@ -381,7 +506,7 @@ public partial class QuotationEntry : System.Web.UI.Page
         {
 
             DataTable dtcontact = new DataTable();
-            dtcontact = bal.getInqiuryDetailsdataBAL(Convert.ToInt32(lblcomno.Text));
+            dtcontact = bal.getquotationDetailsdataBAL(Convert.ToInt32(lblcomno.Text));
             if (dtcontact.Rows.Count > 0)
             {
                 grdproduct.DataSource = dtcontact;
@@ -446,7 +571,7 @@ public partial class QuotationEntry : System.Web.UI.Page
             lblid.Text = e.CommandArgument.ToString();
             if (e.CommandName == "editdata")
             {
-                DataTable dtdata = bal.getInqiuryDetailsdatabyidBAL(lblid.Text);
+                DataTable dtdata = bal.getQuotationDetailsdatabyidDAL(lblid.Text);
                 if (dtdata.Rows.Count > 0)
                 {
                     dpitem.SelectedValue = dtdata.Rows[0]["Item"].ToString();
@@ -467,7 +592,7 @@ public partial class QuotationEntry : System.Web.UI.Page
             else if (e.CommandName == "deletedata")
             {
 
-                result = bal.deleteinquirydetailsdatabyidBAL(lblid.Text);
+                result = bal.deletequotationdetailsdatabyidBAL(lblid.Text);
 
                 ShowMessage("Record Deleted!!!", MessageType.Success);
 
@@ -512,7 +637,7 @@ public partial class QuotationEntry : System.Web.UI.Page
             else if (e.CommandName == "deletedata")
             {
 
-                result = bal.deleteinquiryfollowupdatabyidBAL(lblid.Text);
+                result = bal.deletequotationfollowupdatabyidBAL(lblid.Text);
 
                 ShowMessage("Record Deleted!!!", MessageType.Success);
 

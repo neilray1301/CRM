@@ -40,7 +40,8 @@ public partial class Updateinqiury : System.Web.UI.Page
                 bincustcontact();
                 btnUpdate.Visible = true;
             }
-        }catch(Exception ex)
+        }
+        catch (Exception ex)
         {
 
         }
@@ -291,9 +292,9 @@ public partial class Updateinqiury : System.Web.UI.Page
                 // dpcustgroup.SelectedValue = dtdata.Rows[0]["Groupno"].ToString();
 
 
-               
+
                 dpcust.SelectedValue = dtdata.Rows[0]["Custnameid"].ToString();
-            
+
 
 
                 dpcontactper.SelectedValue = dtdata.Rows[0]["Custcontact"].ToString();
@@ -301,7 +302,7 @@ public partial class Updateinqiury : System.Web.UI.Page
                 dpstatus.SelectedValue = dtdata.Rows[0]["InqiuryStatus"].ToString();
 
                 txtremarks.Text = dtdata.Rows[0]["Remarks"].ToString();
-                ddlDept.SelectedValue= dtdata.Rows[0]["Dept"].ToString();
+                ddlDept.SelectedValue = dtdata.Rows[0]["Dept"].ToString();
                 ddldesign.SelectedValue = dtdata.Rows[0]["Design"].ToString();
                 //txturl.Text = dtdata.Rows[0]["URL"].ToString();
                 //rbtnstatus.SelectedItem.Text = dtdata.Rows[0]["Status"].ToString();
@@ -311,7 +312,7 @@ public partial class Updateinqiury : System.Web.UI.Page
                 //txtifsccode.Text = dtdata.Rows[0]["IFSCcode"].ToString();
                 //txtcountry.Text = dtdata.Rows[0]["Country"].ToString();
                 bindcustomer();
-              //  bincustcontact();
+                //  bincustcontact();
             }
         }
         catch (Exception ex)
@@ -372,7 +373,7 @@ public partial class Updateinqiury : System.Web.UI.Page
         {
             Getconnection.SiteErrorInsert(ex);
         }
-       
+
     }
 
     protected void dpcust_SelectedIndexChanged(object sender, EventArgs e)
@@ -416,7 +417,7 @@ public partial class Updateinqiury : System.Web.UI.Page
             //ddldesign.ClearSelection();
             //txtdob.Text = "";
             //txtdoani.Text = "";
-           // dpprincipal.ClearSelection();
+            // dpprincipal.ClearSelection();
             dpitem.ClearSelection();
             dpuom.ClearSelection();
             //dpsuppliers.ClearSelection();
@@ -654,19 +655,19 @@ public partial class Updateinqiury : System.Web.UI.Page
         {
 
 
-           // string Groupid = bal.getCustomerGroupIdbynameDAL(dpcustgroup.SelectedItem.Text);
-//string custid = bal.getCustomerIdbynameBAL(dpcust.SelectedItem.Text);
+            // string Groupid = bal.getCustomerGroupIdbynameDAL(dpcustgroup.SelectedItem.Text);
+            string custid = bal.getCustomerIdbynameBAL(dpcust.SelectedItem.Text);
 
 
 
-//DateTime utcTime = DateTime.UtcNow;
-         //   TimeZoneInfo tzi = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
-        //    DateTime localTime = TimeZoneInfo.ConvertTimeFromUtc(utcTime, tzi);
+            DateTime utcTime = DateTime.UtcNow;
+            TimeZoneInfo tzi = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
+            DateTime localTime = TimeZoneInfo.ConvertTimeFromUtc(utcTime, tzi);
 
 
-      //      bal.tbl_Inqiury_Master_UpdateBAL(Convert.ToInt32(txtno.Text), Convert.ToInt32(lblcomno.Text), txtdate.Text,  Convert.ToInt32(custid), Convert.ToInt32(dpcontactper.SelectedValue.ToString()), txtcontactno.Text, Convert.ToInt32(ddlDept.SelectedValue.ToString()), Convert.ToInt32(ddldesign.SelectedValue.ToString()), txtemail.Text, txtmobileno.Text, txtmobileno2.Text, Convert.ToInt32(dpstatus.SelectedValue.ToString()), Convert.ToInt32(dpsource.SelectedValue.ToString()), txtremarks.Text, lblloginid.Text, localTime, "", "", "", "", "");
-      //      Response.Redirect("InquiryRegistry.aspx", false);
-//
+            bal.tbl_Inqiury_Master_UpdateBAL(Convert.ToInt32(txtno.Text), Convert.ToInt32(lblcomno.Text), txtdate.Text, Convert.ToInt32(custid), Convert.ToInt32(dpcontactper.SelectedValue.ToString()), txtcontactno.Text, Convert.ToInt32(ddlDept.SelectedValue.ToString()), Convert.ToInt32(ddldesign.SelectedValue.ToString()), txtemail.Text, txtmobileno.Text, txtmobileno2.Text, Convert.ToInt32(dpstatus.SelectedValue.ToString()), Convert.ToInt32(dpsource.SelectedValue.ToString()), txtremarks.Text, lblloginid.Text, localTime, "", "", "", "", "");
+            Response.Redirect("InquiryRegistry.aspx", false);
+
         }
         catch (Exception ex)
         {

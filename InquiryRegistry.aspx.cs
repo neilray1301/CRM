@@ -86,6 +86,10 @@ public partial class InquiryRegistry : System.Web.UI.Page
             {
                 Response.Redirect(String.Format("Updateinqiury.aspx?no={0}", lblid.Text), false);
             }
+            else if(e.CommandName== "convertquotation")
+            {
+                Response.Redirect(String.Format("QuotationEntry.aspx?no={0}", lblid.Text), false);
+            }
         }
         catch (Exception ex)
         {
