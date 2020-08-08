@@ -2636,7 +2636,7 @@ public class DataAccessLayer
         }
         return dt;
     }
-    public DataTable getFollowupdataDAL( int Noseries)
+    public DataTable getFollowupdataDAL(int Noseries)
     {
         DataTable dt = null;
         try
@@ -2645,7 +2645,7 @@ public class DataAccessLayer
             SqlCommand cmd = new SqlCommand("getFollowupdata", c);
             cmd.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter da = new SqlDataAdapter(cmd);
-          //  cmd.Parameters.Add("@Createby", SqlDbType.VarChar).Value = Createby;
+            //  cmd.Parameters.Add("@Createby", SqlDbType.VarChar).Value = Createby;
             cmd.Parameters.Add("@Noseries", SqlDbType.BigInt).Value = Noseries;
             dt = new DataTable();
             da.Fill(dt);
@@ -4532,5 +4532,43 @@ public class DataAccessLayer
         }
         return res;
     }
+    public DataTable getquotationDetailsdatabyidDAL(int Id)
+    {
+        DataTable dt = null;
+        try
+        {
+            c = con.getconnection();
+            SqlCommand cmd = new SqlCommand("getFollowupDetailsdatabyid", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            cmd.Parameters.Add("@id", SqlDbType.Int).Value = Id;
+            dt = new DataTable();
+            da.Fill(dt);
+        }
+        catch (Exception ex)
+        {
 
+        }
+        return dt;
+    }
+    public DataTable getQUotationFollowupdataDAL(int Noseries)
+    {
+        DataTable dt = null;
+        try
+        {
+            c = con.getconnection();
+            SqlCommand cmd = new SqlCommand("getquotationFollowupdata", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            //  cmd.Parameters.Add("@Createby", SqlDbType.VarChar).Value = Createby;
+            cmd.Parameters.Add("@Noseries", SqlDbType.BigInt).Value = Noseries;
+            dt = new DataTable();
+            da.Fill(dt);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
 }

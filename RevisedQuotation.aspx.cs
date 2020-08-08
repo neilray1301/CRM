@@ -494,7 +494,7 @@ public partial class RevisedQuotation : System.Web.UI.Page
         {
 
             DataTable dtcontact = new DataTable();
-            dtcontact = bal.getFollowupdataBAL(Convert.ToInt32(lblqno.Text));
+            dtcontact = bal.getQUotationFollowupdataDAL(Convert.ToInt32(lblqno.Text));
             if (dtcontact.Rows.Count > 0)
             {
                 grdfollowup.DataSource = dtcontact;

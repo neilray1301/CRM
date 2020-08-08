@@ -274,7 +274,7 @@
                                             <Columns>
                                                 <asp:TemplateField HeaderText="ItemName">
                                                     <ItemTemplate>
-                                                        <asp:Label ID="lblItemName" runat="server" Text='<%# Eval("Itemname") %>'></asp:Label>
+                                                        <asp:Label ID="lblItemName" runat="server" Text='<%# Eval("Item") %>'></asp:Label>
                                                     </ItemTemplate>
                                                     <ItemStyle Wrap="true" HorizontalAlign="Left" />
                                                     <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />
@@ -284,7 +284,7 @@
 
                                                 <asp:TemplateField HeaderText="UOM">
                                                     <ItemTemplate>
-                                                        <asp:Label ID="lblUOM" runat="server" Text='<%# Eval("UnitofMeasurement") %>'></asp:Label>
+                                                        <asp:Label ID="lblUOM" runat="server" Text='<%# Eval("UOM") %>'></asp:Label>
                                                     </ItemTemplate>
                                                     <ItemStyle Wrap="true" HorizontalAlign="Left" />
                                                     <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />

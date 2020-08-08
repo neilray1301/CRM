@@ -1924,6 +1924,7 @@ public class BusinessLogicLayer
         }
         return dt;
     }
+
     public DataTable getallInqiuryDetailsdataBAL(int Noseries)
     {
         DataTable dt = null;
@@ -1937,6 +1938,19 @@ public class BusinessLogicLayer
         {
 
 
+        }
+        return dt;
+    }
+    public DataTable getFollowupdatabal(int Noseries)
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.getFollowupdataDAL(Noseries);
+        }catch(Exception ex)
+        {
+            ex.ToString();
         }
         return dt;
     }
@@ -3111,4 +3125,34 @@ public class BusinessLogicLayer
         return res;
     }
 
+    public DataTable getquotationDetailsdatabyidDAL(int Id)
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.getquotationDetailsdatabyidDAL(Id);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+    public DataTable getQUotationFollowupdataDAL(int Noseries)
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.getQUotationFollowupdataDAL(Noseries);
+
+        }
+        catch (Exception ex)
+        {
+
+
+        }
+        return dt;
+    }
 }

@@ -54,7 +54,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="content-wrapper">
         <section class="content-header">
-            <h1>Quotation Entry</h1>
+            <h1>Order Entry</h1>
             <ol class="breadcrumb">
                 <li><a href="Default.aspx"><i class="fa fa-dashboard"></i>Home</a></li>
                 <li><a href="Demo.master">Quotation</a></li>
@@ -568,7 +568,7 @@
                         <div class="row">
                             <div class="col-md-12 form-group" style="padding-top: 5px; text-align: right">
                                 <asp:LinkButton ID="btnSave" runat="server" ValidationGroup="Emst" Visible="false" TabIndex="36" CssClass="btn btn-bitbucket btn-flat"><i class="fa fa-save"></i>&nbsp;Save</asp:LinkButton>
-                                <asp:LinkButton ID="btnUpdate" Visible="true" runat="server" OnClick="btnUpdate_Click" TabIndex="37" CssClass="btn btn-bitbucket btn-flat"><i class="fa fa-save"></i>&nbsp;Update</asp:LinkButton>
+                                <asp:LinkButton ID="btnUpdate" Visible="true" runat="server" OnClick="btnUpdate_Click" TabIndex="37" CssClass="btn btn-bitbucket btn-flat"><i class="fa fa-save"></i>&nbsp;Save</asp:LinkButton>
                                 <asp:LinkButton ID="btnDelete" runat="server" TabIndex="38" CssClass="btn btn-bitbucket bg-gray btn-flat" CausesValidation="false"><i class="fa fa-times"></i>&nbsp;Reset</asp:LinkButton>
                             </div>
 

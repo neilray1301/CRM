@@ -254,7 +254,7 @@ public partial class Updateinqiury : System.Web.UI.Page
         {
 
             DataTable dtcontact = new DataTable();
-            dtcontact = bal.getFollowupdataBAL(Convert.ToInt32(lblcomno.Text));
+            dtcontact = bal.getFollowupdatabal(Convert.ToInt32(lblcomno.Text));
             if (dtcontact.Rows.Count > 0)
             {
                 grdfollowup.DataSource = dtcontact;

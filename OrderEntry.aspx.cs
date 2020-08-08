@@ -36,7 +36,7 @@ public partial class OrderEntry : System.Web.UI.Page
 
         filldata();
         fillitemdata();
-
+        fillfollowupdata();
         binditemdata();
         bindfollowupdata();
         //  getInquiryNo();
@@ -85,6 +85,43 @@ public partial class OrderEntry : System.Web.UI.Page
             }
         }
         catch (Exception ex)
+        {
+            ex.ToString();
+        }
+    }
+    public void fillfollowupdata()
+    {
+        try
+        {
+            DataTable dtdata = bal.getquotationDetailsdatabyidDAL(Convert.ToInt32(lblqno.Text));
+            if(dtdata.Rows.Count > 0)
+            {
+                for(int i = 0;i<dtdata.Rows.Count;i++)
+                {
+                    string NextFolldate = dtdata.Rows[i]["NextFolldate"].ToString();
+                    string Follotype = dtdata.Rows[i]["Follotype"].ToString();
+                    string Assignto = dtdata.Rows[i]["Assignto"].ToString();
+                    string FolloStatus = dtdata.Rows[i]["FolloStatus"].ToString();
+                    string Remarks = dtdata.Rows[i]["Remarks"].ToString();
+                    string Comdate = dtdata.Rows[i]["Comdate"].ToString();
+                    string Comremarks = dtdata.Rows[i]["Comremarks"].ToString();
+                    DataTable dt1 = new DataTable();
+                    dt1 = bal.checkQuotationFollowupBAL(lblcomno.Text, NextFolldate, Convert.ToInt32(Follotype));
+                    if(dt1.Rows.Count > 0)
+                    {
+                        ShowMessage("Name Already Exist !!!", MessageType.Error);
+                    }
+                    else
+                    {
+                        DateTime utcTime = DateTime.UtcNow;
+                        TimeZoneInfo tzi = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
+                        DateTime localTime = TimeZoneInfo.ConvertTimeFromUtc(utcTime, tzi);
+                        bal.tbl_Order_Followup_InsertBAL(Convert.ToInt32(lblcomno.Text), NextFolldate, Convert.ToInt32(Follotype), Convert.ToInt32(Assignto), Convert.ToInt32(FolloStatus), Remarks, Comdate, Comremarks, "", localTime, "", "", "", "", "");
+                    }
+                    bindfollowupdata();
+                }
+            }
+        }catch(Exception ex)
         {
             ex.ToString();
         }
@@ -166,6 +203,7 @@ public partial class OrderEntry : System.Web.UI.Page
         }
         return s;
     }
+
     public void binditemdata()
     {
 
@@ -173,7 +211,7 @@ public partial class OrderEntry : System.Web.UI.Page
         {
 
             DataTable dtcontact = new DataTable();
-            dtcontact = bal.getallorderitemdatabal(lblqno.Text);
+            dtcontact = bal.getallorderitemdatabal(lblcomno.Text);
             if (dtcontact.Rows.Count > 0)
             {
                 grdproduct.DataSource = dtcontact;
@@ -194,6 +232,7 @@ public partial class OrderEntry : System.Web.UI.Page
             Getconnection.SiteErrorInsert(ex);
         }
     }
+
     public void filldata()
     {
         try
@@ -532,7 +571,7 @@ public partial class OrderEntry : System.Web.UI.Page
         {
 
             DataTable dtcontact = new DataTable();
-            dtcontact = bal.getorderFollowupdataBAL(Convert.ToInt32(lblqno.Text));
+            dtcontact = bal.getQUotationFollowupdataDAL(Convert.ToInt32(lblcomno.Text));
             if (dtcontact.Rows.Count > 0)
             {
                 grdfollowup.DataSource = dtcontact;
