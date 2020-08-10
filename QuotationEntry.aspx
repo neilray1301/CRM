@@ -54,7 +54,7 @@
                 <li><a href="Default.aspx"><i class="fa fa-dashboard"></i>Home</a></li>
                 <li><a href="Demo.master">Quotation</a></li>
                 <li class="active">Quotation Entry</li>
-                                <asp:Label ID="lblqno" runat="server" Text=""></asp:Label>
+                <asp:Label ID="lblqno" runat="server" Text=""></asp:Label>
 
                 <asp:Label ID="lblcomno" runat="server" Visible="false" Text=""></asp:Label>
                 <asp:Label ID="lblid" runat="server" Visible="false" Text=""></asp:Label>
@@ -164,7 +164,11 @@
                                 Email Id
                             </label>
                             <asp:TextBox ID="txtemail" class="form-control" TabIndex="7" runat="server"></asp:TextBox>
-
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txtemail"
+                                ForeColor="Red" ValidationExpression="^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
+                                Display="Dynamic" ErrorMessage="Invalid email address" />
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="txtemail"
+                                ForeColor="Red" Display="Dynamic" ErrorMessage="Required" />
                         </div>
                         <div class="col-md-6 form-group">
                             <label>Source<span class="required">* </span></label>
@@ -185,9 +189,9 @@
                                 MobileNo:<span class="required">* </span>
                             </label>
                             <asp:TextBox ID="txtmobileno" class="form-control" TabIndex="9" runat="server"></asp:TextBox>
-                            <%--  <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtaddress"
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtaddress"
                                 Display="Dynamic" ErrorMessage="Please Enter Name" Text="(*) Required" ValidationGroup="Emst" SetFocusOnError="true" ForeColor="Red"
-                                CssClass="validate"></asp:RequiredFieldValidator>--%>
+                                CssClass="validate"></asp:RequiredFieldValidator>
                         </div>
                         <div class="col-md-6 form-group">
                             <label class="control-label">
@@ -260,85 +264,86 @@
                                 <asp:LinkButton ID="btnaddproduct" runat="server" TabIndex="35" OnClick="btnaddproduct_Click" CssClass="btn btn-bitbucket btn-flat"><i class="fa fa-save"></i>&nbsp;Add Product</asp:LinkButton>
                                 <asp:LinkButton ID="lbtnupdatecontact" Visible="false" runat="server" OnClick="lbtnupdatecontact_Click" TabIndex="28" CssClass="btn btn-bitbucket btn-flat"><i class="fa fa-save"></i>&nbsp;Update</asp:LinkButton>
                                 <asp:LinkButton ID="lbtnresetcontact" runat="server" TabIndex="29" CssClass="btn btn-bitbucket bg-gray btn-flat" CausesValidation="false"><i class="fa fa-times"></i>&nbsp;Reset</asp:LinkButton>
-                                </div></div>
-                                <div class="row">
+                            </div>
+                        </div>
+                        <div class="row">
 
-                                    <div class="box-body">
-                                        <asp:GridView ID="grdproduct" runat="server" AlternatingRowStyle-BackColor="#C2D69B" AllowPaging="false" AllowSorting="false"
-                                            AutoGenerateColumns="False" BorderWidth="1px" OnRowCommand="grdproduct_RowCommand" ShowHeaderWhenEmpty="true"
-                                            CssClass="table table-striped table-bordered table-hover dataTable no-footer" CellPadding="2"
-                                            CellSpacing="2" EditRowStyle-HorizontalAlign="Center" PageSize="5" HeaderStyle-BackColor="#3c8dbc" HeaderStyle-ForeColor="White">
-                                            <AlternatingRowStyle BackColor="White" />
-                                            <PagerStyle CssClass="csspager" />
-                                            <EmptyDataTemplate>No Records Available</EmptyDataTemplate>
-                                            <Columns>
-                                                <asp:TemplateField HeaderText="ItemName">
-                                                    <ItemTemplate>
-                                                        <asp:Label ID="lblItemName" runat="server" Text='<%# Eval("Item") %>'></asp:Label>
-                                                    </ItemTemplate>
-                                                    <ItemStyle Wrap="true" HorizontalAlign="Left" />
-                                                    <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />
-                                                </asp:TemplateField>
-
-
-
-                                                <asp:TemplateField HeaderText="UOM">
-                                                    <ItemTemplate>
-                                                        <asp:Label ID="lblUOM" runat="server" Text='<%# Eval("UOM") %>'></asp:Label>
-                                                    </ItemTemplate>
-                                                    <ItemStyle Wrap="true" HorizontalAlign="Left" />
-                                                    <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />
-                                                </asp:TemplateField>
-                                                <asp:TemplateField HeaderText="Qty">
-                                                    <ItemTemplate>
-                                                        <asp:Label ID="lblQty" runat="server" Text='<%# Eval("Qty") %>'></asp:Label>
-                                                    </ItemTemplate>
-                                                    <ItemStyle Wrap="true" HorizontalAlign="Left" />
-                                                    <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />
-                                                </asp:TemplateField>
-                                                <asp:TemplateField HeaderText="Rate">
-                                                    <ItemTemplate>
-                                                        <asp:Label ID="lblRate" runat="server" Text='<%# Eval("Rate") %>'></asp:Label>
-                                                    </ItemTemplate>
-                                                    <ItemStyle Wrap="true" HorizontalAlign="Left" />
-                                                    <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />
-                                                </asp:TemplateField>
-                                                <asp:TemplateField HeaderText="Amount">
-                                                    <ItemTemplate>
-                                                        <asp:Label ID="lblAmount" runat="server" Text='<%# Eval("Amount") %>'></asp:Label>
-                                                    </ItemTemplate>
-                                                    <ItemStyle Wrap="true" HorizontalAlign="Left" />
-                                                    <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />
-                                                </asp:TemplateField>
+                            <div class="box-body">
+                                <asp:GridView ID="grdproduct" runat="server" AlternatingRowStyle-BackColor="#C2D69B" AllowPaging="false" AllowSorting="false"
+                                    AutoGenerateColumns="False" BorderWidth="1px" OnRowCommand="grdproduct_RowCommand" ShowHeaderWhenEmpty="true"
+                                    CssClass="table table-striped table-bordered table-hover dataTable no-footer" CellPadding="2"
+                                    CellSpacing="2" EditRowStyle-HorizontalAlign="Center" PageSize="5" HeaderStyle-BackColor="#3c8dbc" HeaderStyle-ForeColor="White">
+                                    <AlternatingRowStyle BackColor="White" />
+                                    <PagerStyle CssClass="csspager" />
+                                    <EmptyDataTemplate>No Records Available</EmptyDataTemplate>
+                                    <Columns>
+                                        <asp:TemplateField HeaderText="ItemName">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblItemName" runat="server" Text='<%# Eval("Item") %>'></asp:Label>
+                                            </ItemTemplate>
+                                            <ItemStyle Wrap="true" HorizontalAlign="Left" />
+                                            <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />
+                                        </asp:TemplateField>
 
 
 
-                                                <asp:TemplateField HeaderStyle-CssClass="lblfamt" HeaderText="Edit">
-                                                    <ItemTemplate>
-                                                        <asp:ImageButton ID="btnedit" ImageUrl="images/viewIcon.png" ToolTip="Click here to update"
-                                                            runat="server" CssClass="imgbtnalign1" CommandArgument='<%# Eval("Id") %>'
-                                                            CommandName="editdata" CausesValidation="False" />
-                                                    </ItemTemplate>
-                                                    <ItemStyle Wrap="true" HorizontalAlign="Left" />
-                                                    <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />
-                                                </asp:TemplateField>
-                                                <asp:TemplateField HeaderStyle-CssClass="lblfamt" HeaderText="Delete">
-                                                    <ItemTemplate>
-                                                        <asp:ImageButton ID="btnDelete1" ImageUrl="images/delete.png" ToolTip="Click here to delete"
-                                                            runat="server" CssClass="imgbtnalign1" CommandArgument='<%# Eval("Id") %>'
-                                                            CommandName="deletedata" CausesValidation="False" />
-                                                        <asp:ConfirmButtonExtender ID="ConfirmButtonExtender1" ConfirmText="Do You Want to Delete?" runat="server" TargetControlID="btnDelete"></asp:ConfirmButtonExtender>
-                                                    </ItemTemplate>
-                                                    <ItemStyle Wrap="true" HorizontalAlign="Left" />
-                                                    <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />
-                                                </asp:TemplateField>
-                                            </Columns>
-                                            <EditRowStyle HorizontalAlign="Center"></EditRowStyle>
-                                        </asp:GridView>
-                                    </div>
-                                </div>
-                            
-                        
+                                        <asp:TemplateField HeaderText="UOM">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblUOM" runat="server" Text='<%# Eval("UOM") %>'></asp:Label>
+                                            </ItemTemplate>
+                                            <ItemStyle Wrap="true" HorizontalAlign="Left" />
+                                            <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Qty">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblQty" runat="server" Text='<%# Eval("Qty") %>'></asp:Label>
+                                            </ItemTemplate>
+                                            <ItemStyle Wrap="true" HorizontalAlign="Left" />
+                                            <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Rate">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblRate" runat="server" Text='<%# Eval("Rate") %>'></asp:Label>
+                                            </ItemTemplate>
+                                            <ItemStyle Wrap="true" HorizontalAlign="Left" />
+                                            <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Amount">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblAmount" runat="server" Text='<%# Eval("Amount") %>'></asp:Label>
+                                            </ItemTemplate>
+                                            <ItemStyle Wrap="true" HorizontalAlign="Left" />
+                                            <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />
+                                        </asp:TemplateField>
+
+
+
+                                        <asp:TemplateField HeaderStyle-CssClass="lblfamt" HeaderText="Edit">
+                                            <ItemTemplate>
+                                                <asp:ImageButton ID="btnedit" ImageUrl="images/viewIcon.png" ToolTip="Click here to update"
+                                                    runat="server" CssClass="imgbtnalign1" CommandArgument='<%# Eval("Id") %>'
+                                                    CommandName="editdata" CausesValidation="False" />
+                                            </ItemTemplate>
+                                            <ItemStyle Wrap="true" HorizontalAlign="Left" />
+                                            <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderStyle-CssClass="lblfamt" HeaderText="Delete">
+                                            <ItemTemplate>
+                                                <asp:ImageButton ID="btnDelete1" ImageUrl="images/delete.png" ToolTip="Click here to delete"
+                                                    runat="server" CssClass="imgbtnalign1" CommandArgument='<%# Eval("Id") %>'
+                                                    CommandName="deletedata" CausesValidation="False" />
+                                                <asp:ConfirmButtonExtender ID="ConfirmButtonExtender1" ConfirmText="Do You Want to Delete?" runat="server" TargetControlID="btnDelete"></asp:ConfirmButtonExtender>
+                                            </ItemTemplate>
+                                            <ItemStyle Wrap="true" HorizontalAlign="Left" />
+                                            <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />
+                                        </asp:TemplateField>
+                                    </Columns>
+                                    <EditRowStyle HorizontalAlign="Center"></EditRowStyle>
+                                </asp:GridView>
+                            </div>
+                        </div>
+
+
 
                     </div>
 
@@ -385,15 +390,15 @@
                                     Remarks:<span class="required">* </span>
                                 </label>
                                 <asp:TextBox ID="txtfremarks" class="form-control" TabIndex="9" TextMode="MultiLine" runat="server"></asp:TextBox>
-                                <%-- <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtfremarks"
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtfremarks"
                                     Display="Dynamic" ErrorMessage="Please Enter remarks" Text="(*) Required" ValidationGroup="Emst" SetFocusOnError="true" ForeColor="Red"
-                                    CssClass="validate"></asp:RequiredFieldValidator>--%>
+                                    CssClass="validate"></asp:RequiredFieldValidator>
                             </div>
 
 
-                            <%-- <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtfremarks"
-                                    Display="Dynamic" ErrorMessage="Please Enter remarks" Text="(*) Required" ValidationGroup="Emst" SetFocusOnError="true" ForeColor="Red"
-                                    CssClass="validate"></asp:RequiredFieldValidator>--%>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtfremarks"
+                                Display="Dynamic" ErrorMessage="Please Enter remarks" Text="(*) Required" ValidationGroup="Emst" SetFocusOnError="true" ForeColor="Red"
+                                CssClass="validate"></asp:RequiredFieldValidator>
 
                             <div class="col-md-2 form-group" style="margin-top: 25px; text-align: left">
 
@@ -479,12 +484,12 @@
                                         <Columns>
                                             <asp:TemplateField HeaderStyle-CssClass="lblfamt" HeaderText="select">
                                                 <ItemTemplate>
-                                                    <asp:CheckBox ID="btnchkbox" 
+                                                    <asp:CheckBox ID="btnchkbox"
                                                         runat="server" CommandArgument='<%# Eval("id") %>'
                                                         CausesValidation="False" />
                                                 </ItemTemplate>
                                             </asp:TemplateField>
-                                             <asp:TemplateField Visible="false" HeaderText="id">
+                                            <asp:TemplateField Visible="false" HeaderText="id">
 
                                                 <ItemTemplate>
                                                     <asp:Label ID="lblid" Visible="false" runat="server" Text='<%# Eval("id") %>'></asp:Label>
@@ -537,7 +542,7 @@
                                         <EditRowStyle HorizontalAlign="Center"></EditRowStyle>
                                     </asp:GridView>
                                 </div>
-                                 
+
                             </div>
                         </div>
 

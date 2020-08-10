@@ -167,7 +167,11 @@
                                 Email Id
                             </label>
                             <asp:TextBox ID="txtemail" class="form-control" TabIndex="7" runat="server"></asp:TextBox>
-
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txtemail"
+                            ForeColor="Red" ValidationExpression="^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
+                            Display="Dynamic" ErrorMessage="Invalid email address" />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="txtemail"
+                            ForeColor="Red" Display="Dynamic" ErrorMessage="Required" />
                         </div>
                         <div class="col-md-6 form-group">
                             <label>Source<span class="required">* </span></label>
@@ -188,9 +192,9 @@
                                 MobileNo:<span class="required">* </span>
                             </label>
                             <asp:TextBox ID="txtmobileno" class="form-control" TabIndex="9" runat="server"></asp:TextBox>
-                            <%--  <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtaddress"
-                                Display="Dynamic" ErrorMessage="Please Enter Name" Text="(*) Required" ValidationGroup="Emst" SetFocusOnError="true" ForeColor="Red"
-                                CssClass="validate"></asp:RequiredFieldValidator>--%>
+                          <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtmobileno"
+                               Display="Dynamic" ErrorMessage="Please Enter Mobile" Text="(*) Required" ValidationGroup="Emst" SetFocusOnError="true" ForeColor="Red"
+                                CssClass="validate"></asp:RequiredFieldValidator>
                         </div>
                         <div class="col-md-6 form-group">
                             <label class="control-label">

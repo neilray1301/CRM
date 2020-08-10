@@ -134,6 +134,9 @@
                                 Phone No 
                             </label>
                             <asp:TextBox ID="txtphno" CssClass="form-control" TabIndex="8" runat="server"></asp:TextBox>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server"
+                            ControlToValidate="txtcontactphno" ErrorMessage="RegularExpressionValidator"
+                            ValidationExpression="[0-9]{10}"></asp:RegularExpressionValidator>
                         </div>
 
                         <div class="col-md-6 form-group">
@@ -141,7 +144,11 @@
                                 Email<span class="required">*</span>
                             </label>
                             <asp:TextBox ID="txtemail" CssClass="form-control" ClientIDMode="Static" TabIndex="9" runat="server"></asp:TextBox>
-
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txtemail"
+                            ForeColor="Red" ValidationExpression="^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
+                            Display="Dynamic" ErrorMessage="Invalid email address" />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="txtemail"
+                            ForeColor="Red" Display="Dynamic" ErrorMessage="Required" />
                         </div>
                     </div>
 
@@ -242,14 +249,21 @@
                                 Email 
                             </label>
                             <asp:TextBox ID="txtcontactemail" CssClass="form-control" TabIndex="19" runat="server"></asp:TextBox>
-
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtemail"
+                            ForeColor="Red" ValidationExpression="^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
+                            Display="Dynamic" ErrorMessage="Invalid email address" />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtemail"
+                            ForeColor="Red" Display="Dynamic" ErrorMessage="Required" />
                         </div>
                         <div class="col-md-4 form-group">
                             <label class="control-label">
                                 Phone No
                             </label>
                             <asp:TextBox ID="txtcontactphno" CssClass="form-control" TabIndex="20" runat="server"></asp:TextBox>
-
+                             <asp:TextBox ID="TextBox1" CssClass="form-control" TabIndex="8" runat="server"></asp:TextBox>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server"
+                            ControlToValidate="txtcontactphno" ErrorMessage="RegularExpressionValidator"
+                            ValidationExpression="[0-9]{10}"></asp:RegularExpressionValidator>
 
                         </div>
                     </div>

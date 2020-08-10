@@ -66,249 +66,262 @@
                         </div>
                        
                     </div>
-                    <div class="row">
-                        <div class="col-md-6 form-group">
-                            <label class="control-label">
-                                Address
-                            </label>
-                            <asp:TextBox ID="txtaddress" TextMode="MultiLine" class="form-control" TabIndex="2" runat="server"></asp:TextBox>
-                        </div>
-                         <div class="col-md-6 form-group">
-                            <label class="control-label">
-                                City/Taluka
-                            </label>
-                            <asp:TextBox ID="txtcity" class="form-control" TabIndex="3" runat="server"></asp:TextBox>
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <label class="control-label">
+                                    Address
+                                </label>
+                                <asp:TextBox ID="txtaddress" TextMode="MultiLine" class="form-control" TabIndex="2" runat="server"></asp:TextBox>
+                            </div>
+                             <div class="col-md-6 form-group">
+                                <label class="control-label">
+                                    City/Taluka
+                                </label>
+                                <asp:TextBox ID="txtcity" class="form-control" TabIndex="3" runat="server"></asp:TextBox>
                           
+                            </div>
+
                         </div>
 
-                    </div>
-
-                    <div class="row">
-                       <div class="col-md-6 form-group">
-                            <label class="control-label">
-                                District 
-                            </label>
-                            <asp:TextBox ID="txtdistrict" class="form-control" TabIndex="4" runat="server"></asp:TextBox>
+                        <div class="row">
+                           <div class="col-md-6 form-group">
+                                <label class="control-label">
+                                    District 
+                                </label>
+                                <asp:TextBox ID="txtdistrict" class="form-control" TabIndex="4" runat="server"></asp:TextBox>
                             
-                        </div>
+                            </div>
 
-                        <div class="col-md-6 form-group">
-                            <label>State</label>
-                            <asp:TextBox ID="txtstate" class="form-control" TabIndex="5" runat="server"></asp:TextBox>
+                            <div class="col-md-6 form-group">
+                                <label>State</label>
+                                <asp:TextBox ID="txtstate" class="form-control" TabIndex="5" runat="server"></asp:TextBox>
                             
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
+                        <div class="row">
                         
-                        <div class="col-md-6 form-group">
-                            <label>Country </label>
-                            <asp:TextBox ID="txtcountry" class="form-control" TabIndex="6" runat="server"></asp:TextBox>
+                            <div class="col-md-6 form-group">
+                                <label>Country </label>
+                                <asp:TextBox ID="txtcountry" class="form-control" TabIndex="6" runat="server"></asp:TextBox>
                            
-                        </div>
-
-                        <div class="col-md-6 form-group">
-                            <label>Pincode </label>
-                            <asp:TextBox ID="txtpincode" class="form-control" TabIndex="7" runat="server"></asp:TextBox>
-                           
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 form-group">
-                            <label class="control-label">
-                                Phone No 
-                            </label>
-                            <asp:TextBox ID="txtphno" CssClass="form-control" TabIndex="8" runat="server"></asp:TextBox>
-                        </div>
-
-                        <div class="col-md-6 form-group">
-                            <label class="control-label">
-                                Email<span class="required">*</span>
-                            </label>
-                            <asp:TextBox ID="txtemail" CssClass="form-control" ClientIDMode="Static" TabIndex="9" runat="server"></asp:TextBox>
-
-                        </div>
-                    </div>
-
-                     <div class="row">
-                        <div class="col-md-6 form-group">
-                            <label class="control-label">
-                                Business type
-                            </label>
-                            <div class="input-group">
-                                <asp:DropDownList ID="dpbusstype" runat="server" AutoPostBack="false" data-placeholder="Select Business type" CssClass="form-control select2" TabIndex="10"></asp:DropDownList>
-                                <span class="input-group-btn">
-                                    <asp:LinkButton ID="lbtncreatebtype" runat="server" CssClass="btn btn-dropbox btn-flat" CausesValidation="false"><i class="fa fa-plus"></i></asp:LinkButton></span>
                             </div>
 
-
+                            <div class="col-md-6 form-group">
+                                <label>Pincode </label>
+                                <asp:TextBox ID="txtpincode" class="form-control" TabIndex="7" runat="server"></asp:TextBox>
+                           
+                            </div>
                         </div>
-                        <div class="col-md-6 form-group">
-                            <label class="control-label">
-                                Industry Group
-                            </label>
-                            <div class="input-group">
-                                <asp:DropDownList ID="dpindustry" runat="server" AutoPostBack="false" data-placeholder="Select Industry Group" CssClass="form-control select2" TabIndex="11"></asp:DropDownList>
-                                <span class="input-group-btn">
-                                    <asp:LinkButton ID="lbtncindugrp" runat="server" CssClass="btn btn-dropbox btn-flat" CausesValidation="false"><i class="fa fa-plus"></i></asp:LinkButton></span>
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <label class="control-label">
+                                    Phone No 
+                                </label>
+                                <asp:TextBox ID="txtphno" CssClass="form-control" TabIndex="8" runat="server"></asp:TextBox>
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server"
+                                ControlToValidate="txtphno" ErrorMessage="RegularExpressionValidator"
+                                ValidationExpression="[0-9]{10}"></asp:RegularExpressionValidator>
+                            </div>
+
+                            <div class="col-md-6 form-group">
+                                <label class="control-label">
+                                    Email<span class="required">*</span>
+                                </label>
+                                <asp:TextBox ID="txtemail" CssClass="form-control" ClientIDMode="Static" TabIndex="9" runat="server"></asp:TextBox>
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txtemail"
+                                ForeColor="Red" ValidationExpression="^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
+                                Display="Dynamic" ErrorMessage="Invalid email address" />
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="txtemail"
+                                ForeColor="Red" Display="Dynamic" ErrorMessage="Required" />
+                            </div>
+                        </div>
+
+                         <div class="row">
+                            <div class="col-md-6 form-group">
+                                <label class="control-label">
+                                    Business type
+                                </label>
+                                <div class="input-group">
+                                    <asp:DropDownList ID="dpbusstype" runat="server" AutoPostBack="false" data-placeholder="Select Business type" CssClass="form-control select2" TabIndex="10"></asp:DropDownList>
+                                    <span class="input-group-btn">
+                                        <asp:LinkButton ID="lbtncreatebtype" runat="server" CssClass="btn btn-dropbox btn-flat" CausesValidation="false"><i class="fa fa-plus"></i></asp:LinkButton></span>
+                                </div>
+
+
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label class="control-label">
+                                    Industry Group
+                                </label>
+                                <div class="input-group">
+                                    <asp:DropDownList ID="dpindustry" runat="server" AutoPostBack="false" data-placeholder="Select Industry Group" CssClass="form-control select2" TabIndex="11"></asp:DropDownList>
+                                    <span class="input-group-btn">
+                                        <asp:LinkButton ID="lbtncindugrp" runat="server" CssClass="btn btn-dropbox btn-flat" CausesValidation="false"><i class="fa fa-plus"></i></asp:LinkButton></span>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <label>URL</label>
+                                <asp:TextBox ID="txturl" CssClass="form-control" TabIndex="12" runat="server"></asp:TextBox>
+
+                            </div>
+                            <div class="col-md-6 form-group">
+
+                                <label class="control-label">Status</label>
+                                <asp:RadioButtonList ID="rbtnstatus" runat="server" CssClass="radioboxlist form-control" RepeatDirection="Horizontal" TabIndex="13">
+                                    <asp:ListItem Selected="True">Active</asp:ListItem>
+                                    <asp:ListItem>Inactive</asp:ListItem>
+                                </asp:RadioButtonList>
                             </div>
 
                         </div>
+
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <label class="control-label">
+                                    GST No
+                                </label>
+                                <asp:TextBox ID="txtgstno" CssClass="form-control" TabIndex="14" runat="server"></asp:TextBox>
+                            </div>
+
+                            <div class="col-md-6 form-group">
+                                <label class="control-label">
+                                    Bank Name
+                                </label>
+                                <asp:TextBox ID="txtbankname" CssClass="form-control" ClientIDMode="Static" TabIndex="15" runat="server"></asp:TextBox>
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <label class="control-label">
+                                    Account No
+                                </label>
+                                <asp:TextBox ID="txtaccno" CssClass="form-control" TabIndex="16" runat="server"></asp:TextBox>
+                            </div>
+
+                            <div class="col-md-6 form-group">
+                                <label class="control-label">
+                                    IFSC code
+                                </label>
+                                <asp:TextBox ID="txtifsccode" CssClass="form-control" ClientIDMode="Static" TabIndex="17" runat="server"></asp:TextBox>
+
+                            </div>
+                        </div>
+
                     </div>
-                    <div class="row">
-                        <div class="col-md-6 form-group">
-                            <label>URL</label>
-                            <asp:TextBox ID="txturl" CssClass="form-control" TabIndex="12" runat="server"></asp:TextBox>
-
-                        </div>
-                        <div class="col-md-6 form-group">
-
-                            <label class="control-label">Status</label>
-                            <asp:RadioButtonList ID="rbtnstatus" runat="server" CssClass="radioboxlist form-control" RepeatDirection="Horizontal" TabIndex="13">
-                                <asp:ListItem Selected="True">Active</asp:ListItem>
-                                <asp:ListItem>Inactive</asp:ListItem>
-                            </asp:RadioButtonList>
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-6 form-group">
-                            <label class="control-label">
-                                GST No
-                            </label>
-                            <asp:TextBox ID="txtgstno" CssClass="form-control" TabIndex="14" runat="server"></asp:TextBox>
-                        </div>
-
-                        <div class="col-md-6 form-group">
-                            <label class="control-label">
-                                Bank Name
-                            </label>
-                            <asp:TextBox ID="txtbankname" CssClass="form-control" ClientIDMode="Static" TabIndex="15" runat="server"></asp:TextBox>
-
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-6 form-group">
-                            <label class="control-label">
-                                Account No
-                            </label>
-                            <asp:TextBox ID="txtaccno" CssClass="form-control" TabIndex="16" runat="server"></asp:TextBox>
-                        </div>
-
-                        <div class="col-md-6 form-group">
-                            <label class="control-label">
-                                IFSC code
-                            </label>
-                            <asp:TextBox ID="txtifsccode" CssClass="form-control" ClientIDMode="Static" TabIndex="17" runat="server"></asp:TextBox>
-
-                        </div>
-                    </div>
-
-                </div>
-                <section class="content-header">
-                    <h3>Contact Person
+                    <section class="content-header">
+                        <h3>Contact Person
                     
-                    </h3>
-                    <div class="row">
-                        <div class="col-md-4 form-group">
-                            <label class="control-label">
-                                Name<span class="required">*</span>
-                            </label>
-                            <asp:TextBox ID="txtcontactname" CssClass="form-control" TabIndex="18" runat="server"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtcontactname"
-                                Display="Dynamic" ErrorMessage="Please Enter Name" Text="(*) Required" SetFocusOnError="true" ValidationGroup="custcontact" ForeColor="Red"
-                                CssClass="validate"></asp:RequiredFieldValidator>
+                        </h3>
+                        <div class="row">
+                            <div class="col-md-4 form-group">
+                                <label class="control-label">
+                                    Name<span class="required">*</span>
+                                </label>
+                                <asp:TextBox ID="txtcontactname" CssClass="form-control" TabIndex="18" runat="server"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtcontactname"
+                                    Display="Dynamic" ErrorMessage="Please Enter Name" Text="(*) Required" SetFocusOnError="true" ValidationGroup="custcontact" ForeColor="Red"
+                                    CssClass="validate"></asp:RequiredFieldValidator>
+
+                            </div>
+                            <div class="col-md-4 form-group">
+                                <label class="control-label">
+                                    Email 
+                                </label>
+                                <asp:TextBox ID="txtcontactemail" CssClass="form-control" TabIndex="19" runat="server"></asp:TextBox>
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtcontactemail"
+                                ForeColor="Red" ValidationExpression="^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
+                                Display="Dynamic" ErrorMessage="Invalid email address" />
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtcontactemail"
+                                ForeColor="Red" Display="Dynamic" ErrorMessage="Required" />
+                            </div>
+                            <div class="col-md-4 form-group">
+                                <label class="control-label">
+                                    Phone No
+                                </label>
+                                <asp:TextBox ID="txtcontactphno" CssClass="form-control" TabIndex="20" runat="server"></asp:TextBox>
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server"
+                                ControlToValidate="txtcontactphno" ErrorMessage="RegularExpressionValidator"
+                                ValidationExpression="[0-9]{10}"></asp:RegularExpressionValidator>
+
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-md-4 form-group">
+                                <label class="control-label">
+                                    Mobile No(1)
+                                </label>
+                                <asp:TextBox ID="txtcontactmno1" CssClass="form-control" TabIndex="21" runat="server"></asp:TextBox>
+
+
+                            </div>
+                            <div class="col-md-4 form-group">
+                                <label class="control-label">
+                                    Mobile No(2)
+                                </label>
+                                <asp:TextBox ID="txtcontactmno2" CssClass="form-control" TabIndex="22" runat="server"></asp:TextBox>
+
+
+                            </div>
+                            <div class="col-md-4 form-group">
+                                <label class="control-label">
+                                    Department 
+                                </label>
+                                <div class="input-group">
+                                    <asp:DropDownList ID="ddlDept" runat="server" AutoPostBack="false" data-placeholder="Select Department" CssClass="form-control select2" TabIndex="23"></asp:DropDownList>
+                                    <span class="input-group-btn">
+                                        <asp:LinkButton ID="lnbDept" runat="server" CssClass="btn btn-dropbox btn-flat" CausesValidation="false"><i class="fa fa-plus"></i></asp:LinkButton></span>
+                                </div>
+
+                            </div>
+
 
                         </div>
-                        <div class="col-md-4 form-group">
-                            <label class="control-label">
-                                Email 
-                            </label>
-                            <asp:TextBox ID="txtcontactemail" CssClass="form-control" TabIndex="19" runat="server"></asp:TextBox>
 
-                        </div>
-                        <div class="col-md-4 form-group">
-                            <label class="control-label">
-                                Phone No
-                            </label>
-                            <asp:TextBox ID="txtcontactphno" CssClass="form-control" TabIndex="20" runat="server"></asp:TextBox>
+                           <div class="row">
 
-
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-md-4 form-group">
-                            <label class="control-label">
-                                Mobile No(1)
-                            </label>
-                            <asp:TextBox ID="txtcontactmno1" CssClass="form-control" TabIndex="21" runat="server"></asp:TextBox>
+                            <div class="col-md-4 form-group">
+                                <label class="control-label">
+                                    Designation 
+                                </label>
+                                <div class="input-group">
+                                    <asp:DropDownList ID="ddldesign" runat="server" AutoPostBack="false" data-placeholder="Select Designation" CssClass="form-control select2" TabIndex="24"></asp:DropDownList>
+                                    <span class="input-group-btn">
+                                        <asp:LinkButton ID="lbtncreatedesign" runat="server" CssClass="btn btn-dropbox btn-flat" CausesValidation="false"><i class="fa fa-plus"></i></asp:LinkButton></span>
+                                </div>
+                            </div>
+                            <div class="col-md-4 form-group">
+                                <label class="control-label">
+                                    Date of Birth
+                                </label>
+                                <asp:TextBox ID="txtdob" CssClass="form-control" TabIndex="25" runat="server"></asp:TextBox>
+                                   <asp:CalendarExtender ID="CalendarExtender1" TargetControlID="txtdob" Format="dd/MM/yyyy" runat="server"></asp:CalendarExtender>
 
 
-                        </div>
-                        <div class="col-md-4 form-group">
-                            <label class="control-label">
-                                Mobile No(2)
-                            </label>
-                            <asp:TextBox ID="txtcontactmno2" CssClass="form-control" TabIndex="22" runat="server"></asp:TextBox>
+                            </div>
+                            <div class="col-md-4 form-group">
+                                <label class="control-label">
+                                    Date of Anniversary
+                                </label>
+                                <asp:TextBox ID="txtdoani" CssClass="form-control" data-inputmask="'alias': 'dd/mm/yyyy'"  TabIndex="26" runat="server"></asp:TextBox>
+                                    <asp:CalendarExtender ID="CalendarExtender3" TargetControlID="txtdoani" Format="dd/MM/yyyy" runat="server"></asp:CalendarExtender>
 
-
-                        </div>
-                        <div class="col-md-4 form-group">
-                            <label class="control-label">
-                                Department 
-                            </label>
-                            <div class="input-group">
-                                <asp:DropDownList ID="ddlDept" runat="server" AutoPostBack="false" data-placeholder="Select Department" CssClass="form-control select2" TabIndex="23"></asp:DropDownList>
-                                <span class="input-group-btn">
-                                    <asp:LinkButton ID="lnbDept" runat="server" CssClass="btn btn-dropbox btn-flat" CausesValidation="false"><i class="fa fa-plus"></i></asp:LinkButton></span>
                             </div>
 
                         </div>
+                        <div class="row" style="text-align:right">
+                            <div class="col-md-12 form-group" style="text-align: right">
+                                <asp:LinkButton ID="lbtnaddcontact" Style="margin-top: 25px" OnClick="lbtnaddcontact_Click" ValidationGroup="comgcontactroup" runat="server" TabIndex="27" CssClass="btn btn-bitbucket btn-flat"><i class="fa fa-save"></i>&nbsp;Add contact </asp:LinkButton>
+                                <asp:LinkButton ID="lbtnupdatecontact" Visible="false" runat="server" OnClick="lbtnupdatecontact_Click" ValidationGroup="comgcontactroup" TabIndex="28" CssClass="btn btn-bitbucket btn-flat"><i class="fa fa-save"></i>&nbsp;Update</asp:LinkButton>
+                                <asp:LinkButton ID="lbtnresetcontact" runat="server" TabIndex="29" OnClick="lbtnresetcontact_Click" Style="margin-top: 25px" CssClass="btn btn-bitbucket bg-gray btn-flat" CausesValidation="false"><i class="fa fa-times"></i>&nbsp;Reset</asp:LinkButton>
 
-
-                    </div>
-
-                       <div class="row">
-
-                        <div class="col-md-4 form-group">
-                            <label class="control-label">
-                                Designation 
-                            </label>
-                            <div class="input-group">
-                                <asp:DropDownList ID="ddldesign" runat="server" AutoPostBack="false" data-placeholder="Select Designation" CssClass="form-control select2" TabIndex="24"></asp:DropDownList>
-                                <span class="input-group-btn">
-                                    <asp:LinkButton ID="lbtncreatedesign" runat="server" CssClass="btn btn-dropbox btn-flat" CausesValidation="false"><i class="fa fa-plus"></i></asp:LinkButton></span>
                             </div>
                         </div>
-                        <div class="col-md-4 form-group">
-                            <label class="control-label">
-                                Date of Birth
-                            </label>
-                            <asp:TextBox ID="txtdob" CssClass="form-control" TabIndex="25" runat="server"></asp:TextBox>
-                               <asp:CalendarExtender ID="CalendarExtender1" TargetControlID="txtdob" Format="dd/MM/yyyy" runat="server"></asp:CalendarExtender>
-
-
-                        </div>
-                        <div class="col-md-4 form-group">
-                            <label class="control-label">
-                                Date of Anniversary
-                            </label>
-                            <asp:TextBox ID="txtdoani" CssClass="form-control" data-inputmask="'alias': 'dd/mm/yyyy'"  TabIndex="26" runat="server"></asp:TextBox>
-                                <asp:CalendarExtender ID="CalendarExtender3" TargetControlID="txtdoani" Format="dd/MM/yyyy" runat="server"></asp:CalendarExtender>
-
-                        </div>
-
-                    </div>
-                    <div class="row" style="text-align:right">
-                        <div class="col-md-12 form-group" style="text-align: right">
-                            <asp:LinkButton ID="lbtnaddcontact" Style="margin-top: 25px" OnClick="lbtnaddcontact_Click" ValidationGroup="comgcontactroup" runat="server" TabIndex="27" CssClass="btn btn-bitbucket btn-flat"><i class="fa fa-save"></i>&nbsp;Add contact </asp:LinkButton>
-                            <asp:LinkButton ID="lbtnupdatecontact" Visible="false" runat="server" OnClick="lbtnupdatecontact_Click" ValidationGroup="comgcontactroup" TabIndex="28" CssClass="btn btn-bitbucket btn-flat"><i class="fa fa-save"></i>&nbsp;Update</asp:LinkButton>
-                            <asp:LinkButton ID="lbtnresetcontact" runat="server" TabIndex="29" OnClick="lbtnresetcontact_Click" Style="margin-top: 25px" CssClass="btn btn-bitbucket bg-gray btn-flat" CausesValidation="false"><i class="fa fa-times"></i>&nbsp;Reset</asp:LinkButton>
-
-                        </div>
-                    </div>
 
                     <div class="row">
 

@@ -3155,4 +3155,103 @@ public class BusinessLogicLayer
         }
         return dt;
     }
+
+    public DataTable getallOrderdataforadminBAL()
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.getallOrderdataforadminDAL();
+
+        }
+        catch (Exception ex)
+        {
+
+
+        }
+        return dt;
+    }
+    public DataTable getallOrderdataBAL()
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.getallOrderdataDAL();
+
+        }
+        catch (Exception ex)
+        {
+
+
+        }
+        return dt;
+    }
+
+    // Update ORder
+
+    public DataTable getallOrderdatabynoBAL(string Noseries)
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.getallOrderdatabynoDAL(Noseries);
+
+        }
+        catch (Exception ex)
+        {
+
+
+        }
+        return dt;
+    }
+    public DataTable getOrderFollowupdataDAL(int Noseries)
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.getOrderFollowupdataDAL(Noseries);
+
+        }
+        catch (Exception ex)
+        {
+
+
+        }
+        return dt;
+    }
+
+    public DataTable getallordertermsandconditionsfroadminBAL(int noseries)
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.getallordertermsandconditionsDAL(noseries);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+    public string tbl_Order_Master_updateBAL(int Noseries, int Custname, int Custcontact, string Custcontactno, int Dept, int Design, string ContactEmail, string ContactMno1, string ContactMno2, int InqiuryStatus, int InquirySource, string Remarks, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
+    {
+        string res = "";
+        dal = new DataAccessLayer();
+        try
+        {
+            res = dal.tbl_Order_Master_updateDAL(Noseries, Custname, Custcontact, Custcontactno, Dept, Design, ContactEmail, ContactMno1, ContactMno2, InqiuryStatus, InquirySource, Remarks, CreateBy, CreateDatetime, Extra1, Extra2, Extra3, Extra4, Extra5);
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+
+        return res;
+    }
+
 }

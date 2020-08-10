@@ -4571,4 +4571,148 @@ public class DataAccessLayer
         }
         return dt;
     }
+
+    public DataTable getallOrderdataforadminDAL()
+    {
+        DataTable dt = null;
+        try
+        {
+            c = con.getconnection();
+            SqlCommand cmd = new SqlCommand("getallOrderdataforadmin", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            dt = new DataTable();
+            da.Fill(dt);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+
+    public DataTable getallOrderdataDAL()
+    {
+        DataTable dt = null;
+        try
+        {
+            c = con.getconnection();
+            SqlCommand cmd = new SqlCommand("getallOrderdataforadmin", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            //     cmd.Parameters.Add("@createby", SqlDbType.VarChar).Value = Createby;
+            dt = new DataTable();
+            da.Fill(dt);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+    // Update ORder
+
+    public DataTable getallOrderdatabynoDAL(string Noseries)
+    {
+        DataTable dt = null;
+        try
+        {
+            c = con.getconnection();
+            SqlCommand cmd = new SqlCommand("getallOrderdatabyno", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            cmd.Parameters.Add("@Noseries", SqlDbType.VarChar).Value = Noseries;
+            dt = new DataTable();
+            da.Fill(dt);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+
+    public DataTable getOrderFollowupdataDAL(int Noseries)
+    {
+        DataTable dt = null;
+        try
+        {
+            c = con.getconnection();
+            SqlCommand cmd = new SqlCommand("getOrderFollowup", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            //  cmd.Parameters.Add("@Createby", SqlDbType.VarChar).Value = Createby;
+            cmd.Parameters.Add("@Noseries", SqlDbType.BigInt).Value = Noseries;
+            dt = new DataTable();
+            da.Fill(dt);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+
+    public DataTable getallordertermsandconditionsDAL(int noseries)
+    {
+        DataTable dt = null;
+        try
+        {
+            c = con.getconnection();
+            SqlCommand cmd = new SqlCommand("ordertermsandconditionsdisp", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            cmd.Parameters.Add("@Noseries", SqlDbType.BigInt).Value = noseries;
+
+            dt = new DataTable();
+            da.Fill(dt);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+    public string tbl_Order_Master_updateDAL(int Noseries, int Custname, int Custcontact, string Custcontactno, int Dept, int Design, string ContactEmail, string ContactMno1, string ContactMno2, int InqiuryStatus, int InquirySource, string Remarks, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
+    {
+        string res = "";
+        try
+        {
+            c = con.getconnection();
+            cmd = new SqlCommand("tbl_Order_Master_update", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("@Noseries", SqlDbType.Int).Value = Noseries;
+
+            //  cmd.Parameters.Add("@Custgroup", SqlDbType.Int).Value = Custgroup;
+            cmd.Parameters.Add("@Custname", SqlDbType.Int).Value = Custname;
+            cmd.Parameters.Add("@Custcontact", SqlDbType.Int).Value = Custcontact;
+            cmd.Parameters.Add("@Custcontactno", SqlDbType.VarChar).Value = Custcontactno;
+            cmd.Parameters.Add("@Dept", SqlDbType.Int).Value = Dept;
+            cmd.Parameters.Add("@Design", SqlDbType.Int).Value = Design;
+
+
+            cmd.Parameters.Add("@ContactEmail", SqlDbType.VarChar).Value = ContactEmail;
+            cmd.Parameters.Add("@ContactMno1", SqlDbType.VarChar).Value = ContactMno1;
+            cmd.Parameters.Add("@ContactMno2", SqlDbType.VarChar).Value = ContactMno2;
+            cmd.Parameters.Add("@InqiuryStatus", SqlDbType.Int).Value = InqiuryStatus;
+            cmd.Parameters.Add("@InquirySource", SqlDbType.Int).Value = InquirySource;
+            cmd.Parameters.Add("@Remarks", SqlDbType.VarChar).Value = Remarks;
+            cmd.Parameters.Add("@CreateBy", SqlDbType.VarChar).Value = CreateBy;
+            cmd.Parameters.Add("@CreateDatetime", SqlDbType.DateTime).Value = CreateDatetime;
+            cmd.Parameters.Add("@Extra1", SqlDbType.VarChar).Value = Extra1;
+            cmd.Parameters.Add("@Extra2", SqlDbType.VarChar).Value = Extra2;
+            cmd.Parameters.Add("@Extra3", SqlDbType.VarChar).Value = Extra3;
+            cmd.Parameters.Add("@Extra4", SqlDbType.VarChar).Value = Extra4;
+            cmd.Parameters.Add("@Extra5", SqlDbType.VarChar).Value = Extra5;
+            res = cmd.ExecuteNonQuery().ToString();
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+        return res;
+    }
+
 }

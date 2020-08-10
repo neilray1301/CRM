@@ -428,7 +428,7 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                             <li><a href="OrderEntry.aspx"><i class="fa fa-circle-o"></i>Order Entry</a></li>
+                           <%--  <li><a href="OrderEntry.aspx"><i class="fa fa-circle-o"></i>Order Entry</a></li>--%>
                             <li><a href="OrderRegistry.aspx"><i class="fa fa-circle-o"></i>Order Register</a></li>                           
                         </ul>
                     </li>

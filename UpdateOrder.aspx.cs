@@ -5,89 +5,18 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
-using System.Data.SqlClient;
 
-
-public partial class OrderEntry : System.Web.UI.Page
+public partial class UpdateOrder : System.Web.UI.Page
 {
+
     BusinessLogicLayer bal = new BusinessLogicLayer();
     public enum MessageType { Success, Error, Info, Warning };
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
-            try
-        {
-            
-            lblqno.Text = Request.QueryString["no"].ToString();
-            if (lblqno.Equals(""))
-            {
-            //    string zoneId = "India Standard Time";
-            //    TimeZoneInfo tzi = TimeZoneInfo.FindSystemTimeZoneById(zoneId);
-            //    DateTime now = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, tzi);
-            //    txtfdate.Text = now.ToString("dd/MM/yyyy");
-            //    txtdate.Text = now.ToString("dd/MM/yyyy");
-            //    //   lblloginid.Text = Session["no"].ToString();
-            //    //    lblrole.Text = Session["role"].ToString();
+            lblcomno.Text = Request.QueryString["no"].ToString();
 
-
-            //    bindstatus();
-            //    bindsource();
-            //    bindfollowup();
-            //    binditem();
-            //    binduom();
-            //    binddepartment();
-            //    binddesignation();
-            //    getInquiryNo();
-            //    getmaxcomno();
-
-            //   // filldata();
-            // //   fillitemdata();
-            ////    fillfollowupdata();
-            //    binditemdata();
-            //    bindfollowupdata();
-            //    //  getInquiryNo();
-            //    //  getmaxcomno();
-            //    bindcustomer();
-            //    BindDetail();
-            //    bincustcontact();
-            //    btnUpdate.Visible = true;
-            }
-            else {
-                string zoneId = "India Standard Time";
-                TimeZoneInfo tzi = TimeZoneInfo.FindSystemTimeZoneById(zoneId);
-                DateTime now = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, tzi);
-                txtfdate.Text = now.ToString("dd/MM/yyyy");
-                txtdate.Text = now.ToString("dd/MM/yyyy");
-                //   lblloginid.Text = Session["no"].ToString();
-                //    lblrole.Text = Session["role"].ToString();
-
-
-                bindstatus();
-                bindsource();
-                bindfollowup();
-                binditem();
-                binduom();
-                binddepartment();
-                binddesignation();
-              //  getInquiryNo();
-               // getmaxcomno();
-
-                filldata();
-                fillitemdata();
-                fillfollowupdata();
-                binditemdata();
-                bindfollowupdata();
-            //      getInquiryNo();
-            //      getmaxcomno();
-                bindcustomer();
-                BindDetail();
-                bincustcontact();
-                btnUpdate.Visible = true;
-            }
-        }
-        catch (Exception ex)
-        {
             string zoneId = "India Standard Time";
             TimeZoneInfo tzi = TimeZoneInfo.FindSystemTimeZoneById(zoneId);
             DateTime now = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, tzi);
@@ -104,181 +33,19 @@ public partial class OrderEntry : System.Web.UI.Page
             binduom();
             binddepartment();
             binddesignation();
-            getInquiryNo();
-            getmaxcomno();
-
-            // filldata();
-            //   fillitemdata();
-            //    fillfollowupdata();
+            filldata();
             binditemdata();
             bindfollowupdata();
             //  getInquiryNo();
             //  getmaxcomno();
             bindcustomer();
             BindDetail();
-           bincustcontact();
+            bincustcontact();
             btnUpdate.Visible = true;
-        }
 
-    }
-}
-    public void fillitemdata()
-    {
-        try
-        {
-            DataTable dtdata = bal.getquotationDetailsdataBAL(Convert.ToInt32(lblqno.Text));
-            if (dtdata.Rows.Count > 0)
-            {
 
-                for (int i = 0; i < dtdata.Rows.Count; i++)
-                {
-                    string item = dtdata.Rows[i]["Item"].ToString();
-                    string UOM = dtdata.Rows[i]["UOM"].ToString();
-                    string Qty = dtdata.Rows[i]["Qty"].ToString();
-                    string Rate = dtdata.Rows[i]["Rate"].ToString();
-                    string Amount = dtdata.Rows[i]["Amount"].ToString();
-
-                    DataTable dt1 = new DataTable();
-                  dt1 = bal.checkQuotationProductNameBAL(lblcomno.Text, Convert.ToInt32(item));
-                    if (dt1.Rows.Count > 0)
-                    {
-                        ShowMessage("Name Already Exist!!!", MessageType.Error);
-                    }
-                    else
-                    {
-
-                        DateTime utcTime = DateTime.UtcNow;
-                        TimeZoneInfo tzi = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
-                        DateTime localTime = TimeZoneInfo.ConvertTimeFromUtc(utcTime, tzi);
-                        //  txtrate.Text = "2000";
-                        bal.tbl_Order_Details_InsertBAL(Convert.ToInt32(lblcomno.Text), Convert.ToInt32(item), Convert.ToInt32(UOM), Convert.ToDecimal(Qty), Convert.ToDecimal(Rate), Convert.ToDecimal(Amount), lblloginid.Text, localTime, "", "", "", "", "");
-
-                    }
-
-                }
-                binditemdata();
-            }
-        }
-        catch (Exception ex)
-        {
-            ex.ToString();
         }
     }
-    public void fillfollowupdata()
-    {
-        try
-        {
-            DataTable dtdata = bal.getquotationDetailsdatabyidDAL(Convert.ToInt32(lblqno.Text));
-            if(dtdata.Rows.Count > 0)
-            {
-                for(int i = 0;i<dtdata.Rows.Count;i++)
-                {
-                    string NextFolldate = dtdata.Rows[i]["NextFolldate"].ToString();
-                    string Follotype = dtdata.Rows[i]["Follotype"].ToString();
-                    string Assignto = dtdata.Rows[i]["Assignto"].ToString();
-                    string FolloStatus = dtdata.Rows[i]["FolloStatus"].ToString();
-                    string Remarks = dtdata.Rows[i]["Remarks"].ToString();
-                    string Comdate = dtdata.Rows[i]["Comdate"].ToString();
-                    string Comremarks = dtdata.Rows[i]["Comremarks"].ToString();
-                    DataTable dt1 = new DataTable();
-                    dt1 = bal.checkQuotationFollowupBAL(lblcomno.Text, NextFolldate, Convert.ToInt32(Follotype));
-                    if(dt1.Rows.Count > 0)
-                    {
-                        ShowMessage("Name Already Exist !!!", MessageType.Error);
-                    }
-                    else
-                    {
-                        DateTime utcTime = DateTime.UtcNow;
-                        TimeZoneInfo tzi = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
-                        DateTime localTime = TimeZoneInfo.ConvertTimeFromUtc(utcTime, tzi);
-                        bal.tbl_Order_Followup_InsertBAL(Convert.ToInt32(lblcomno.Text), NextFolldate, Convert.ToInt32(Follotype), Convert.ToInt32(Assignto), Convert.ToInt32(FolloStatus), Remarks, Comdate, Comremarks, "", localTime, "", "", "", "", "");
-                    }
-                    bindfollowupdata();
-                }
-            }
-        }catch(Exception ex)
-        {
-            ex.ToString();
-        }
-    }
-    public string getmaxcomno()
-    {
-        string s = string.Empty, id = string.Empty;
-        Getconnection c = new Getconnection();
-        try
-        {
-            string s1 = "select Top (1) No from Order_No_Series    order By  Id DESC";
-            SqlCommand cmd11 = new SqlCommand(s1, c.getconnection());
-            if (cmd11.ExecuteScalar() != null)
-                id = cmd11.ExecuteScalar().ToString();
-            c.CloseConnection();
-            int fid = 0;
-            if (id.Equals(""))
-            {
-                id = "1";
-                fid = Convert.ToInt32(id);
-            }
-            else
-            {
-                fid = Convert.ToInt32(id);
-                fid = fid + 1;
-            }
-            s = fid.ToString();
-            lblcomno.Text = s.ToString();
-            //hfMaxEntryNo.Value = fid.ToString();
-            bal.tbl_Order_No_Series_InsertBAL(s, "", "");
-        }
-        catch (Exception ex)
-        {
-
-            //txtinqno.Text = "1";
-        }
-        finally
-        {
-            c.CloseConnection();
-        }
-        return s;
-    }
-
-    public string getInquiryNo()
-    {
-        string s = string.Empty, id = string.Empty;
-        Getconnection c = new Getconnection();
-        try
-        {
-            string s1 = "select Top (1) OrderNo from Order_Master    order By  Id DESC";
-            SqlCommand cmd11 = new SqlCommand(s1, c.getconnection());
-            if (cmd11.ExecuteScalar() != null)
-                id = cmd11.ExecuteScalar().ToString();
-            c.CloseConnection();
-            int fid = 0;
-            if (id.Equals(""))
-            {
-                id = "1";
-                fid = Convert.ToInt32(id);
-            }
-            else
-            {
-                fid = Convert.ToInt32(id);
-                fid = fid + 1;
-            }
-            s = fid.ToString();
-            txtno.Text = s.ToString();
-            //hfMaxEntryNo.Value = fid.ToString();
-
-        }
-        catch (Exception ex)
-        {
-
-            txtno.Text = "1";
-        }
-        finally
-        {
-            c.CloseConnection();
-        }
-        return s;
-    }
-
     public void binditemdata()
     {
 
@@ -307,16 +74,15 @@ public partial class OrderEntry : System.Web.UI.Page
             Getconnection.SiteErrorInsert(ex);
         }
     }
-
     public void filldata()
     {
         try
         {
-            DataTable dtdata = bal.getallQuotationdatabynoBAL(lblqno.Text);
+            DataTable dtdata = bal.getallOrderdatabynoBAL(lblcomno.Text);
             if (dtdata.Rows.Count > 0)
             {
-                txtno.Text = dtdata.Rows[0]["QuotationNo"].ToString();
-                txtdate.Text = dtdata.Rows[0]["Quotationdate"].ToString();
+                txtno.Text = dtdata.Rows[0]["OrderNo"].ToString();
+                txtdate.Text = dtdata.Rows[0]["Orderdate"].ToString();
                 txtemail.Text = dtdata.Rows[0]["ContactEmail"].ToString();
                 txtcontactno.Text = dtdata.Rows[0]["Custcontactno"].ToString();
                 txtmobileno.Text = dtdata.Rows[0]["ContactMno1"].ToString();
@@ -770,7 +536,7 @@ public partial class OrderEntry : System.Web.UI.Page
         {
 
             DataTable dt1 = new DataTable();
-            dt1 = bal.checkOrderProductNameBAL(lblqno.Text, Convert.ToInt32(dpitem.SelectedValue));
+            dt1 = bal.checkOrderProductNameBAL(lblcomno.Text, Convert.ToInt32(dpitem.SelectedValue));
             if (dt1.Rows.Count > 0)
             {
                 ShowMessage("Name Already Exist!!!", MessageType.Error);
@@ -827,7 +593,7 @@ public partial class OrderEntry : System.Web.UI.Page
         {
 
             DataTable dt1 = new DataTable();
-            dt1 = bal.checkOrderFollowupBAL(lblqno.Text, txtfdate.Text, Convert.ToInt32(dpfollowuptype.SelectedValue.ToString()));
+            dt1 = bal.checkOrderFollowupBAL(lblcomno.Text, txtfdate.Text, Convert.ToInt32(dpfollowuptype.SelectedValue.ToString()));
             if (dt1.Rows.Count > 0)
             {
                 ShowMessage("Name Already Exist!!!", MessageType.Error);
@@ -886,7 +652,7 @@ public partial class OrderEntry : System.Web.UI.Page
             TimeZoneInfo tzi = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
             DateTime localTime = TimeZoneInfo.ConvertTimeFromUtc(utcTime, tzi);
 
-            bal.tbl_Order_Followup_updateBAL(Convert.ToInt32(lblid.Text), Convert.ToInt32(lblqno.Text), txtfdate.Text, Convert.ToInt32(dpfollowuptype.SelectedValue.ToString()), 0, Convert.ToInt32(dpfollowstatus.SelectedValue.ToString()), txtfremarks.Text, "", "", lblloginid.Text, localTime, "", "", "", "", "");
+            bal.tbl_Order_Followup_updateBAL(Convert.ToInt32(lblid.Text), Convert.ToInt32(lblcomno.Text), txtfdate.Text, Convert.ToInt32(dpfollowuptype.SelectedValue.ToString()), 0, Convert.ToInt32(dpfollowstatus.SelectedValue.ToString()), txtfremarks.Text, "", "", lblloginid.Text, localTime, "", "", "", "", "");
             resetfollowup();
             bindfollowupdata();
             ShowMessage("Record Save!!!", MessageType.Success);
@@ -912,7 +678,7 @@ public partial class OrderEntry : System.Web.UI.Page
 
         try
         {
-            DataTable dt = bal.getalltermsandconditionsfroadminBAL(Convert.ToInt32(txtno.Text));
+            DataTable dt = bal.getallordertermsandconditionsfroadminBAL(Convert.ToInt32(txtno.Text));
 
 
             if (dt.Rows.Count > 0)
@@ -989,27 +755,8 @@ public partial class OrderEntry : System.Web.UI.Page
             TimeZoneInfo tzi = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
             DateTime localTime = TimeZoneInfo.ConvertTimeFromUtc(utcTime, tzi);
 
-            try
-            {
-                string inqno = lblqno.Text;
 
-                if (inqno.Equals(""))
-                {
-                    bal.tbl_Order_Master_InsertBAL(Convert.ToInt32(txtno.Text), Convert.ToInt32(lblcomno.Text), txtdate.Text, Convert.ToInt32(custid), Convert.ToInt32(dpcontactper.SelectedValue.ToString()), txtcontactno.Text, Convert.ToInt32(ddlDept.SelectedValue.ToString()), Convert.ToInt32(ddldesign.SelectedValue.ToString()), txtemail.Text, txtmobileno.Text, txtmobileno2.Text, Convert.ToInt32(dpstatus.SelectedValue.ToString()), Convert.ToInt32(dpsource.SelectedValue.ToString()), txtremarks.Text, lblloginid.Text, localTime, "", "", "", "", "");
-
-                }
-                else
-                {
-                    bal.tbl_Order_Master_InsertBAL(Convert.ToInt32(txtno.Text), Convert.ToInt32(lblcomno.Text), txtdate.Text, Convert.ToInt32(custid), Convert.ToInt32(dpcontactper.SelectedValue.ToString()), txtcontactno.Text, Convert.ToInt32(ddlDept.SelectedValue.ToString()), Convert.ToInt32(ddldesign.SelectedValue.ToString()), txtemail.Text, txtmobileno.Text, txtmobileno2.Text, Convert.ToInt32(dpstatus.SelectedValue.ToString()), Convert.ToInt32(dpsource.SelectedValue.ToString()), txtremarks.Text, lblloginid.Text, localTime, "","" , "", "", "");
-
-                }
-
-
-            }
-            catch (Exception ex)
-            {
-
-            }
+            bal.tbl_Order_Master_updateBAL(Convert.ToInt32(lblcomno.Text), Convert.ToInt32(custid), Convert.ToInt32(dpcontactper.SelectedValue.ToString()), txtcontactno.Text, Convert.ToInt32(ddlDept.SelectedValue.ToString()), Convert.ToInt32(ddldesign.SelectedValue.ToString()), txtemail.Text, txtmobileno.Text, txtmobileno2.Text, Convert.ToInt32(dpstatus.SelectedValue.ToString()), Convert.ToInt32(dpsource.SelectedValue.ToString()), txtremarks.Text, lblloginid.Text, localTime, "", "", "", "", "");
             bal.deleteordertermsandconditionsdata(Convert.ToInt32(txtno.Text));
             try
             {
@@ -1038,7 +785,6 @@ public partial class OrderEntry : System.Web.UI.Page
             {
                 ex.ToString();
             }
-
 
 
 

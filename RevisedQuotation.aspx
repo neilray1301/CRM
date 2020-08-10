@@ -169,7 +169,11 @@
                                 Email Id
                             </label>
                             <asp:TextBox ID="txtemail" class="form-control" TabIndex="7" runat="server"></asp:TextBox>
-
+                              <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txtemail"
+                            ForeColor="Red" ValidationExpression="^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
+                            Display="Dynamic" ErrorMessage="Invalid email address" />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="txtemail"
+                            ForeColor="Red" Display="Dynamic" ErrorMessage="Required" />
                         </div>
                         <div class="col-md-6 form-group">
                             <label>Source<span class="required">* </span></label>
@@ -190,9 +194,9 @@
                                 MobileNo:<span class="required">* </span>
                             </label>
                             <asp:TextBox ID="txtmobileno" class="form-control" TabIndex="9" runat="server"></asp:TextBox>
-                            <%--  <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtaddress"
+                           <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtaddress"
                                 Display="Dynamic" ErrorMessage="Please Enter Name" Text="(*) Required" ValidationGroup="Emst" SetFocusOnError="true" ForeColor="Red"
-                                CssClass="validate"></asp:RequiredFieldValidator>--%>
+                                CssClass="validate"></asp:RequiredFieldValidator>
                         </div>
                         <div class="col-md-6 form-group">
                             <label class="control-label">
@@ -398,15 +402,15 @@
                                     Remarks:<span class="required">* </span>
                                 </label>
                                 <asp:TextBox ID="txtfremarks" class="form-control" TabIndex="9" TextMode="MultiLine" runat="server"></asp:TextBox>
-                                <%-- <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtfremarks"
+                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtfremarks"
                                     Display="Dynamic" ErrorMessage="Please Enter remarks" Text="(*) Required" ValidationGroup="Emst" SetFocusOnError="true" ForeColor="Red"
-                                    CssClass="validate"></asp:RequiredFieldValidator>--%>
+                                    CssClass="validate"></asp:RequiredFieldValidator>
                             </div>
 
 
-                            <%-- <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtfremarks"
+                             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtfremarks"
                                     Display="Dynamic" ErrorMessage="Please Enter remarks" Text="(*) Required" ValidationGroup="Emst" SetFocusOnError="true" ForeColor="Red"
-                                    CssClass="validate"></asp:RequiredFieldValidator>--%>
+                                    CssClass="validate"></asp:RequiredFieldValidator>
 
                             <div class="col-md-2 form-group" style="margin-top: 25px; text-align: left">
 
