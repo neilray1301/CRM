@@ -2596,6 +2596,7 @@ public class DataAccessLayer
         }
         return res;
     }
+
     public DataTable getInqiuryDetailsdataDAL( int Noseries)
     {
         DataTable dt = null;
@@ -2616,6 +2617,7 @@ public class DataAccessLayer
         }
         return dt;
     }
+
     public DataTable getallInqiuryDetailsdataDAL(int Noseries)
     {
         DataTable dt = null;
@@ -2636,6 +2638,7 @@ public class DataAccessLayer
         }
         return dt;
     }
+
     public DataTable getFollowupdataDAL(int Noseries)
     {
         DataTable dt = null;
@@ -2656,6 +2659,7 @@ public class DataAccessLayer
         }
         return dt;
     }
+
     public DataTable checkProductNameDAL(string Noseries, int Item)
     {
         DataTable dt = null;
@@ -2678,6 +2682,7 @@ public class DataAccessLayer
         return dt;
 
     }
+
     public string tbl_Inqiury_Details_InsertDAL(int Noseries, int Item, int UOM, decimal Qty, decimal Rate, decimal Amount, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
     {
         string res = "";
@@ -2710,6 +2715,7 @@ public class DataAccessLayer
         }
         return res;
     }
+
     public DataTable getInqiuryDetailsdatabyidDAL(string Id)
     {
         DataTable dt = null;
@@ -2747,6 +2753,7 @@ public class DataAccessLayer
         }
         return res;
     }
+
     public string tbl_Inqiury_Details_updateDAL(int Id, int Item, int UOM, decimal Qty, decimal Rate, decimal Amount, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
     {
         string res = "";
@@ -2780,6 +2787,7 @@ public class DataAccessLayer
         }
         return res;
     }
+
     public DataTable checkFollowupDAL(string Noseries, string NextFolldate, int Follotype)
     {
         DataTable dt = null;
@@ -2802,6 +2810,7 @@ public class DataAccessLayer
         }
         return dt;
     }
+
     public string tbl_Inqiury_Followup_InsertDAL(int Noseries, string NextFolldate, int Follotype, int Assignto, int FolloStatus, string Remarks, string Comdate, string Comremarks, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
     {
         string res = "";
@@ -2833,6 +2842,7 @@ public class DataAccessLayer
         }
         return res;
     }
+
     public string tbl_Inqiury_Followup_updateDAL(int Id, int Noseries, string NextFolldate, int Follotype, int Assignto, int FolloStatus, string Remarks, string Comdate, string Comremarks, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
     {
         string res = "";
@@ -2865,6 +2875,7 @@ public class DataAccessLayer
         }
         return res;
     }
+
     public DataTable getFollowupDetailsdatabyidDAL(string Id)
     {
         DataTable dt = null;
@@ -2902,6 +2913,7 @@ public class DataAccessLayer
         }
         return res;
     }
+
     public string getCustomerIdbynameDAL(string Name)
     {
         string res = "";
@@ -2921,6 +2933,7 @@ public class DataAccessLayer
         }
         return res;
     }
+
     public DataTable checkInqiuryalreadyDAL(string InqiuryNo, string Inquirydate, int Custname)
     {
         DataTable dt = null;
@@ -2985,6 +2998,7 @@ public class DataAccessLayer
         }
         return res;
     }
+
     public DataTable getallInqiurydataforadminDAL()
     {
         DataTable dt = null;
@@ -3004,6 +3018,7 @@ public class DataAccessLayer
         }
         return dt;
     }
+
     public DataTable getallInqiurydataDAL()
     {
         DataTable dt = null;
@@ -3044,6 +3059,7 @@ public class DataAccessLayer
         }
         return dt;
     }
+
     public DataTable getallInqiurydatabynoDAL(string Noseries)
     {
         DataTable dt = null;
@@ -3063,6 +3079,7 @@ public class DataAccessLayer
         }
         return dt;
     }
+
     public DataTable getCustomerNameDAL(string Createby, string GroupNo)
     {
         DataTable dt = null;
@@ -3083,6 +3100,8 @@ public class DataAccessLayer
         }
         return dt;
     }
+
+
     public string tbl_Inqiury_Master_UpdateDAL(int InqiuryNo, int Noseries, string Inquirydate,  int Custname, int Custcontact, string Custcontactno, int Dept, int Design, string ContactEmail, string ContactMno1, string ContactMno2, int InqiuryStatus, int InquirySource, string Remarks, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
     {
         string res = "";
@@ -3123,6 +3142,7 @@ public class DataAccessLayer
         }
         return res;
     }
+
     public DataTable getallitemDAL(int no)
     {
         DataTable dt = null;
@@ -3187,6 +3207,7 @@ public class DataAccessLayer
         }
         return res;
     }
+
     public DataTable getCustomercontactdatabyidDAL(string Id)
     {
         DataTable dt = null;
@@ -3206,6 +3227,7 @@ public class DataAccessLayer
         }
         return dt;
     }
+
     public string deleteCustomercontactdatabyidDAL(string Id)
     {
         string res = "";
@@ -3223,6 +3245,7 @@ public class DataAccessLayer
         }
         return res;
     }
+
     public DataTable getallCustomerMasterataforadminDAL()
     {
         DataTable dt = null;
@@ -3242,6 +3265,7 @@ public class DataAccessLayer
         }
         return dt;
     }
+
     public DataTable getallCustomerMasterataDAL(string Createby)
     {
         DataTable dt = null;
@@ -3261,6 +3285,7 @@ public class DataAccessLayer
         }
         return dt;
     }
+
     public string tbl_Customer_Master_updateDAL(string No, string GroupNo, string Comname, string Comarea, string Comaddress, string Comcity, string Comstate, string ComDistrict, string Country, string ComPincode, string ComPhoneNo, string ComEmail, int BussinessType, int Industrygroup, string URL, string Status, string GSTno, string Bankname, string Accountno, string IFSCcode, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
     {
         string res = "";
@@ -3304,6 +3329,7 @@ public class DataAccessLayer
         }
         return res;
     }
+
     public string deleteCustomerdatabynoDAL(string No)
     {
         string res = "";
@@ -3342,6 +3368,7 @@ public class DataAccessLayer
         }
         return dt;
     }
+
     public DataTable getCustomercontactdataDAL( int Custno)
     {
         DataTable dt = null;
@@ -3363,6 +3390,7 @@ public class DataAccessLayer
         return dt;
 
     }
+
     public string tbl_Customer_Contact_Master_updateDAL(int Id, string ContactName, string ContactEmail, string ContactPhone, string ContactMobileno1, string ContactMobileno2, int Dept, int Design, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
     {
         string res = "";
@@ -3395,6 +3423,7 @@ public class DataAccessLayer
         }
         return res;
     }
+
     public DataTable checkcustomercontactnameDAL(string Custno, string ContactName, string ContactEmail)
     {
         DataTable dt = null;
@@ -3416,6 +3445,7 @@ public class DataAccessLayer
         }
         return dt;
     }
+
     public string tbl_Customer_Contact_Master_InsertDAL(string Custno, string ContactName, string ContactEmail, string ContactPhone, string ContactMobileno1, string ContactMobileno2, int Dept, int Design, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
     {
         string res = "";
@@ -3519,6 +3549,7 @@ public class DataAccessLayer
         }
         return dt;
     }
+
     public DataTable gettermsandconditionsdatabyidDAL(string Id)
     {
         DataTable dt = null;
@@ -3558,6 +3589,7 @@ public class DataAccessLayer
         }
         return res;
     } //done
+
     public string tbl_termsandconditionsupdate(string Id, string name,string tandc)
     {
         string res = "";
@@ -3600,6 +3632,7 @@ public class DataAccessLayer
         }
         return res;
     }
+
     public string tbl_Quotation_Details_InsertDAL(int Noseries, int Item, int UOM, decimal Qty, decimal Rate, decimal Amount, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
     {
         string res = "";
@@ -3632,6 +3665,7 @@ public class DataAccessLayer
         }
         return res;
     }
+
     public string tbl_Quotation_Details_updateDAL(int Id, int Item, int UOM, decimal Qty, decimal Rate, decimal Amount, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
     {
         string res = "";
@@ -3665,6 +3699,7 @@ public class DataAccessLayer
         }
         return res;
     }
+
     public DataTable checkQuotationProductNameDAL(string Noseries, int Item)
     {
         DataTable dt = null;
@@ -3687,6 +3722,7 @@ public class DataAccessLayer
         return dt;
 
     }
+
     public string tbl_Quotation_Followup_InsertDAL(int Noseries, string NextFolldate, int Follotype, int Assignto, int FolloStatus, string Remarks, string Comdate, string Comremarks, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
     {
         string res = "";
@@ -3718,6 +3754,7 @@ public class DataAccessLayer
         }
         return res;
     }
+
     public DataTable checkQuotationFollowupDAL(string Noseries, string NextFolldate, int Follotype)
     {
         DataTable dt = null;
@@ -3740,6 +3777,7 @@ public class DataAccessLayer
         }
         return dt;
     }
+
     public string tbl_Quotation_Followup_updateDAL(int Id, int Noseries, string NextFolldate, int Follotype, int Assignto, int FolloStatus, string Remarks, string Comdate, string Comremarks, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
     {
         string res = "";
@@ -3813,6 +3851,7 @@ public class DataAccessLayer
         }
         return res;
     }
+
     public DataTable checkQuotationalreadyDAL(string InqiuryNo, string Inquirydate, int Custname)
     {
         DataTable dt = null;
@@ -3836,6 +3875,7 @@ public class DataAccessLayer
         }
         return dt;
     }
+
     public string tbl_Quotation_tandc_InsertDAL(int termsid,int noseries, string termstitle,string termsdescrip, string status, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
     {
         string res = "";
@@ -3886,6 +3926,7 @@ public class DataAccessLayer
         }
         return dt;
     }
+
     public DataTable getallQuotationdataDAL()
     {
         DataTable dt = null;
@@ -3925,6 +3966,7 @@ public class DataAccessLayer
         }
         return dt;
     }
+
     public DataTable getallquotationtermsandconditionsDAL(int noseries)
     {
         DataTable dt = null;
@@ -3945,6 +3987,7 @@ public class DataAccessLayer
         }
         return dt;
     }
+
     public string tbl_Quotation_Master_updateDAL( int Noseries,  int Custname, int Custcontact, string Custcontactno, int Dept, int Design, string ContactEmail, string ContactMno1, string ContactMno2, int InqiuryStatus, int InquirySource, string Remarks, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
     {
         string res = "";
@@ -4024,6 +4067,7 @@ public class DataAccessLayer
         }
         return dt;
     }
+
     public DataTable getallquotationitemdatadal(string Noseries)
     {
         DataTable dt = null;
@@ -4043,6 +4087,7 @@ public class DataAccessLayer
         }
         return dt;
     }
+
     public DataTable getquotationDetailsdataDAL(int Noseries)
     {
         DataTable dt = null;
@@ -4064,6 +4109,7 @@ public class DataAccessLayer
         return dt;
     }
 
+
     public DataTable getQuotationDetailsdatabyidDAL(string Id)
     {
         DataTable dt = null;
@@ -4083,6 +4129,7 @@ public class DataAccessLayer
         }
         return dt;
     }
+
     public string deletequotationdetailsdatabyidDAL(string Id)
     {
         string res = "";
@@ -4139,6 +4186,7 @@ public class DataAccessLayer
         }
         return res;
     }
+
     public DataTable checkOrderProductNameDAL(string Noseries, int Item)
     {
         DataTable dt = null;
@@ -4161,6 +4209,7 @@ public class DataAccessLayer
         return dt;
 
     }
+
     public string tbl_Order_Details_InsertDAL(int Noseries, int Item, int UOM, decimal Qty, decimal Rate, decimal Amount, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
     {
         string res = "";
@@ -4193,6 +4242,7 @@ public class DataAccessLayer
         }
         return res;
     }
+
     public string tbl_Order_Details_updateDAL(int Id, int Item, int UOM, decimal Qty, decimal Rate, decimal Amount, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
     {
         string res = "";
@@ -4226,6 +4276,7 @@ public class DataAccessLayer
         }
         return res;
     }
+
     public DataTable getallOrderDetailsdataDAL(int Noseries)
     {
         DataTable dt = null;
@@ -4246,6 +4297,7 @@ public class DataAccessLayer
         }
         return dt;
     }
+
     public DataTable getallorderitemdatadal(string Noseries)
     {
         DataTable dt = null;
@@ -4265,6 +4317,7 @@ public class DataAccessLayer
         }
         return dt;
     }
+
     public DataTable getorderFollowupdataDAL(int Noseries)
     {
         DataTable dt = null;
@@ -4285,6 +4338,7 @@ public class DataAccessLayer
         }
         return dt;
     }
+
     public DataTable getorderDetailsdatabyidDAL(string Id)
     {
         DataTable dt = null;
@@ -4304,6 +4358,8 @@ public class DataAccessLayer
         }
         return dt;
     }
+
+
     public string deleteorderdetailsdatabyidDAL(string Id)
     {
         string res = "";
@@ -4321,6 +4377,7 @@ public class DataAccessLayer
         }
         return res;
     }
+
     public DataTable getorderFollowupDetailsdatabyidDAL(string Id)
     {
         DataTable dt = null;
@@ -4340,6 +4397,7 @@ public class DataAccessLayer
         }
         return dt;
     }
+
     public string deleteorderfollowupdatabyidDAL(string Id)
     {
         string res = "";
@@ -4357,6 +4415,7 @@ public class DataAccessLayer
         }
         return res;
     }
+
     public DataTable checkorderFollowupDAL(string Noseries, string NextFolldate, int Follotype)
     {
         DataTable dt = null;
@@ -4411,6 +4470,7 @@ public class DataAccessLayer
         }
         return res;
     }
+
     public string tbl_Order_Followup_updateDAL(int Id, int Noseries, string NextFolldate, int Follotype, int Assignto, int FolloStatus, string Remarks, string Comdate, string Comremarks, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
     {
         string res = "";
@@ -4443,6 +4503,7 @@ public class DataAccessLayer
         }
         return res;
     }
+
     public string tbl_Order_Master_InsertDAL(int InqiuryNo, int Noseries, string Inquirydate, int Custname, int Custcontact, string Custcontactno, int Dept, int Design, string ContactEmail, string ContactMno1, string ContactMno2, int InqiuryStatus, int InquirySource, string Remarks, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
     {
         string res = "";
@@ -4483,6 +4544,7 @@ public class DataAccessLayer
         }
         return res;
     }
+
     public string deleteordertermsandconditionsdata(int Id)
     {
         string res = "";
@@ -4532,6 +4594,7 @@ public class DataAccessLayer
         }
         return res;
     }
+
     public DataTable getquotationDetailsdatabyidDAL(int Id)
     {
         DataTable dt = null;
@@ -4551,6 +4614,7 @@ public class DataAccessLayer
         }
         return dt;
     }
+
     public DataTable getQUotationFollowupdataDAL(int Noseries)
     {
         DataTable dt = null;
@@ -4674,6 +4738,7 @@ public class DataAccessLayer
         }
         return dt;
     }
+
     public string tbl_Order_Master_updateDAL(int Noseries, int Custname, int Custcontact, string Custcontactno, int Dept, int Design, string ContactEmail, string ContactMno1, string ContactMno2, int InqiuryStatus, int InquirySource, string Remarks, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
     {
         string res = "";
@@ -4715,4 +4780,294 @@ public class DataAccessLayer
         return res;
     }
 
+    // Employee Master
+
+    public string tbl_Employee_NoSeries_InsertDAL(string No, string Extra1, string Extra2)
+    {
+        string res = "";
+        try
+        {
+            c = con.getconnection();
+            cmd = new SqlCommand("tbl_Employee_NoSeries_Insert", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@No", SqlDbType.BigInt).Value = No;
+            cmd.Parameters.Add("@Extra1", SqlDbType.VarChar).Value = Extra1;
+            cmd.Parameters.Add("@Extra2", SqlDbType.VarChar).Value = Extra2;
+            res = cmd.ExecuteNonQuery().ToString();
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+        return res;
+    }
+
+    public string deleteemployeedocumentdatabyidDAL(string id)
+    {
+        string res = "";
+        try
+        {
+            c = con.getconnection();
+            cmd = new SqlCommand("deleteemployeedocumentdatabyid", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@id", SqlDbType.VarChar).Value = id;
+            res = cmd.ExecuteNonQuery().ToString();
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+        return res;
+    }
+    public string tbl_Employee_Document_Master_InsertDAL(string no, string DocuName, string Filename, string DocumentPath, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
+    {
+        string res = "";
+        try
+        {
+            c = con.getconnection();
+            cmd = new SqlCommand("tbl_Employee_Document_Master_Insert", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@no", SqlDbType.VarChar).Value = no;
+            cmd.Parameters.Add("@DocuName", SqlDbType.VarChar).Value = DocuName;
+            cmd.Parameters.Add("@Filename", SqlDbType.VarChar).Value = Filename;
+            cmd.Parameters.Add("@DocumentPath", SqlDbType.VarChar).Value = DocumentPath;
+            cmd.Parameters.Add("@CreateBy", SqlDbType.VarChar).Value = CreateBy;
+            cmd.Parameters.Add("@CreateDatetime", SqlDbType.DateTime).Value = CreateDatetime;
+            cmd.Parameters.Add("@Extra1", SqlDbType.VarChar).Value = Extra1;
+            cmd.Parameters.Add("@Extra2", SqlDbType.VarChar).Value = Extra2;
+            cmd.Parameters.Add("@Extra3", SqlDbType.VarChar).Value = Extra3;
+            cmd.Parameters.Add("@Extra4", SqlDbType.VarChar).Value = Extra4;
+            cmd.Parameters.Add("@Extra5", SqlDbType.VarChar).Value = Extra5;
+            res = cmd.ExecuteNonQuery().ToString();
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+        return res;
+    }
+    public DataTable getdocumentadataDAL(string Createby, int no)
+    {
+        DataTable dt = null;
+        try
+        {
+            c = con.getconnection();
+            SqlCommand cmd = new SqlCommand("getdocumentadata", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            cmd.Parameters.Add("@Createby", SqlDbType.VarChar).Value = Createby;
+            cmd.Parameters.Add("@no", SqlDbType.BigInt).Value = no;
+            dt = new DataTable();
+            da.Fill(dt);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+    public string tbl_Employee_master_InsertDAL(string no, string Ename, string Efname, string Esurname, string Egender,
+       string Epaddress, string Eperaddress, string ECity, string EState, string EDistrict, string ECountry, string EPincode, string EPhoneNo, string Emobilenop, string Emobileoffice, string Emobilewhatsup,
+       string Erole, string Epfno, string Edoa, string Edoj, string Edol, int Edept, int Edesign,
+       string Eemailid, string Epwd, string Eurgentcontactname, string Eurgentcontactno, string Eurgentcontactrelation, string Estatus, string Ebankname, string Eaccno, string Eifsccode,
+
+       string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
+    {
+        string res = "";
+        try
+        {
+            c = con.getconnection();
+            cmd = new SqlCommand("tbl_Employee_master_Insert", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@no", SqlDbType.VarChar).Value = no;
+            cmd.Parameters.Add("@Ename", SqlDbType.VarChar).Value = Ename;
+            cmd.Parameters.Add("@Efname", SqlDbType.VarChar).Value = Efname;
+            cmd.Parameters.Add("@Esurname", SqlDbType.VarChar).Value = Esurname;
+            cmd.Parameters.Add("@Egender", SqlDbType.VarChar).Value = Egender;
+            cmd.Parameters.Add("@Epaddress", SqlDbType.VarChar).Value = Epaddress;
+            cmd.Parameters.Add("@Eperaddress", SqlDbType.VarChar).Value = Eperaddress;
+
+
+            cmd.Parameters.Add("@ECity", SqlDbType.VarChar).Value = ECity;
+            cmd.Parameters.Add("@EState", SqlDbType.VarChar).Value = EState;
+            cmd.Parameters.Add("@EDistrict", SqlDbType.VarChar).Value = EDistrict;
+            cmd.Parameters.Add("@ECountry", SqlDbType.VarChar).Value = ECountry;
+            cmd.Parameters.Add("@EPincode", SqlDbType.VarChar).Value = EPincode;
+            cmd.Parameters.Add("@EPhoneNo", SqlDbType.VarChar).Value = EPhoneNo;
+
+            cmd.Parameters.Add("@Emobilenop", SqlDbType.VarChar).Value = Emobilenop;
+            cmd.Parameters.Add("@Emobileoffice", SqlDbType.VarChar).Value = Emobileoffice;
+            cmd.Parameters.Add("@Emobilewhatsup", SqlDbType.VarChar).Value = Emobilewhatsup;
+            cmd.Parameters.Add("@Erole", SqlDbType.VarChar).Value = Erole;
+            cmd.Parameters.Add("@Epfno", SqlDbType.VarChar).Value = Epfno;
+            cmd.Parameters.Add("@Edoa", SqlDbType.VarChar).Value = Edoa;
+            cmd.Parameters.Add("@Edoj", SqlDbType.VarChar).Value = Edoj;
+            cmd.Parameters.Add("@Edol", SqlDbType.VarChar).Value = Edol;
+            cmd.Parameters.Add("@Edept", SqlDbType.Int).Value = Edept;
+            cmd.Parameters.Add("@Edesign", SqlDbType.Int).Value = Edesign;
+            cmd.Parameters.Add("@Eemailid", SqlDbType.VarChar).Value = Eemailid;
+            cmd.Parameters.Add("@Epwd", SqlDbType.VarChar).Value = Epwd;
+            cmd.Parameters.Add("@Eurgentcontactname", SqlDbType.VarChar).Value = Eurgentcontactname;
+            cmd.Parameters.Add("@Eurgentcontactno", SqlDbType.VarChar).Value = Eurgentcontactno;
+            cmd.Parameters.Add("@Eurgentcontactrelation", SqlDbType.VarChar).Value = Eurgentcontactrelation;
+
+            cmd.Parameters.Add("@Estatus", SqlDbType.VarChar).Value = Estatus;
+            cmd.Parameters.Add("@Ebankname", SqlDbType.VarChar).Value = Ebankname;
+            cmd.Parameters.Add("@Eaccno", SqlDbType.VarChar).Value = Eaccno;
+            cmd.Parameters.Add("@Eifsccode", SqlDbType.VarChar).Value = Eifsccode;
+            cmd.Parameters.Add("@CreateBy", SqlDbType.VarChar).Value = CreateBy;
+            cmd.Parameters.Add("@CreateDatetime", SqlDbType.DateTime).Value = CreateDatetime;
+            cmd.Parameters.Add("@Extra1", SqlDbType.VarChar).Value = Extra1;
+            cmd.Parameters.Add("@Extra2", SqlDbType.VarChar).Value = Extra2;
+            cmd.Parameters.Add("@Extra3", SqlDbType.VarChar).Value = Extra3;
+            cmd.Parameters.Add("@Extra4", SqlDbType.VarChar).Value = Extra4;
+            cmd.Parameters.Add("@Extra5", SqlDbType.VarChar).Value = Extra5;
+            res = cmd.ExecuteNonQuery().ToString();
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+        return res;
+    }
+
+    public DataTable getallemployeedataforadminDAL()
+    {
+        DataTable dt = null;
+        try
+        {
+            c = con.getconnection();
+            SqlCommand cmd = new SqlCommand("getallemployeedataforadmin", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            dt = new DataTable();
+            da.Fill(dt);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+    public DataTable getallemployeedataDAL(string Createby)
+    {
+        DataTable dt = null;
+        try
+        {
+            c = con.getconnection();
+            SqlCommand cmd = new SqlCommand("getallemployeedata", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            cmd.Parameters.Add("@createby", SqlDbType.VarChar).Value = Createby;
+            dt = new DataTable();
+            da.Fill(dt);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+
+    public string tbl_Employee_master_UpdateDAL(string no, string Ename, string Efname, string Esurname, string Egender,
+      string Epaddress, string Eperaddress, string ECity, string EState, string EDistrict, string ECountry, string EPincode, string EPhoneNo, string Emobilenop, string Emobileoffice, string Emobilewhatsup,
+      string Erole, string Epfno, string Edoa, string Edoj, string Edol, int Edept, int Edesign,
+      string Eemailid, string Epwd, string Eurgentcontactname, string Eurgentcontactno, string Eurgentcontactrelation, string Estatus, string Ebankname, string Eaccno, string Eifsccode,
+        string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
+    {
+        string res = "";
+        try
+        {
+            c = con.getconnection();
+            cmd = new SqlCommand("tbl_Employee_master_Update", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@no", SqlDbType.VarChar).Value = no;
+            cmd.Parameters.Add("@Ename", SqlDbType.VarChar).Value = Ename;
+            cmd.Parameters.Add("@Efname", SqlDbType.VarChar).Value = Efname;
+            cmd.Parameters.Add("@Esurname", SqlDbType.VarChar).Value = Esurname;
+            cmd.Parameters.Add("@Egender", SqlDbType.VarChar).Value = Egender;
+            cmd.Parameters.Add("@Epaddress", SqlDbType.VarChar).Value = Epaddress;
+            cmd.Parameters.Add("@Eperaddress", SqlDbType.VarChar).Value = Eperaddress;
+
+            cmd.Parameters.Add("@ECity", SqlDbType.VarChar).Value = ECity;
+            cmd.Parameters.Add("@EState", SqlDbType.VarChar).Value = EState;
+            cmd.Parameters.Add("@EDistrict", SqlDbType.VarChar).Value = EDistrict;
+            cmd.Parameters.Add("@ECountry", SqlDbType.VarChar).Value = ECountry;
+            cmd.Parameters.Add("@EPincode", SqlDbType.VarChar).Value = EPincode;
+            cmd.Parameters.Add("@EPhoneNo", SqlDbType.VarChar).Value = EPhoneNo;
+
+            cmd.Parameters.Add("@Emobilenop", SqlDbType.VarChar).Value = Emobilenop;
+            cmd.Parameters.Add("@Emobileoffice", SqlDbType.VarChar).Value = Emobileoffice;
+            cmd.Parameters.Add("@Emobilewhatsup", SqlDbType.VarChar).Value = Emobilewhatsup;
+            cmd.Parameters.Add("@Erole", SqlDbType.VarChar).Value = Erole;
+            cmd.Parameters.Add("@Epfno", SqlDbType.VarChar).Value = Epfno;
+            cmd.Parameters.Add("@Edoa", SqlDbType.VarChar).Value = Edoa;
+            cmd.Parameters.Add("@Edoj", SqlDbType.VarChar).Value = Edoj;
+            cmd.Parameters.Add("@Edol", SqlDbType.VarChar).Value = Edol;
+            cmd.Parameters.Add("@Edept", SqlDbType.Int).Value = Edept;
+            cmd.Parameters.Add("@Edesign", SqlDbType.Int).Value = Edesign;
+            cmd.Parameters.Add("@Eemailid", SqlDbType.VarChar).Value = Eemailid;
+            cmd.Parameters.Add("@Epwd", SqlDbType.VarChar).Value = Epwd;
+            cmd.Parameters.Add("@Eurgentcontactname", SqlDbType.VarChar).Value = Eurgentcontactname;
+            cmd.Parameters.Add("@Eurgentcontactno", SqlDbType.VarChar).Value = Eurgentcontactno;
+            cmd.Parameters.Add("@Eurgentcontactrelation", SqlDbType.VarChar).Value = Eurgentcontactrelation;
+
+            cmd.Parameters.Add("@Estatus", SqlDbType.VarChar).Value = Estatus;
+            cmd.Parameters.Add("@Ebankname", SqlDbType.VarChar).Value = Ebankname;
+            cmd.Parameters.Add("@Eaccno", SqlDbType.VarChar).Value = Eaccno;
+            cmd.Parameters.Add("@Eifsccode", SqlDbType.VarChar).Value = Eifsccode;
+            cmd.Parameters.Add("@CreateBy", SqlDbType.VarChar).Value = CreateBy;
+            cmd.Parameters.Add("@CreateDatetime", SqlDbType.DateTime).Value = CreateDatetime;
+            cmd.Parameters.Add("@Extra1", SqlDbType.VarChar).Value = Extra1;
+            cmd.Parameters.Add("@Extra2", SqlDbType.VarChar).Value = Extra2;
+            cmd.Parameters.Add("@Extra3", SqlDbType.VarChar).Value = Extra3;
+            cmd.Parameters.Add("@Extra4", SqlDbType.VarChar).Value = Extra4;
+            cmd.Parameters.Add("@Extra5", SqlDbType.VarChar).Value = Extra5;
+
+            res = cmd.ExecuteNonQuery().ToString();
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+        return res;
+    }
+
+    public DataTable getemployeedatanoDAL(string no)
+    {
+        DataTable dt = null;
+        try
+        {
+            c = con.getconnection();
+            SqlCommand cmd = new SqlCommand("getemployeedatano", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            cmd.Parameters.Add("@no", SqlDbType.VarChar).Value = no;
+            dt = new DataTable();
+            da.Fill(dt);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+    public string deleteemployeedatabynoDAL(string no)
+    {
+        string res = "";
+        try
+        {
+            c = con.getconnection();
+            cmd = new SqlCommand("deleteemployeedatabyno", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@no", SqlDbType.VarChar).Value = no;
+            res = cmd.ExecuteNonQuery().ToString();
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+        return res;
+    }
 }

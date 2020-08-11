@@ -2278,6 +2278,7 @@ public class BusinessLogicLayer
 
         return res;
     }
+
     public DataTable getCustomercontactdatabyidBAL(string Id)
     {
         DataTable dt = null;
@@ -2292,6 +2293,7 @@ public class BusinessLogicLayer
         }
         return dt;
     }
+
     public string deleteCustomercontactdatabyidBAL(string id)
     {
         string res = "";
@@ -2324,6 +2326,7 @@ public class BusinessLogicLayer
         }
         return dt;
     }
+
     public DataTable getallCustomerMasterataBAL(string Createby)
     {
         DataTable dt = null;
@@ -2340,6 +2343,7 @@ public class BusinessLogicLayer
         }
         return dt;
     }
+
     public string tbl_Customer_Master_updateBAL(string No, string GroupNo, string Comname, string Comarea, string Comaddress, string Comcity, string Comstate, string ComDistrict, string Country, string ComPincode, string ComPhoneNo, string ComEmail, int BussinessType, int Industrygroup, string URL, string Status, string GSTno, string Bankname, string Accountno, string IFSCcode, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
     {
         string res = "";
@@ -2356,6 +2360,7 @@ public class BusinessLogicLayer
 
         return res;
     }
+
     public string deleteCustomerdatabynoBAL(string No)
     {
         string res = "";
@@ -2371,6 +2376,7 @@ public class BusinessLogicLayer
 
         return res;
     }
+
     public DataTable getallCustomerdatabynoBAL(string No)
     {
         DataTable dt = null;
@@ -2387,7 +2393,8 @@ public class BusinessLogicLayer
         }
         return dt;
     }
-     public DataTable getCustomercontactdataBAL( int Custno)
+
+    public DataTable getCustomercontactdataBAL( int Custno)
     {
         DataTable dt = null;
         try
@@ -2403,6 +2410,7 @@ public class BusinessLogicLayer
         }
         return dt;
     }
+
     public string tbl_Customer_Contact_Master_updateBAL(int id, string ContactName, string ContactEmail, string ContactPhone, string ContactMobileno1, string ContactMobileno2, int Dept, int Design, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
     {
 
@@ -2419,6 +2427,7 @@ public class BusinessLogicLayer
 
         return res;
     }
+
     public DataTable checkcustomercontactnameBAL(string Custno, string ContactName, string ContactEmail)
     {
         DataTable dt = null;
@@ -2433,6 +2442,7 @@ public class BusinessLogicLayer
         }
         return dt;
     }
+
     public string tbl_Customer_Contact_Master_InsertBAL(string Custno, string ContactName, string ContactEmail, string ContactPhone, string ContactMobileno1, string ContactMobileno2, int Dept, int Design, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
     {
         string res = "";
@@ -2497,6 +2507,7 @@ public class BusinessLogicLayer
         }
         return dt;
     }
+
     public DataTable gettermsandconditionsdatabyidBAL(string Id)
     {
         DataTable dt = null;
@@ -2511,6 +2522,7 @@ public class BusinessLogicLayer
         }
         return dt;
     } //done
+
     public string deletetermsandconditionsdata(string id)
     {
         string res = "";
@@ -2526,6 +2538,7 @@ public class BusinessLogicLayer
 
         return res;
     } //done
+
     public string tbl_termsandconditionsupdate(string id, string name,string tandc)
     {
         string res = "";
@@ -2541,6 +2554,7 @@ public class BusinessLogicLayer
 
         return res;
     } //done
+
     public string tbl_Quotation_No_Series_InsertBAL(string No, string Extra1, string Extra2)
     {
         string res = "";
@@ -2556,6 +2570,7 @@ public class BusinessLogicLayer
 
         return res;
     }
+
     public string tbl_Quotation_Details_InsertBAL(int Noseries, int Item, int UOM, decimal Qty, decimal Rate, decimal Amount, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
     {
         string res = "";
@@ -2571,6 +2586,7 @@ public class BusinessLogicLayer
 
         return res;
     }
+
     public string tbl_Quotation_Details_updateBAL(int Id, int Item, int UOM, decimal Qty, decimal Rate, decimal Amount, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
     {
 
@@ -2587,6 +2603,7 @@ public class BusinessLogicLayer
 
         return res;
     }
+
     public DataTable checkQuotationProductNameBAL(string Noseries, int Item)
     {
         DataTable dt = null;
@@ -2601,6 +2618,7 @@ public class BusinessLogicLayer
         }
         return dt;
     }
+
     public string tbl_Quotation_Followup_InsertBAL(int Noseries, string NextFolldate, int Follotype, int Assignto, int FolloStatus, string Remarks, string Comdate, string Comremarks, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
     {
         string res = "";
@@ -2616,6 +2634,7 @@ public class BusinessLogicLayer
 
         return res;
     }
+
     public DataTable checkQuotationFollowupBAL(string Noseries, string NextFolldate, int Follotype)
     {
         DataTable dt = null;
@@ -2630,6 +2649,7 @@ public class BusinessLogicLayer
         }
         return dt;
     }
+
     public string tbl_Quotation_Followup_updateBAL(int Id, int Noseries, string NextFolldate, int Follotype, int Assignto, int FolloStatus, string Remarks, string Comdate, string Comremarks, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
     {
         string res = "";
@@ -2645,6 +2665,7 @@ public class BusinessLogicLayer
 
         return res;
     }
+
     public string tbl_Quotation_Master_InsertBAL(int InqiuryNo, int Noseries, string Inquirydate, int Custname, int Custcontact, string Custcontactno, int Dept, int Design, string ContactEmail, string ContactMno1, string ContactMno2, int InqiuryStatus, int InquirySource, string Remarks, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
     {
         string res = "";
@@ -2660,6 +2681,7 @@ public class BusinessLogicLayer
 
         return res;
     }
+
     public DataTable checkQuotationalreadyBAL(string InqiuryNo, string Inquirydate, int Custname)
     {
         DataTable dt = null;
@@ -2690,6 +2712,7 @@ public class BusinessLogicLayer
 
         return res;
     }
+
     public DataTable getallQuotationdataforadminBAL()
     {
         DataTable dt = null;
@@ -2707,6 +2730,7 @@ public class BusinessLogicLayer
         return dt;
     }
 
+
     public DataTable getallQuotationdataBAL()
     {
         DataTable dt = null;
@@ -2723,6 +2747,7 @@ public class BusinessLogicLayer
         }
         return dt;
     }
+
     public DataTable getallQuotationdatabynoBAL(string Noseries)
     {
         DataTable dt = null;
@@ -2739,6 +2764,7 @@ public class BusinessLogicLayer
         }
         return dt;
     }
+
     public DataTable getallquotatationtermsandconditionsfroadminBAL(int noseries)
     {
         DataTable dt = null;
@@ -2753,6 +2779,7 @@ public class BusinessLogicLayer
         }
         return dt;
     }
+
     public string tbl_Quotation_Master_updateBAL( int Noseries,  int Custname, int Custcontact, string Custcontactno, int Dept, int Design, string ContactEmail, string ContactMno1, string ContactMno2, int InqiuryStatus, int InquirySource, string Remarks, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
     {
         string res = "";
@@ -2768,6 +2795,7 @@ public class BusinessLogicLayer
 
         return res;
     }
+
 
     public string deletequtationtermsandconditionsdata(int id)
     {
@@ -2801,6 +2829,7 @@ public class BusinessLogicLayer
         }
         return dt;
     }
+
     public DataTable getallquotationitemdatabal(string Noseries)
     {
         DataTable dt = null;
@@ -2818,6 +2847,7 @@ public class BusinessLogicLayer
         return dt;
     }
 
+
     public DataTable getquotationDetailsdataBAL(int Noseries)
     {
         DataTable dt = null;
@@ -2834,6 +2864,7 @@ public class BusinessLogicLayer
         }
         return dt;
     }
+
     public DataTable getQuotationDetailsdatabyidDAL(string Id)
     {
         DataTable dt = null;
@@ -2848,6 +2879,7 @@ public class BusinessLogicLayer
         }
         return dt;
     }
+
     public string deletequotationdetailsdatabyidBAL(string id)
     {
         string res = "";
@@ -2863,6 +2895,7 @@ public class BusinessLogicLayer
 
         return res;
     }
+
     public string deletequotationfollowupdatabyidBAL(string id)
     {
         string res = "";
@@ -2896,6 +2929,7 @@ public class BusinessLogicLayer
 
         return res;
     }
+
     public DataTable checkOrderProductNameBAL(string Noseries, int Item)
     {
         DataTable dt = null;
@@ -2910,6 +2944,7 @@ public class BusinessLogicLayer
         }
         return dt;
     }
+
     public string tbl_Order_Details_InsertBAL(int Noseries, int Item, int UOM, decimal Qty, decimal Rate, decimal Amount, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
     {
         string res = "";
@@ -2925,6 +2960,7 @@ public class BusinessLogicLayer
 
         return res;
     }
+
     public string tbl_Order_Details_updateDAL(int Id, int Item, int UOM, decimal Qty, decimal Rate, decimal Amount, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
     {
 
@@ -2958,6 +2994,7 @@ public class BusinessLogicLayer
         }
         return dt;
     }
+
     public DataTable getallOrderDetailsdataBAL(int Noseries)
     {
         DataTable dt = null;
@@ -2989,6 +3026,7 @@ public class BusinessLogicLayer
         }
         return dt;
     }
+
     public string deleteorderdetailsdatabyidBAL(string id)
     {
         string res = "";
@@ -3004,6 +3042,7 @@ public class BusinessLogicLayer
 
         return res;
     }
+
     public DataTable getorderFollowupDetailsdatabyidBAL(string Id)
     {
         DataTable dt = null;
@@ -3018,6 +3057,7 @@ public class BusinessLogicLayer
         }
         return dt;
     }
+
     public string deleteorderfollowupdatabyidBAL(string id)
     {
         string res = "";
@@ -3033,6 +3073,7 @@ public class BusinessLogicLayer
 
         return res;
     }
+
     public DataTable checkOrderFollowupBAL(string Noseries, string NextFolldate, int Follotype)
     {
         DataTable dt = null;
@@ -3079,6 +3120,7 @@ public class BusinessLogicLayer
 
         return res;
     }
+
     public string tbl_Order_Master_InsertBAL(int InqiuryNo, int Noseries, string Inquirydate, int Custname, int Custcontact, string Custcontactno, int Dept, int Design, string ContactEmail, string ContactMno1, string ContactMno2, int InqiuryStatus, int InquirySource, string Remarks, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
     {
         string res = "";
@@ -3094,6 +3136,7 @@ public class BusinessLogicLayer
 
         return res;
     }
+
     public string deleteordertermsandconditionsdata(int id)
     {
         string res = "";
@@ -3109,6 +3152,7 @@ public class BusinessLogicLayer
 
         return res;
     }
+
     public string tbl_Order_tandc_InsertBAL(int termsid, int noseries, string termstitle, string termsdescrip, string status, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
     {
         string res = "";
@@ -3139,6 +3183,7 @@ public class BusinessLogicLayer
         }
         return dt;
     }
+
     public DataTable getQUotationFollowupdataDAL(int Noseries)
     {
         DataTable dt = null;
@@ -3172,6 +3217,7 @@ public class BusinessLogicLayer
         }
         return dt;
     }
+
     public DataTable getallOrderdataBAL()
     {
         DataTable dt = null;
@@ -3207,6 +3253,7 @@ public class BusinessLogicLayer
         }
         return dt;
     }
+
     public DataTable getOrderFollowupdataDAL(int Noseries)
     {
         DataTable dt = null;
@@ -3238,6 +3285,7 @@ public class BusinessLogicLayer
         }
         return dt;
     }
+
     public string tbl_Order_Master_updateBAL(int Noseries, int Custname, int Custcontact, string Custcontactno, int Dept, int Design, string ContactEmail, string ContactMno1, string ContactMno2, int InqiuryStatus, int InquirySource, string Remarks, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
     {
         string res = "";
@@ -3254,4 +3302,187 @@ public class BusinessLogicLayer
         return res;
     }
 
+    // Employee Master
+
+    public string tbl_Employee_NoSeries_InsertBAL(string No, string Extra1, string Extra2)
+    {
+        string res = "";
+        dal = new DataAccessLayer();
+        try
+        {
+            res = dal.tbl_Employee_NoSeries_InsertDAL(No, Extra1, Extra2);
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+
+        return res;
+    }
+
+    public string deleteemployeedocumentdatabyidBAL(string id)
+    {
+        string res = "";
+        dal = new DataAccessLayer();
+        try
+        {
+            res = dal.deleteemployeedocumentdatabyidDAL(id);
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+
+        return res;
+    }
+
+    public string tbl_Employee_Document_Master_InsertBAL(string no, string DocuName, string Filename, string DocumentPath, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
+    {
+        string res = "";
+        dal = new DataAccessLayer();
+        try
+        {
+            res = dal.tbl_Employee_Document_Master_InsertDAL(no, DocuName, Filename, DocumentPath, CreateBy, CreateDatetime, Extra1, Extra2, Extra3, Extra4, Extra5);
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+
+        return res;
+    }
+
+    public DataTable getdocumentadataBAL(string Createby, int no)
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.getdocumentadataDAL(Createby, no);
+
+        }
+        catch (Exception ex)
+        {
+
+
+        }
+        return dt;
+    }
+
+    public string tbl_Employee_master_InsertBAL(string no, string Ename, string Efname, string Esurname, string Egender,
+       string Epaddress, string Eperaddress, string ECity, string EState, string EDistrict, string ECountry, string EPincode, string EPhoneNo, string Emobilenop, string Emobileoffice, string Emobilewhatsup,
+       string Erole, string Epfno, string Edoa, string Edoj, string Edol, int Edept, int Edesign,
+       string Eemailid, string Epwd, string Eurgentcontactname, string Eurgentcontactno, string Eurgentcontactrelation, string Estatus, string Ebankname, string Eaccno, string Eifsccode,
+
+       string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
+    {
+        string res = "";
+        dal = new DataAccessLayer();
+        try
+        {
+            res = dal.tbl_Employee_master_InsertDAL(no, Ename, Efname, Esurname, Egender,
+        Epaddress, Eperaddress, ECity, EState, EDistrict, ECountry, EPincode, EPhoneNo, Emobilenop, Emobileoffice, Emobilewhatsup,
+        Erole, Epfno, Edoa, Edoj, Edol, Edept, Edesign,
+        Eemailid, Epwd, Eurgentcontactname, Eurgentcontactno, Eurgentcontactrelation, Estatus, Ebankname, Eaccno, Eifsccode,
+
+        CreateBy, CreateDatetime, Extra1, Extra2, Extra3, Extra4, Extra5);
+
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+
+        return res;
+    }
+
+    public DataTable getallemployeedataforadminBAL()
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.getallemployeedataforadminDAL();
+
+        }
+        catch (Exception ex)
+        {
+
+
+        }
+        return dt;
+    }
+    public DataTable getallemployeedataBAL(string Createby)
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.getallemployeedataDAL(Createby);
+
+        }
+        catch (Exception ex)
+        {
+
+
+        }
+        return dt;
+    }
+
+    public string tbl_Employee_master_UpdateBAL(string no, string Ename, string Efname, string Esurname, string Egender,
+     string Epaddress, string Eperaddress, string ECity, string EState, string EDistrict, string ECountry, string EPincode, string EPhoneNo, string Emobilenop, string Emobileoffice, string Emobilewhatsup,
+     string Erole, string Epfno, string Edoa, string Edoj, string Edol, int Edept, int Edesign,
+     string Eemailid, string Epwd, string Eurgentcontactname, string Eurgentcontactno, string Eurgentcontactrelation, string Estatus, string Ebankname, string Eaccno, string Eifsccode,
+        string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
+    {
+        string res = "";
+        dal = new DataAccessLayer();
+        try
+        {
+            res = dal.tbl_Employee_master_UpdateDAL(no, Ename, Efname, Esurname, Egender,
+        Epaddress, Eperaddress, ECity, EState, EDistrict, ECountry, EPincode, EPhoneNo, Emobilenop, Emobileoffice, Emobilewhatsup,
+        Erole, Epfno, Edoa, Edoj, Edol, Edept, Edesign,
+        Eemailid, Epwd, Eurgentcontactname, Eurgentcontactno, Eurgentcontactrelation, Estatus, Ebankname, Eaccno, Eifsccode, CreateBy, CreateDatetime, Extra1, Extra2, Extra3, Extra4, Extra5);
+
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+
+        return res;
+    }
+
+    public DataTable getemployeedatanoBAL(string comno)
+    {
+        DataTable dt = null;
+        try
+        {
+            dal = new DataAccessLayer();
+            dt = dal.getemployeedatanoDAL(comno);
+
+        }
+        catch (Exception ex)
+        {
+
+
+        }
+        return dt;
+    }
+
+    public string deleteemployeedatabynoBAL(string no)
+    {
+        string res = "";
+        dal = new DataAccessLayer();
+        try
+        {
+            res = dal.deleteemployeedatabynoDAL(no);
+        }
+        catch (Exception ex)
+        {
+            res = ex.ToString();
+        }
+
+        return res;
+    }
 }

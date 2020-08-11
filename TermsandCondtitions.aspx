@@ -7,6 +7,7 @@
         
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+
        <div class="content-wrapper"> 
              <section class="content-header">
                     <h1>Terms and Conditions</h1>
@@ -18,7 +19,10 @@
                                <asp:Label ID="lblloginid" runat="server" Visible="false" Text=""></asp:Label>
                         </ol>
                 </section>
+            <asp:UpdatePanel ID="updtPnlContactForm" runat="server">
+            <ContentTemplate>
            <div class="row margin">
+              
                 <div class="col-md-7">
                       <div class="box box-primary">
                         <div class="box-body margin">
@@ -26,6 +30,7 @@
                                 <label class="control-label">
                                     Title:<span class="required">* </span>
                                 </label>
+                               
                                 <asp:TextBox ID="txtName" CssClass ="form-control" TabIndex="1" runat="server" placeholder="Enter Title"></asp:TextBox>
                                   <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtName"
                                     Display="Dynamic" ErrorMessage="Please Enter Name" Text="(*) Required" SetFocusOnError="true" ForeColor="Red"
@@ -42,8 +47,11 @@
                                 <asp:LinkButton ID="btnDelete" runat="server" TabIndex="20" CssClass="btn btn-bitbucket bg-gray btn-flat" CausesValidation="false"><i class="fa fa-times"></i>&nbsp;Reset</asp:LinkButton>                
 
                             </div>
-                         </div>
+                    
+                          </div>
+                    
                     </div>
+               
                                <div class="col-md-5">
 
                  <asp:GridView ID="grddata" runat="server" AlternatingRowStyle-BackColor="#C2D69B" AllowPaging="false" AllowSorting="false"
@@ -83,9 +91,11 @@
 </div>
              </div>
                                      
-
+                </ContentTemplate></asp:UpdatePanel>
                               
             </div>
-           
+          
+   
+
 </asp:Content>
 

@@ -364,6 +364,7 @@
                                   <li><a href="CompanyRegister.aspx"><i class="fa fa-circle-o"></i>Company</a></li>            
                                 <li><a href="CustomerRegister.aspx"><i class="fa fa-circle-o"></i>Customer</a></li>
                                <li><a href="Country.aspx"><i class="fa fa-circle-o"></i>Country</a></li>
+                                 <li><a href="EmployeeRegister.aspx"><i class="fa fa-circle-o"></i>Employee Register</a></li>
                                 <li><a href="State.aspx"><i class="fa fa-circle-o"></i>State</a></li>
                                    <li><a href="City.aspx"><i class="fa fa-circle-o"></i>City</a></li>
                                  <li><a href="Department.aspx"><i class="fa fa-circle-o"></i>Department</a></li>
