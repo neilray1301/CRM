@@ -4819,6 +4819,7 @@ public class DataAccessLayer
         }
         return res;
     }
+
     public string tbl_Employee_Document_Master_InsertDAL(string no, string DocuName, string Filename, string DocumentPath, string CreateBy, DateTime CreateDatetime, string Extra1, string Extra2, string Extra3, string Extra4, string Extra5)
     {
         string res = "";
@@ -4846,6 +4847,7 @@ public class DataAccessLayer
         }
         return res;
     }
+
     public DataTable getdocumentadataDAL(string Createby, int no)
     {
         DataTable dt = null;
@@ -4866,6 +4868,7 @@ public class DataAccessLayer
         }
         return dt;
     }
+
     public string tbl_Employee_master_InsertDAL(string no, string Ename, string Efname, string Esurname, string Egender,
        string Epaddress, string Eperaddress, string ECity, string EState, string EDistrict, string ECountry, string EPincode, string EPhoneNo, string Emobilenop, string Emobileoffice, string Emobilewhatsup,
        string Erole, string Epfno, string Edoa, string Edoj, string Edol, int Edept, int Edesign,
@@ -4950,6 +4953,7 @@ public class DataAccessLayer
         }
         return dt;
     }
+
     public DataTable getallemployeedataDAL(string Createby)
     {
         DataTable dt = null;
@@ -5053,6 +5057,7 @@ public class DataAccessLayer
         }
         return dt;
     }
+
     public string deleteemployeedatabynoDAL(string no)
     {
         string res = "";
