@@ -189,8 +189,8 @@
                                 MobileNo:<span class="required">* </span>
                             </label>
                             <asp:TextBox ID="txtmobileno" class="form-control" TabIndex="9" runat="server"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtaddress"
-                                Display="Dynamic" ErrorMessage="Please Enter Name" Text="(*) Required" ValidationGroup="Emst" SetFocusOnError="true" ForeColor="Red"
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtmobileno"
+                                Display="Dynamic" ErrorMessage="Please Enter mobile" Text="(*) Required" ValidationGroup="Emst" SetFocusOnError="true" ForeColor="Red"
                                 CssClass="validate"></asp:RequiredFieldValidator>
                         </div>
                         <div class="col-md-6 form-group">
@@ -279,7 +279,7 @@
                                     <Columns>
                                         <asp:TemplateField HeaderText="ItemName">
                                             <ItemTemplate>
-                                                <asp:Label ID="lblItemName" runat="server" Text='<%# Eval("Item") %>'></asp:Label>
+                                                <asp:Label ID="lblItemName" runat="server" Text='<%# Eval("Itemname") %>'></asp:Label>
                                             </ItemTemplate>
                                             <ItemStyle Wrap="true" HorizontalAlign="Left" />
                                             <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />

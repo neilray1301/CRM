@@ -110,8 +110,8 @@ public partial class OrderEntry : System.Web.UI.Page
             // filldata();
             //   fillitemdata();
             //    fillfollowupdata();
-            binditemdata();
-            bindfollowupdata();
+         //   binditemdata();
+         //   bindfollowupdata();
             //  getInquiryNo();
             //  getmaxcomno();
             bindcustomer();
@@ -151,7 +151,7 @@ public partial class OrderEntry : System.Web.UI.Page
                         TimeZoneInfo tzi = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
                         DateTime localTime = TimeZoneInfo.ConvertTimeFromUtc(utcTime, tzi);
                         //  txtrate.Text = "2000";
-                        bal.tbl_Order_Details_InsertBAL(Convert.ToInt32(lblcomno.Text), Convert.ToInt32(item), Convert.ToInt32(UOM), Convert.ToDecimal(Qty), Convert.ToDecimal(Rate), Convert.ToDecimal(Amount), lblloginid.Text, localTime, "", "", "", "", "");
+                        bal.tbl_Order_Details_InsertBAL(Convert.ToInt32(lblqno.Text), Convert.ToInt32(item), Convert.ToInt32(UOM), Convert.ToDecimal(Qty), Convert.ToDecimal(Rate), Convert.ToDecimal(Amount), lblloginid.Text, localTime, "", "", "", "", "");
 
                     }
 
@@ -191,7 +191,7 @@ public partial class OrderEntry : System.Web.UI.Page
                         DateTime utcTime = DateTime.UtcNow;
                         TimeZoneInfo tzi = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
                         DateTime localTime = TimeZoneInfo.ConvertTimeFromUtc(utcTime, tzi);
-                        bal.tbl_Order_Followup_InsertBAL(Convert.ToInt32(lblcomno.Text), NextFolldate, Convert.ToInt32(Follotype), Convert.ToInt32(Assignto), Convert.ToInt32(FolloStatus), Remarks, Comdate, Comremarks, "", localTime, "", "", "", "", "");
+                        bal.tbl_Order_Followup_InsertBAL(Convert.ToInt32(lblqno.Text), NextFolldate, Convert.ToInt32(Follotype), Convert.ToInt32(Assignto), Convert.ToInt32(FolloStatus), Remarks, Comdate, Comremarks, "", localTime, "", "", "", "", "");
                     }
                     bindfollowupdata();
                 }
@@ -286,7 +286,7 @@ public partial class OrderEntry : System.Web.UI.Page
         {
 
             DataTable dtcontact = new DataTable();
-            dtcontact = bal.getallorderitemdatabal(lblcomno.Text);
+            dtcontact = bal.getallorderitemdatabal(lblqno.Text);
             if (dtcontact.Rows.Count > 0)
             {
                 grdproduct.DataSource = dtcontact;
@@ -646,7 +646,7 @@ public partial class OrderEntry : System.Web.UI.Page
         {
 
             DataTable dtcontact = new DataTable();
-            dtcontact = bal.getOrderFollowupdataDAL(Convert.ToInt32(lblcomno.Text));
+            dtcontact = bal.getOrderFollowupdataDAL(Convert.ToInt32(lblqno.Text));
             if (dtcontact.Rows.Count > 0)
             {
                 grdfollowup.DataSource = dtcontact;
@@ -912,7 +912,7 @@ public partial class OrderEntry : System.Web.UI.Page
 
         try
         {
-            DataTable dt = bal.getalltermsandconditionsfroadminBAL(Convert.ToInt32(txtno.Text));
+            DataTable dt = bal.getalltermsandconditionsfroadminBAL();
 
 
             if (dt.Rows.Count > 0)
@@ -1060,20 +1060,27 @@ public partial class OrderEntry : System.Web.UI.Page
 
     protected void grddata1_RowDataBound(object sender, GridViewRowEventArgs e)
     {
+
         if (e.Row.RowType == DataControlRowType.DataRow)
         {
-            CheckBox chk = (CheckBox)e.Row.FindControl("btnchkbox");
-            Label lblSatatus = (Label)e.Row.FindControl("lblstatus");
-
-            if (lblSatatus.Text.ToString() == "True")
+            if (lblqno.Equals(""))
             {
-                chk.Checked = true;
+
             }
             else
             {
-                chk.Checked = false;
-            }
+                CheckBox chk = (CheckBox)e.Row.FindControl("btnchkbox");
+                Label lblSatatus = (Label)e.Row.FindControl("lblstatus");
 
+                if (lblSatatus.Text.ToString() == "True")
+                {
+                    chk.Checked = true;
+                }
+                else
+                {
+                    chk.Checked = false;
+                }
+            }
         }
     }
 }

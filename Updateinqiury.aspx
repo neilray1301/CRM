@@ -318,7 +318,7 @@
                                     <Columns>
                                         <asp:TemplateField HeaderText="ItemName">
                                             <ItemTemplate>
-                                                <asp:Label ID="lblItemName" runat="server" Text='<%# Eval("itemgroup") %>'></asp:Label>
+                                                <asp:Label ID="lblItemName" runat="server" Text='<%# Eval("Itemname") %>'></asp:Label>
                                             </ItemTemplate>
                                             <ItemStyle Wrap="true" HorizontalAlign="Left" />
                                             <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />

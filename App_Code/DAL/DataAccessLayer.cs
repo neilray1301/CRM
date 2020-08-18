@@ -4366,7 +4366,7 @@ public class DataAccessLayer
         try
         {
             c = con.getconnection();
-            cmd = new SqlCommand("deletequotationdetailsdatabyid", c);
+            cmd = new SqlCommand("deleteOrderdetailsdatabyid", c);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@id", SqlDbType.VarChar).Value = Id;
             res = cmd.ExecuteNonQuery().ToString();

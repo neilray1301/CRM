@@ -2936,7 +2936,7 @@ public class BusinessLogicLayer
         try
         {
             dal = new DataAccessLayer();
-            dt = dal.checkQuotationProductNameDAL(Noseries, Item);
+            dt = dal.checkOrderProductNameDAL(Noseries, Item);
         }
         catch (Exception ex)
         {

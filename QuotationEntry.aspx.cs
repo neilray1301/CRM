@@ -112,28 +112,28 @@ public partial class QuotationEntry : System.Web.UI.Page
 
                 for(int i=0;i<dtdata.Rows.Count;i++)
                 {
-                    string item= dtdata.Rows[i]["Item"].ToString();
+                    string item= dtdata.Rows[i]["Itemname"].ToString();
                     string UOM = dtdata.Rows[i]["UOM"].ToString();
                     string Qty = dtdata.Rows[i]["Qty"].ToString();
                     string Rate = dtdata.Rows[i]["Rate"].ToString();
                     string Amount = dtdata.Rows[i]["Amount"].ToString();
-
-                    DataTable dt1 = new DataTable();
-                    dt1 = bal.checkQuotationProductNameBAL(lblcomno.Text, Convert.ToInt32(item));
-                    if (dt1.Rows.Count > 0)
+                    string itemid = dtdata.Rows[i]["Item"].ToString();
+                         DataTable dt1 = new DataTable();
+                    dt1 = bal.checkQuotationProductNameBAL(lblcomno.Text,Convert.ToInt32(itemid));
+                   if (dt1.Rows.Count > 0)
                     {
                         ShowMessage("Name Already Exist!!!", MessageType.Error);
                     }
-                    else
-                    {
+                   else
+                   {
 
                         DateTime utcTime = DateTime.UtcNow;
                         TimeZoneInfo tzi = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
                         DateTime localTime = TimeZoneInfo.ConvertTimeFromUtc(utcTime, tzi);
                         //  txtrate.Text = "2000";
-                      bal.tbl_Quotation_Details_InsertBAL(Convert.ToInt32(lblcomno.Text), Convert.ToInt32(item), Convert.ToInt32(UOM), Convert.ToDecimal(Qty), Convert.ToDecimal(Rate), Convert.ToDecimal(Amount), lblloginid.Text, localTime, "", "", "", "", "");
+                      bal.tbl_Quotation_Details_InsertBAL(Convert.ToInt32(lblcomno.Text), Convert.ToInt32(itemid), Convert.ToInt32(UOM), Convert.ToDecimal(Qty), Convert.ToDecimal(Rate), Convert.ToDecimal(Amount), lblloginid.Text, localTime, "", "", "", "", "");
                     
-                    }
+                   }
 
                 }
                 binditemdata();
