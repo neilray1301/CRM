@@ -390,15 +390,15 @@
                                     Remarks:<span class="required">* </span>
                                 </label>
                                 <asp:TextBox ID="txtfremarks" class="form-control" TabIndex="9" TextMode="MultiLine" runat="server"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtfremarks"
+                                <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtfremarks"
                                     Display="Dynamic" ErrorMessage="Please Enter remarks" Text="(*) Required" ValidationGroup="Emst" SetFocusOnError="true" ForeColor="Red"
-                                    CssClass="validate"></asp:RequiredFieldValidator>
+                                    CssClass="validate"></asp:RequiredFieldValidator>--%>
                             </div>
 
 
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtfremarks"
+                           <%-- <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtfremarks"
                                 Display="Dynamic" ErrorMessage="Please Enter remarks" Text="(*) Required" ValidationGroup="Emst" SetFocusOnError="true" ForeColor="Red"
-                                CssClass="validate"></asp:RequiredFieldValidator>
+                                CssClass="validate"></asp:RequiredFieldValidator>--%>
 
                             <div class="col-md-2 form-group" style="margin-top: 25px; text-align: left">
 
@@ -568,8 +568,9 @@
 
 
                 </div>
-        </section>
-
+        </div>
+                </section>
+        
     </div>
 
 

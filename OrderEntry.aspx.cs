@@ -19,8 +19,8 @@ public partial class OrderEntry : System.Web.UI.Page
             try
         {
             
-            lblqno.Text = Request.QueryString["no"].ToString();
-            if (lblqno.Equals(""))
+           string qno = Request.QueryString["no"].ToString();
+            if (qno.Equals(""))
             {
             //    string zoneId = "India Standard Time";
             //    TimeZoneInfo tzi = TimeZoneInfo.FindSystemTimeZoneById(zoneId);
@@ -54,7 +54,9 @@ public partial class OrderEntry : System.Web.UI.Page
             //    btnUpdate.Visible = true;
             }
             else {
-                string zoneId = "India Standard Time";
+                    lblqno.Text = Request.QueryString["no"].ToString();
+
+                    string zoneId = "India Standard Time";
                 TimeZoneInfo tzi = TimeZoneInfo.FindSystemTimeZoneById(zoneId);
                 DateTime now = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, tzi);
                 txtfdate.Text = now.ToString("dd/MM/yyyy");
@@ -151,7 +153,7 @@ public partial class OrderEntry : System.Web.UI.Page
                         TimeZoneInfo tzi = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
                         DateTime localTime = TimeZoneInfo.ConvertTimeFromUtc(utcTime, tzi);
                         //  txtrate.Text = "2000";
-                        bal.tbl_Order_Details_InsertBAL(Convert.ToInt32(lblqno.Text), Convert.ToInt32(item), Convert.ToInt32(UOM), Convert.ToDecimal(Qty), Convert.ToDecimal(Rate), Convert.ToDecimal(Amount), lblloginid.Text, localTime, "", "", "", "", "");
+                        bal.tbl_Order_Details_InsertBAL(Convert.ToInt32(lblcomno.Text), Convert.ToInt32(item), Convert.ToInt32(UOM), Convert.ToDecimal(Qty), Convert.ToDecimal(Rate), Convert.ToDecimal(Amount), lblloginid.Text, localTime, "", "", "", "", "");
 
                     }
 
@@ -286,7 +288,7 @@ public partial class OrderEntry : System.Web.UI.Page
         {
 
             DataTable dtcontact = new DataTable();
-            dtcontact = bal.getallorderitemdatabal(lblqno.Text);
+            dtcontact = bal.getallorderitemdatabal(lblcomno.Text);
             if (dtcontact.Rows.Count > 0)
             {
                 grdproduct.DataSource = dtcontact;
@@ -646,7 +648,7 @@ public partial class OrderEntry : System.Web.UI.Page
         {
 
             DataTable dtcontact = new DataTable();
-            dtcontact = bal.getOrderFollowupdataDAL(Convert.ToInt32(lblqno.Text));
+            dtcontact = bal.getOrderFollowupdataDAL(Convert.ToInt32(lblcomno.Text));
             if (dtcontact.Rows.Count > 0)
             {
                 grdfollowup.DataSource = dtcontact;
@@ -770,7 +772,7 @@ public partial class OrderEntry : System.Web.UI.Page
         {
 
             DataTable dt1 = new DataTable();
-            dt1 = bal.checkOrderProductNameBAL(lblqno.Text, Convert.ToInt32(dpitem.SelectedValue));
+            dt1 = bal.checkOrderProductNameBAL(lblcomno.Text, Convert.ToInt32(dpitem.SelectedValue));
             if (dt1.Rows.Count > 0)
             {
                 ShowMessage("Name Already Exist!!!", MessageType.Error);
@@ -827,7 +829,7 @@ public partial class OrderEntry : System.Web.UI.Page
         {
 
             DataTable dt1 = new DataTable();
-            dt1 = bal.checkOrderFollowupBAL(lblqno.Text, txtfdate.Text, Convert.ToInt32(dpfollowuptype.SelectedValue.ToString()));
+            dt1 = bal.checkOrderFollowupBAL(lblcomno.Text, txtfdate.Text, Convert.ToInt32(dpfollowuptype.SelectedValue.ToString()));
             if (dt1.Rows.Count > 0)
             {
                 ShowMessage("Name Already Exist!!!", MessageType.Error);
