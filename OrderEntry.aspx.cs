@@ -19,43 +19,43 @@ public partial class OrderEntry : System.Web.UI.Page
             try
         {
             
-           string qno = Request.QueryString["no"].ToString();
-            if (qno.Equals(""))
+           string quoteno = Request.QueryString["quoteno"].ToString();
+            if (quoteno.Equals(""))
             {
-            //    string zoneId = "India Standard Time";
-            //    TimeZoneInfo tzi = TimeZoneInfo.FindSystemTimeZoneById(zoneId);
-            //    DateTime now = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, tzi);
-            //    txtfdate.Text = now.ToString("dd/MM/yyyy");
-            //    txtdate.Text = now.ToString("dd/MM/yyyy");
-            //    //   lblloginid.Text = Session["no"].ToString();
-            //    //    lblrole.Text = Session["role"].ToString();
+                    string zoneId = "India Standard Time";
+                    TimeZoneInfo tzi = TimeZoneInfo.FindSystemTimeZoneById(zoneId);
+                    DateTime now = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, tzi);
+                    txtfdate.Text = now.ToString("dd/MM/yyyy");
+                    txtdate.Text = now.ToString("dd/MM/yyyy");
+                    //   lblloginid.Text = Session["no"].ToString();
+                    //    lblrole.Text = Session["role"].ToString();
 
 
-            //    bindstatus();
-            //    bindsource();
-            //    bindfollowup();
-            //    binditem();
-            //    binduom();
-            //    binddepartment();
-            //    binddesignation();
-            //    getInquiryNo();
-            //    getmaxcomno();
+                    bindstatus();
+                    bindsource();
+                    bindfollowup();
+                    binditem();
+                    binduom();
+                    binddepartment();
+                    binddesignation();
+                    getInquiryNo();
+                    getmaxcomno();
 
-            //   // filldata();
-            // //   fillitemdata();
-            ////    fillfollowupdata();
-            //    binditemdata();
-            //    bindfollowupdata();
-            //    //  getInquiryNo();
-            //    //  getmaxcomno();
-            //    bindcustomer();
-            //    BindDetail();
-            //    bincustcontact();
-            //    btnUpdate.Visible = true;
-            }
-            else {
-                    lblqno.Text = Request.QueryString["no"].ToString();
-
+                    // filldata();
+                    //   fillitemdata();
+                    //    fillfollowupdata();
+                    //   binditemdata();
+                    //   bindfollowupdata();
+                    //  getInquiryNo();
+                    //  getmaxcomno();
+                    bindcustomer();
+                    BindDetail();
+                    bincustcontact();
+                    btnUpdate.Visible = true;
+                }
+            else
+                {
+                    lblqno.Text = Request.QueryString["quoteno"].ToString();
                     string zoneId = "India Standard Time";
                 TimeZoneInfo tzi = TimeZoneInfo.FindSystemTimeZoneById(zoneId);
                 DateTime now = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, tzi);
@@ -72,8 +72,8 @@ public partial class OrderEntry : System.Web.UI.Page
                 binduom();
                 binddepartment();
                 binddesignation();
-              //  getInquiryNo();
-               // getmaxcomno();
+                getInquiryNo();
+                getmaxcomno();
 
                 filldata();
                 fillitemdata();
@@ -83,7 +83,8 @@ public partial class OrderEntry : System.Web.UI.Page
             //      getInquiryNo();
             //      getmaxcomno();
                 bindcustomer();
-                BindDetail();
+              //  BindDetail();
+                    BindQuoteDetail();
                 bincustcontact();
                 btnUpdate.Visible = true;
             }
@@ -169,7 +170,7 @@ public partial class OrderEntry : System.Web.UI.Page
     public void fillfollowupdata()
     {
         try
-        {
+        {// chage here
             DataTable dtdata = bal.getquotationDetailsdatabyidDAL(Convert.ToInt32(lblqno.Text));
             if(dtdata.Rows.Count > 0)
             {
@@ -193,7 +194,7 @@ public partial class OrderEntry : System.Web.UI.Page
                         DateTime utcTime = DateTime.UtcNow;
                         TimeZoneInfo tzi = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
                         DateTime localTime = TimeZoneInfo.ConvertTimeFromUtc(utcTime, tzi);
-                        bal.tbl_Order_Followup_InsertBAL(Convert.ToInt32(lblqno.Text), NextFolldate, Convert.ToInt32(Follotype), Convert.ToInt32(Assignto), Convert.ToInt32(FolloStatus), Remarks, Comdate, Comremarks, "", localTime, "", "", "", "", "");
+                        bal.tbl_Order_Followup_InsertBAL(Convert.ToInt32(lblcomno.Text), NextFolldate, Convert.ToInt32(Follotype), Convert.ToInt32(Assignto), Convert.ToInt32(FolloStatus), Remarks, Comdate, Comremarks, "", localTime, "", "", "", "", "");
                     }
                     bindfollowupdata();
                 }
@@ -937,6 +938,34 @@ public partial class OrderEntry : System.Web.UI.Page
             Getconnection.SiteErrorInsert(ex);
         }
     }
+    public void BindQuoteDetail()
+    {
+
+        try
+        {
+            DataTable dt = bal.getallquotatationtermsandconditionsfroadminBAL(Convert.ToInt32(lblqno.Text));
+
+
+            if (dt.Rows.Count > 0)
+            {
+                Grddata2.DataSource = dt;
+                Grddata2.DataBind();
+                Grddata2.UseAccessibleHeader = true;
+                Grddata2.HeaderRow.TableSection = TableRowSection.TableHeader;
+            }
+            else
+            {
+                Grddata2.DataSource = dt;
+                Grddata2.DataBind();
+                Grddata2.UseAccessibleHeader = true;
+                Grddata2.HeaderRow.TableSection = TableRowSection.TableHeader;
+            }
+        }
+        catch (Exception ex)
+        {
+            Getconnection.SiteErrorInsert(ex);
+        }
+    }
 
     protected void dpcust_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -973,7 +1002,7 @@ public partial class OrderEntry : System.Web.UI.Page
     }
 
 
-    protected void btnUpdate_Click(object sender, EventArgs e)
+    protected void btnSave_Click(object sender, EventArgs e)
     {
         try
         {
@@ -1002,7 +1031,7 @@ public partial class OrderEntry : System.Web.UI.Page
                 }
                 else
                 {
-                    bal.tbl_Order_Master_InsertBAL(Convert.ToInt32(txtno.Text), Convert.ToInt32(lblcomno.Text), txtdate.Text, Convert.ToInt32(custid), Convert.ToInt32(dpcontactper.SelectedValue.ToString()), txtcontactno.Text, Convert.ToInt32(ddlDept.SelectedValue.ToString()), Convert.ToInt32(ddldesign.SelectedValue.ToString()), txtemail.Text, txtmobileno.Text, txtmobileno2.Text, Convert.ToInt32(dpstatus.SelectedValue.ToString()), Convert.ToInt32(dpsource.SelectedValue.ToString()), txtremarks.Text, lblloginid.Text, localTime, "","" , "", "", "");
+                    bal.tbl_Order_Master_InsertBAL(Convert.ToInt32(txtno.Text), Convert.ToInt32(lblqno.Text), txtdate.Text, Convert.ToInt32(custid), Convert.ToInt32(dpcontactper.SelectedValue.ToString()), txtcontactno.Text, Convert.ToInt32(ddlDept.SelectedValue.ToString()), Convert.ToInt32(ddldesign.SelectedValue.ToString()), txtemail.Text, txtmobileno.Text, txtmobileno2.Text, Convert.ToInt32(dpstatus.SelectedValue.ToString()), Convert.ToInt32(dpsource.SelectedValue.ToString()), txtremarks.Text, lblloginid.Text, localTime, "","" , "", "", "");
 
                 }
 
@@ -1012,10 +1041,10 @@ public partial class OrderEntry : System.Web.UI.Page
             {
 
             }
-            bal.deleteordertermsandconditionsdata(Convert.ToInt32(txtno.Text));
+          //  bal.deleteordertermsandconditionsdata(Convert.ToInt32(txtno.Text));
             try
             {
-                foreach (GridViewRow row in grddata1.Rows)
+                foreach (GridViewRow row in Grddata2.Rows)
                 {
                     if (row.RowType == DataControlRowType.DataRow)
                     {
@@ -1060,18 +1089,13 @@ public partial class OrderEntry : System.Web.UI.Page
 
 
 
-    protected void grddata1_RowDataBound(object sender, GridViewRowEventArgs e)
+    protected void grddata2_RowDataBound(object sender, GridViewRowEventArgs e)
     {
 
         if (e.Row.RowType == DataControlRowType.DataRow)
         {
-            if (lblqno.Equals(""))
-            {
-
-            }
-            else
-            {
-                CheckBox chk = (CheckBox)e.Row.FindControl("btnchkbox");
+           
+                CheckBox chk = (CheckBox)e.Row.FindControl("btnchkbox2");
                 Label lblSatatus = (Label)e.Row.FindControl("lblstatus");
 
                 if (lblSatatus.Text.ToString() == "True")
@@ -1082,7 +1106,7 @@ public partial class OrderEntry : System.Web.UI.Page
                 {
                     chk.Checked = false;
                 }
-            }
+            
         }
     }
 }

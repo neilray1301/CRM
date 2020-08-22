@@ -678,7 +678,7 @@ public partial class UpdateOrder : System.Web.UI.Page
 
         try
         {
-            DataTable dt = bal.getallordertermsandconditionsfroadminBAL(Convert.ToInt32(txtno.Text));
+            DataTable dt = bal.getallordertermsandconditionsfroadminBAL(Convert.ToInt32(lblcomno.Text));
 
 
             if (dt.Rows.Count > 0)

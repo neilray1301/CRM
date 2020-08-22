@@ -60,6 +60,7 @@
                 <li><a href="Demo.master">Order</a></li>
                 <li class="active">Order Entry</li>
                 <asp:Label ID="lblcomno" runat="server" Text=""></asp:Label>
+                  <asp:Label ID="lblorderno" runat="server" Visible="false" Text=""></asp:Label>
                 <asp:Label ID="lblqno" runat="server" Visible="false" Text=""></asp:Label>
                 <asp:Label ID="lblid" runat="server" Visible="false" Text=""></asp:Label>
                 <asp:Label ID="lblloginid" runat="server" Visible="false" Text=""></asp:Label>
@@ -485,7 +486,7 @@
                                 <div class="col-md-12">
 
                                     <asp:GridView ID="grddata1" runat="server" AlternatingRowStyle-BackColor="#C2D69B" AllowPaging="false" AllowSorting="false"
-                                        AutoGenerateColumns="False" BorderWidth="1px" OnRowDataBound="grddata1_RowDataBound" ShowHeaderWhenEmpty="true"
+                                        AutoGenerateColumns="False" BorderWidth="1px" ShowHeaderWhenEmpty="true"
                                         CssClass="table table-striped table-bordered table-hover dataTable no-footer" CellPadding="2"
                                         CellSpacing="2" EditRowStyle-HorizontalAlign="Center" PageSize="5" HeaderStyle-BackColor="#3c8dbc" HeaderStyle-ForeColor="White">
                                         <AlternatingRowStyle BackColor="White" />
@@ -524,10 +525,11 @@
                                                 <ItemStyle Wrap="true" HorizontalAlign="Left" />
                                                 <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />
                                             </asp:TemplateField>
-
-
+                                            </Columns>
+                                         <EditRowStyle HorizontalAlign="Center"></EditRowStyle>
+                                    </asp:GridView>
                                             
-                                          <%--  <asp:TemplateField HeaderText="status">
+                                          <%-- <asp:TemplateField HeaderText="status">
 
                                                 <ItemTemplate>
                                                     <asp:Label ID="lblstatus" Visible="false" runat="server" Text='<%# Eval("Status") %>'></asp:Label>
@@ -557,6 +559,59 @@
                                          
                                         </ItemTemplate></asp:TemplateField>
                                             --%>
+
+                                              <asp:GridView ID="Grddata2" runat="server" AlternatingRowStyle-BackColor="#C2D69B" AllowPaging="false" AllowSorting="false"
+                                        AutoGenerateColumns="False" BorderWidth="1px" ShowHeaderWhenEmpty="true"
+                                        CssClass="table table-striped table-bordered table-hover dataTable no-footer" CellPadding="2"
+                                        CellSpacing="2" EditRowStyle-HorizontalAlign="Center" PageSize="5" OnRowDataBound="grddata2_RowDataBound" HeaderStyle-BackColor="#3c8dbc" HeaderStyle-ForeColor="White">
+                                        <AlternatingRowStyle BackColor="White" />
+                                        <PagerStyle CssClass="csspager" />
+                                        <EmptyDataTemplate>No Records Available</EmptyDataTemplate>
+                                        <Columns>
+                                            <asp:TemplateField HeaderStyle-CssClass="lblfamt" HeaderText="select">
+                                                <ItemTemplate>
+                                                    <asp:CheckBox ID="btnchkbox2" 
+                                                        runat="server" CommandArgument='<%# Eval("id") %>'
+                                                        CausesValidation="False" />
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                             <asp:TemplateField Visible="false" HeaderText="id">
+
+                                                <ItemTemplate>
+                                                    <asp:Label ID="Label1" Visible="false" runat="server" Text='<%# Eval("id") %>'></asp:Label>
+                                                </ItemTemplate>
+                                                <ItemStyle Wrap="true" HorizontalAlign="Left" />
+                                                <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="Title">
+
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lblname" runat="server" Text='<%# Eval("Termstitle") %>'></asp:Label>
+                                                </ItemTemplate>
+                                                <ItemStyle Wrap="true" HorizontalAlign="Left" />
+                                                <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />
+                                            </asp:TemplateField>
+
+                                            <asp:TemplateField HeaderText="Description">
+
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lbltandc" runat="server" Text='<%# Eval("TermsDescription") %>'></asp:Label>
+                                                </ItemTemplate>
+                                                <ItemStyle Wrap="true" HorizontalAlign="Left" />
+                                                <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />
+                                            </asp:TemplateField>
+
+
+                                            
+                                          <asp:TemplateField HeaderText="status">
+
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lblstatus" Visible="false" runat="server" Text='<%# Eval("Status") %>'></asp:Label>
+                                                </ItemTemplate>
+                                                <ItemStyle Wrap="true" HorizontalAlign="Left" />
+                                                <HeaderStyle Wrap="true" HorizontalAlign="Left" CssClass="grdhead" />
+                                            </asp:TemplateField>
+
                                         </Columns>
                                         <EditRowStyle HorizontalAlign="Center"></EditRowStyle>
                                     </asp:GridView>
@@ -572,7 +627,7 @@
                         <div class="row">
                             <div class="col-md-12 form-group" style="padding-top: 5px; text-align: right">
                                 <asp:LinkButton ID="btnSave" runat="server" ValidationGroup="Emst" Visible="false" TabIndex="36" CssClass="btn btn-bitbucket btn-flat"><i class="fa fa-save"></i>&nbsp;Save</asp:LinkButton>
-                                <asp:LinkButton ID="btnUpdate" Visible="true" runat="server" OnClick="btnUpdate_Click" TabIndex="37" CssClass="btn btn-bitbucket btn-flat"><i class="fa fa-save"></i>&nbsp;Save</asp:LinkButton>
+                                <asp:LinkButton ID="btnUpdate" Visible="true" runat="server" OnClick="btnSave_Click" TabIndex="37" CssClass="btn btn-bitbucket btn-flat"><i class="fa fa-save"></i>&nbsp;Save</asp:LinkButton>
                                 <asp:LinkButton ID="btnDelete" runat="server" TabIndex="38" CssClass="btn btn-bitbucket bg-gray btn-flat" CausesValidation="false"><i class="fa fa-times"></i>&nbsp;Reset</asp:LinkButton>
                             </div>
 

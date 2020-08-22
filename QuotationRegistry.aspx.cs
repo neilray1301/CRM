@@ -86,7 +86,7 @@ public partial class QuotationRegistry : System.Web.UI.Page
             }
             else if (e.CommandName == "wondata")
             {
-                Response.Redirect(String.Format("OrderEntry.aspx?no={0}", lblid.Text), false);
+                Response.Redirect(String.Format("OrderEntry.aspx?quoteno={0}", lblid.Text), false);
             }
             else if(e.CommandName == "lossdata")
             {

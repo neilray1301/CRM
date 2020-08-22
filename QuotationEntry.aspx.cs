@@ -21,6 +21,7 @@ public partial class QuotationEntry : System.Web.UI.Page
                 string inqno = Request.QueryString["no"].ToString();
                 if (inqno.Equals(""))
                 {
+                    // first time
 
 
                     string zoneId = "India Standard Time";
@@ -47,6 +48,8 @@ public partial class QuotationEntry : System.Web.UI.Page
                 }
                 else
                 {
+
+                     // convert inquiry to quoyte
                     lblqno.Text = Request.QueryString["no"].ToString();
                     string zoneId = "India Standard Time";
                     TimeZoneInfo tzi = TimeZoneInfo.FindSystemTimeZoneById(zoneId);
@@ -67,15 +70,22 @@ public partial class QuotationEntry : System.Web.UI.Page
 
                     getInquiryNo();
                     getmaxcomno();
+
+
                     bindcustomer();
                     BindDetail();
                     bincustcontact();
                     filldata();
                     fillitemdata();
+                    fillfollowupdata();
                 }
 
             }catch(Exception ex)
             {
+
+                // first time
+
+
                 string zoneId = "India Standard Time";
                 TimeZoneInfo tzi = TimeZoneInfo.FindSystemTimeZoneById(zoneId);
                 DateTime now = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, tzi);
@@ -94,6 +104,13 @@ public partial class QuotationEntry : System.Web.UI.Page
                 //
                 getInquiryNo();
                 getmaxcomno();
+
+
+                //  create one method to transfer data from Inqiury item to quote item with pass  umber of getmaxno
+                // bind item with getmNO
+
+
+
                 bindcustomer();
                 BindDetail();
                 bincustcontact();
@@ -143,6 +160,50 @@ public partial class QuotationEntry : System.Web.UI.Page
             ex.ToString();
         }
     }
+    public void fillfollowupdata()
+    {
+        try
+        {
+            DataTable dtdata = bal.getFollowupdatabal(Convert.ToInt32(lblqno.Text));
+            if (dtdata.Rows.Count > 0)
+            {
+
+                for (int i = 0; i < dtdata.Rows.Count; i++)
+                {
+                    string folldate = dtdata.Rows[i]["NextFolldate"].ToString();
+                    string follotype = dtdata.Rows[i]["id"].ToString();
+                    string Assignto = dtdata.Rows[i]["Assignto"].ToString();
+                    string followstatus = dtdata.Rows[i]["FolloStatus"].ToString();
+                    string remarks = dtdata.Rows[i]["Remarks"].ToString();
+                    string comdate = dtdata.Rows[i]["Comdate"].ToString();
+                    string comremarks = dtdata.Rows[i]["Comremarks"].ToString();
+                    DataTable dt1 = new DataTable();
+                    dt1 = bal.checkQuotationFollowupBAL(lblcomno.Text,txtfdate.ToString() ,Convert.ToInt32(dpfollowuptype.SelectedValue.ToString()));
+                    if (dt1.Rows.Count > 0)
+                    {
+                        ShowMessage("Name Already Exist!!!", MessageType.Error);
+                    }
+                    else
+                    {
+
+                        DateTime utcTime = DateTime.UtcNow;
+                        TimeZoneInfo tzi = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
+                        DateTime localTime = TimeZoneInfo.ConvertTimeFromUtc(utcTime, tzi);
+                        //  txtrate.Text = "2000";
+                        bal.tbl_Quotation_Followup_InsertBAL(Convert.ToInt32(lblcomno.Text),folldate, Convert.ToInt32(follotype), Convert.ToInt32(Assignto), Convert.ToInt32(followstatus), remarks,comdate,comremarks, lblloginid.Text, localTime, "", "", "", "", "");
+
+                    }
+
+                }
+                bindfollowupdata();
+            }
+        }
+        catch (Exception ex)
+        {
+            ex.ToString();
+        }
+    }
+
     public void filldata()
     {
         try
@@ -937,11 +998,11 @@ public partial class QuotationEntry : System.Web.UI.Page
                             string descp = ((Label)row.FindControl("lbltandc")).Text;
                             if (chkrow.Checked)
                             {
-                                bal.tbl_Quotation_tandc_InsertBAL(Convert.ToInt32(txtno.Text), id, title, descp, "True", lblloginid.Text, localTime, "", "", "", "", "");
+                                bal.tbl_Quotation_tandc_InsertBAL(Convert.ToInt32(lblcomno.Text), id, title, descp, "True", lblloginid.Text, localTime, "", "", "", "", "");
                             }
                             else
                             {
-                                bal.tbl_Quotation_tandc_InsertBAL( Convert.ToInt32(txtno.Text), id, title, descp, "False", lblloginid.Text, localTime, "", "", "", "", "");
+                                bal.tbl_Quotation_tandc_InsertBAL( Convert.ToInt32(lblcomno.Text), id, title, descp, "False", lblloginid.Text, localTime, "", "", "", "", "");
                             }
                         }
                     }
