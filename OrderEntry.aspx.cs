@@ -142,7 +142,7 @@ public partial class OrderEntry : System.Web.UI.Page
                     string Amount = dtdata.Rows[i]["Amount"].ToString();
 
                     DataTable dt1 = new DataTable();
-                  dt1 = bal.checkQuotationProductNameBAL(lblcomno.Text, Convert.ToInt32(item));
+                  dt1 = bal.checkOrderProductNameBAL(lblcomno.Text, Convert.ToInt32(item));
                     if (dt1.Rows.Count > 0)
                     {
                         ShowMessage("Name Already Exist!!!", MessageType.Error);
@@ -1049,7 +1049,7 @@ public partial class OrderEntry : System.Web.UI.Page
                     if (row.RowType == DataControlRowType.DataRow)
                     {
 
-                        CheckBox chkrow = (row.Cells[0].FindControl("btnchkbox") as CheckBox);
+                        CheckBox chkrow = (row.Cells[0].FindControl("btnchkbox2") as CheckBox);
 
                         int id = Convert.ToInt32(((Label)row.FindControl("lblid")).Text);
                         string title = ((Label)row.FindControl("lblname")).Text;
