@@ -260,7 +260,7 @@
                                 Phone No
                             </label>
                             <asp:TextBox ID="txtcontactphno" CssClass="form-control" TabIndex="20" runat="server"></asp:TextBox>
-                             <asp:TextBox ID="TextBox1" CssClass="form-control" TabIndex="8" runat="server"></asp:TextBox>
+                           <%--  <asp:TextBox ID="TextBox1" CssClass="form-control" TabIndex="8" runat="server"></asp:TextBox>--%>
                             <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server"
                             ControlToValidate="txtcontactphno" ErrorMessage="RegularExpressionValidator"
                             ValidationExpression="[0-9]{10}"></asp:RegularExpressionValidator>
